@@ -4,7 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export function Header() {
   return (
-    <header className="fixed shadow-md">
+    <header className="shadow-md">
       <div className="container flex justify-between items-center py-7 px-2 md:px-0">
         <Link href="href">
           <Image
