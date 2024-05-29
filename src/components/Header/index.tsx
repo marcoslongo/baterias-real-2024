@@ -4,7 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export function Header() {
   return (
-    <header className="shadow-md">
+    <header className="w-full fixed z-40 bg-white shadow-md">
       <div className="container flex justify-between items-center py-7 px-2 md:px-0">
         <Link href="href">
           <Image
@@ -22,9 +22,12 @@ export function Header() {
             <MenuItem title="Representantes" link="teste" />
             <MenuItem title="Contato" link="teste" />
           </ul>
-        <Link href="href" className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-xl text-[#DF0209] hover:bg-[#DF0209] hover:text-white">
-            Seja um Revendedor <FaArrowRightLong size={16}/>
-        </Link>
+          <Link
+            href="href"
+            className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-xl text-[#DF0209] hover:bg-[#DF0209] hover:text-white"
+          >
+            Seja um Revendedor <FaArrowRightLong size={16} />
+          </Link>
         </nav>
       </div>
     </header>
