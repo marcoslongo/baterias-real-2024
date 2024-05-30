@@ -1,4 +1,5 @@
 import { Banner } from "@/components/Banner";
+import { Certificacoes } from "@/components/Certificacoes";
 import { Ecologia } from "@/components/Ecologia";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Banner/>
       <Ecologia/>
+      <Certificacoes/>
     </main>
   );
 }
