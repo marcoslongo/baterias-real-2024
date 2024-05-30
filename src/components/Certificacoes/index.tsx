@@ -5,7 +5,7 @@ import { GrDownload } from "react-icons/gr";
 export function Certificacoes() {
   return (
     <section className="bg-white py-20">
-      <div className="container">
+      <div className="container flex flex-col gap-4">
         <h2 className="text-center text-6xl font-bold">Certificações</h2>
         <div className="flex items-center justify-center gap-14">
           <Image
