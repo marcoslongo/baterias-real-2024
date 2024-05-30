@@ -4,7 +4,7 @@ import { BsLightningChargeFill } from "react-icons/bs";
 
 export function Banner() {
   return (
-    <section className="relative h-[100vh] w-full">
+    <section className="relative h-[96vh] w-full">
       <div className="container h-full flex items-center">
         <div className="w-3/5 relative z-30 flex gap-6 flex-col">
           <h2 className="text-6xl font-bold leading-none">
@@ -21,7 +21,7 @@ export function Banner() {
           </h1>
           <div className="flex">
             <Link href="" className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-xl border border-[#DF0209] hover:bg-white hover:text-[#DF0209]">
-              Conheça nossas linhas de baterias
+              Conheça nossas baterias
               <BsLightningChargeFill size={20} />
             </Link>
           </div>
