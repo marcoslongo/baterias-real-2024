@@ -25,3 +25,13 @@ body {
     margin: 0 auto;
   }
 }
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0 !important;
+}
+.swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+}
+.swiper-pagination-bullet-active {
+  background: #DF0209 !important;
+}

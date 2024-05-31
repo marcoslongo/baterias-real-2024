@@ -8,7 +8,7 @@ export function Banner() {
       <div className="container h-full flex items-center">
         <div className="w-3/5 relative z-30 flex gap-6 flex-col mt-[100px]">
           <h2 className="text-6xl font-bold leading-none">
-            Para longas jornadas muito mais{" "}
+            Para longas jornadas muito mais
             <span className="text-[#DF0209]">energia</span>
           </h2>
           <p className="text-xl pr-12">
