@@ -36,7 +36,7 @@ export function Header() {
           </div>
           <nav className="hidden gap-10 items-center md:flex">
             <ul className="flex gap-7">
-              <MenuItem title="Sobre a Real" link="teste" />
+              <MenuItem title="Sobre a Real" link="/institucional" />
               <MenuItem title="Produtos" link="teste" />
               <MenuItem title="Downloads" link="teste" />
               <MenuItem title="Representantes" link="teste" />
