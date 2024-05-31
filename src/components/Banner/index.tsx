@@ -4,9 +4,9 @@ import { BsLightningChargeFill } from "react-icons/bs";
 
 export function Banner() {
   return (
-    <section className="relative h-[96vh] w-full">
+    <section className="relative h-[90vh] w-full">
       <div className="container h-full flex items-center">
-        <div className="w-3/5 relative z-30 flex gap-6 flex-col">
+        <div className="w-3/5 relative z-30 flex gap-6 flex-col mt-[100px]">
           <h2 className="text-6xl font-bold leading-none">
             Para longas jornadas muito mais{" "}
             <span className="text-[#DF0209]">energia</span>
