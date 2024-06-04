@@ -37,10 +37,10 @@ export function Header() {
           <nav className="hidden gap-10 items-center md:flex">
             <ul className="flex gap-7">
               <MenuItem title="Sobre a Real" link="/institucional" />
-              <MenuItem title="Produtos" link="teste" />
-              <MenuItem title="Downloads" link="teste" />
-              <MenuItem title="Representantes" link="teste" />
-              <MenuItem title="Contato" link="teste" />
+              <MenuItem title="Produtos" link="/produtos" />
+              <MenuItem title="Downloads" link="/" />
+              <MenuItem title="Representantes" link="/representantes" />
+              <MenuItem title="Contato" link="/contato" />
             </ul>
             <Link
               href="/"
@@ -52,16 +52,15 @@ export function Header() {
         </div>
       </header>
       <nav
-        className={`flex transition-all duration-300 md:hidden md:pointer-events-none fixed w-[60%] h-full bg-[#DF0209] z-50 p-5 ${
-          isNavOpen ? "left-0" : "left-[-2000px]"
-        }`}
+        className={`flex transition-all duration-300 md:hidden md:pointer-events-none fixed w-[60%] h-full bg-[#DF0209] z-50 p-5 ${isNavOpen ? "left-0" : "left-[-2000px]"
+          }`}
       >
         <ul className="w-full flex flex-col gap-4">
-          <MenuItem title="Sobre a Real" link="teste" />
-          <MenuItem title="Produtos" link="teste" />
-          <MenuItem title="Downloads" link="teste" />
-          <MenuItem title="Representantes" link="teste" />
-          <MenuItem title="Contato" link="teste" />
+          <MenuItem title="Sobre a Real" link="/institucional" />
+          <MenuItem title="Produtos" link="/produtos" />
+          <MenuItem title="Downloads" link="/" />
+          <MenuItem title="Representantes" link="/representantes" />
+          <MenuItem title="Contato" link="/contato" />
         </ul>
       </nav>
     </>
