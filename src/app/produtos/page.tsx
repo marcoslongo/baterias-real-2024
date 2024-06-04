@@ -1,4 +1,9 @@
-export default function Produtos() {
+import { ProdutosData } from "@/@types/Produtos";
+import { getProdutos } from "@/api/getProdutos";
+
+export default async function Produtos() {
+    const produtos: ProdutosData[] = await getProdutos();
+    
     return (
         <main className="py-40">
             <div className="container">
@@ -13,7 +18,7 @@ export default function Produtos() {
                         </ul>
                     </aside>
                     <div className="w-3/4">
-                        lista de produtos
+                        
                     </div>
                 </div>
             </div>
