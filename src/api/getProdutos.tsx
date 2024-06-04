@@ -6,7 +6,7 @@ export async function getProdutos() {
         const { data } = await GqlClient.query({
             query: gql`
                 query NewQuery {
-                    produtos (first: 9) {
+                    produtos (first: 50) {
                         edges {
                             node {
                                 id

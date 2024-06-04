@@ -15,11 +15,11 @@ export default async function Produtos() {
                     <aside className="w-1/4">
                         filtros de busca
                     </aside>
-                    <div className="w-3/4 grid grid-cols-3 gap-8">
+                    <div className="w-3/4 grid grid-cols-3 gap-12">
                         {produtos.map((item, index) =>
                             <div key={index}>
                                 {item.node.title}
-                                <div className="relative w-[80%] h-[160px]">
+                                <div className="relative w-full h-[320px]">
                                     <Image
                                         alt={item.node.title}
                                         src={item.node.produtos.imageDoProduto.node.mediaItemUrl}
