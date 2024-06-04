@@ -1,31 +1,26 @@
-// Definindo a estrutura dos dados retornados pelo GraphQL
-interface ImageNode {
+interface MediaItem {
     mediaItemUrl: string;
 }
 
-interface ProdutoDetails {
+interface AcfMediaItemConnectionEdge {
+    node: MediaItem;
+}
+
+interface Produtos {
     capacidade: string;
     correnteDePartida: string;
     peso: string;
     resDeCapacidade: string;
     tensNominal: string;
-    imageDoProduto: {
-        node: ImageNode;
-    };
+    imageDoProduto: AcfMediaItemConnectionEdge;
 }
 
-interface ProdutoNode {
+interface Produto {
     id: string;
     title: string;
-    produtos: ProdutoDetails;
-}
-
-interface ProdutoEdge {
-    node: ProdutoNode;
+    produtos: Produtos;
 }
 
 export interface ProdutosData {
-    produtos: {
-        edges: ProdutoEdge[];
-    };
+    node: Produto;
 }

@@ -6,7 +6,7 @@ export async function getProdutos() {
         const { data } = await GqlClient.query({
             query: gql`
                 query NewQuery {
-                    produtos {
+                    produtos (first: 9) {
                         edges {
                             node {
                                 id
@@ -34,7 +34,6 @@ export async function getProdutos() {
             throw new Error("Dados não encontrados");
         }
         const dataProdutos = data.produtos.edges;
-        console.log(dataProdutos);
 
         return dataProdutos;
     } catch (error) {
