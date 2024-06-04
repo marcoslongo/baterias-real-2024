@@ -96,7 +96,7 @@ export function Representantes(): JSX.Element {
                         region: "BR",
                         resolution: "provinces",
                         displayMode: "regions",
-                        colorAxis: { colors: ["#DF0209", "#A60004"] },
+                        colorAxis: { colors: ["#A60004", "#A60004"] },
                     }}
                     width="100%"
                     height="600px"
