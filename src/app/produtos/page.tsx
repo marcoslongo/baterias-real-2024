@@ -2,6 +2,7 @@ import { CategoriasData } from "@/@types/CategoriasProdutos";
 import { ProdutosData } from "@/@types/Produtos";
 import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
 import { getProdutos } from "@/api/getProdutos";
+import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 
 export default async function Produtos() {
@@ -17,17 +18,14 @@ export default async function Produtos() {
                 </div>
                 <div className="flex gap-8">
                     <aside className="w-1/4">
-                        <h2 className="font-bold text-2xl mb-4">Categorias</h2>
-                        <ul>
-                            {categoriasProdutos && categoriasProdutos.edges && categoriasProdutos.edges.length > 0 ? (
-                                categoriasProdutos.edges.map((categoria) => (
-                                    <li key={categoria.node.id}>{categoria.node.name}</li>
-                                ))
-                            ) : (
-                                <li>Nenhuma categoria encontrada</li>
-                            )}
+                        <h2 className="font-bold text-2xl mb-4">Filtrar por Categoria</h2>
+                        <ul className="flex flex-col gap-2">
+                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
+                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
+                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
+                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
+                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
                         </ul>
-                        filtros de busca
                     </aside>
                     <div className="w-3/4 grid grid-cols-3 gap-12">
                         {produtos.map((item, index) => (

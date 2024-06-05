@@ -111,7 +111,7 @@ export function Representantes() {
                         data={data}
                     />
                 </div>
-                <div className="w-[32%] max-h-[600px] overflow-y-scroll">
+                <div className="w-[32%] pr-5 max-h-[600px] overflow-y-scroll">
                     {!estadoSelecionado ? (
                         <div className="p-6 bg-white rounded-xl shadow-lg mt-52">
                             <p className="text-center font-bold text-2xl flex flex-col items-center gap-3">
