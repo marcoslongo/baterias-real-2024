@@ -15,7 +15,7 @@ export function Header() {
   return (
     <>
       <header className="w-full fixed z-40 bg-white shadow-md">
-        <div className="container flex justify-between items-center py-7 px-2 md:px-0">
+        <div className="container flex justify-between items-center py-7">
           <Link href="/">
             <Image
               width={122}

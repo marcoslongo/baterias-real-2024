@@ -3,12 +3,11 @@ import { ProdutosData } from "@/@types/Produtos";
 import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
 import { getProdutos } from "@/api/getProdutos";
 import { Checkbox } from "@/components/ui/checkbox";
-import Image from "next/image";
+import { Card } from "./Card";
 
 export default async function Produtos() {
     const produtos: ProdutosData[] = await getProdutos();
     const categoriasData: CategoriasData = await getCategoriasProdutos();
-    const categoriasProdutos = categoriasData.categoriasProdutos;
 
     return (
         <main className="py-40">
@@ -20,25 +19,25 @@ export default async function Produtos() {
                     <aside className="w-1/4">
                         <h2 className="font-bold text-2xl mb-4">Filtrar por Categoria</h2>
                         <ul className="flex flex-col gap-2">
-                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
-                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
-                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
-                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
-                            <li className="flex gap-2 items-center"><Checkbox/>Categoria</li>
+                            {categoriasData.categoriasProdutos.edges.length > 0 ? (
+                                categoriasData.categoriasProdutos.edges.map((categoria) => (
+                                    <li key={categoria.node.id} className="flex gap-2 items-center">
+                                        <Checkbox />
+                                        {categoria.node.name}
+                                    </li>
+                                ))
+                            ) : (
+                                <li>Nenhuma categoria encontrada</li>
+                            )}
                         </ul>
                     </aside>
                     <div className="w-3/4 grid grid-cols-3 gap-12">
                         {produtos.map((item, index) => (
-                            <div key={index}>
-                                <h3 className="font-bold">{item.node.title}</h3>
-                                <div className="relative w-full h-[320px]">
-                                    <Image
-                                        alt={item.node.title}
-                                        src={item.node.produtos.imageDoProduto.node.mediaItemUrl}
-                                        fill
-                                    />
-                                </div>
-                            </div>
+                            <Card
+                                key={index}
+                                name={item.node.title}
+                                image={item.node.produtos.imageDoProduto.node.mediaItemUrl}
+                            />
                         ))}
                     </div>
                 </div>

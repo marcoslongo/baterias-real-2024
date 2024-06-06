@@ -1,4 +1,3 @@
-// @/api/getCategoriasProdutos.ts
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
@@ -24,11 +23,11 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
             throw new Error("Dados não encontrados");
         }
 
-        const dataCategorias = data.categoriasProdutos;
-
-        console.log(dataCategorias);
-
-        return dataCategorias;
+        return {
+            categoriasProdutos: {
+                edges: data.categoriasProdutos.edges,
+            },
+        };
     } catch (error) {
         console.error("Erro ao obter dados:", error);
         return { categoriasProdutos: { edges: [] } };
