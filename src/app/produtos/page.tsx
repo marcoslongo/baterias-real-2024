@@ -21,7 +21,7 @@ export default async function Produtos() {
                         <ul className="flex flex-col gap-2">
                             {categoriasData.categoriasProdutos.edges.length > 0 ? (
                                 categoriasData.categoriasProdutos.edges.map((categoria) => (
-                                    <li key={categoria.node.id} className="flex gap-2 items-center">
+                                    <li className="flex gap-2 items-center">
                                         <Checkbox />
                                         {categoria.node.name}
                                     </li>
@@ -35,6 +35,7 @@ export default async function Produtos() {
                         {produtos.map((item, index) => (
                             <Card
                                 key={index}
+                                id={item.node.id}
                                 name={item.node.title}
                                 image={item.node.produtos.imageDoProduto.node.mediaItemUrl}
                             />
