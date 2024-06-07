@@ -13,6 +13,8 @@ import {
 import { IoIosClose } from "react-icons/io";
 import Image from "next/image";
 import { getProdutoById } from "@/api/getProdutosById";
+import { Skeleton } from "@/components/ui/skeleton"
+
 
 interface Props {
     name: string;
@@ -67,7 +69,11 @@ export function Card({ name, image, id }: Props) {
     }, [id]);
 
     if (loading) {
-        return <div>Carregando...</div>;
+        return (
+            <> 
+                <Skeleton className="w-full h-[284px] rounded-lg" />
+            </>
+        );
     }
 
     if (error) {

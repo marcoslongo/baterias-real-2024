@@ -20,8 +20,8 @@ export default async function Produtos() {
                         <h2 className="font-bold text-2xl mb-4">Filtrar por Categoria</h2>
                         <ul className="flex flex-col gap-2">
                             {categoriasData.categoriasProdutos.edges.length > 0 ? (
-                                categoriasData.categoriasProdutos.edges.map((categoria) => (
-                                    <li className="flex gap-2 items-center">
+                                categoriasData.categoriasProdutos.edges.map((categoria, index) => (
+                                    <li key={index} className="flex gap-2 items-center">
                                         <Checkbox />
                                         {categoria.node.name}
                                     </li>
