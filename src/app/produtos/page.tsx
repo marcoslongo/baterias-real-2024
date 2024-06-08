@@ -1,13 +1,57 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
 import { ProdutosData } from "@/@types/Produtos";
 import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
 import { getProdutos } from "@/api/getProdutos";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Card } from "./Card";
+import { Checkbox } from "@/components/Checkbox";
 
-export default async function Produtos() {
-    const produtos: ProdutosData[] = await getProdutos();
-    const categoriasData: CategoriasData = await getCategoriasProdutos();
+interface CategoriaSelecionada {
+    [key: string]: boolean;
+}
+
+export default function Produtos() {
+    const [produtos, setProdutos] = useState<ProdutosData[]>([]);
+    const [categoriasData, setCategoriasData] = useState<CategoriasData>({ categoriasProdutos: { edges: [] } });
+    const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<CategoriaSelecionada>({});
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const fetchedProdutos = await getProdutos();
+            const fetchedCategorias = await getCategoriasProdutos();
+            setProdutos(fetchedProdutos);
+            setCategoriasData(fetchedCategorias);
+
+            // Inicializar o estado de categorias selecionadas
+            const initialCategoriasSelecionadas: CategoriaSelecionada = {};
+            fetchedCategorias.categoriasProdutos.edges.forEach(categoria => {
+                initialCategoriasSelecionadas[categoria.node.id] = false;
+            });
+            setCategoriasSelecionadas(initialCategoriasSelecionadas);
+        };
+
+        fetchData();
+    }, []);
+
+    // Filtrar produtos com base nas categorias selecionadas
+    const produtosFiltrados = produtos.filter((produto) => {
+        if (Object.values(categoriasSelecionadas).every((isSelected) => !isSelected)) {
+            return true;
+        }
+        // Verificar se o produto pertence a alguma das categorias selecionadas
+        const produtoCategorias = produto.node.categoriasProdutos?.nodes || [];
+        return produtoCategorias.some(categoria => categoriasSelecionadas[categoria.id]);
+    });
+
+    // Manipulador de mudança para categorias selecionadas
+    const handleCategoriaChange = (categoriaId: string) => {
+        setCategoriasSelecionadas((prevState) => ({
+            ...prevState,
+            [categoriaId]: !prevState[categoriaId]
+        }));
+    };
 
     return (
         <main className="py-40">
@@ -22,7 +66,10 @@ export default async function Produtos() {
                             {categoriasData.categoriasProdutos.edges.length > 0 ? (
                                 categoriasData.categoriasProdutos.edges.map((categoria, index) => (
                                     <li key={index} className="flex gap-2 items-center">
-                                        <Checkbox />
+                                        <Checkbox
+                                            checked={categoriasSelecionadas[categoria.node.id] || false}
+                                            onChange={() => handleCategoriaChange(categoria.node.id)}
+                                        />
                                         {categoria.node.name}
                                     </li>
                                 ))
@@ -32,7 +79,7 @@ export default async function Produtos() {
                         </ul>
                     </aside>
                     <div className="w-3/4 grid grid-cols-3 gap-12">
-                        {produtos.map((item, index) => (
+                        {produtosFiltrados.map((item, index) => (
                             <Card
                                 key={index}
                                 id={item.node.id}

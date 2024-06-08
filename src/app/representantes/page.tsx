@@ -6,9 +6,8 @@ import { RepresentantesData } from "@/@types/Representantes";
 import { getRepresentantes } from "@/api/getRepresentantes";
 import { Card } from "./Card";
 
-type MapData = [string | string][];
 
-export const data: MapData = [
+export const data = [
     ["State"],
     ["Acre"],
     ["Alagoas"],
