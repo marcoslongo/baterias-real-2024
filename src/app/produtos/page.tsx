@@ -6,7 +6,9 @@ import { ProdutosData } from "@/@types/Produtos";
 import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
 import { getProdutos } from "@/api/getProdutos";
 import { Card } from "./Card";
-import { Checkbox } from "@/components/Checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { IoIosSearch } from "react-icons/io";
 
 interface CategoriaSelecionada {
     [key: string]: boolean;
@@ -16,6 +18,7 @@ export default function Produtos() {
     const [produtos, setProdutos] = useState<ProdutosData[]>([]);
     const [categoriasData, setCategoriasData] = useState<CategoriasData>({ categoriasProdutos: { edges: [] } });
     const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<CategoriaSelecionada>({});
+    const [searchText, setSearchText] = useState<string>("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -24,7 +27,6 @@ export default function Produtos() {
             setProdutos(fetchedProdutos);
             setCategoriasData(fetchedCategorias);
 
-            // Inicializar o estado de categorias selecionadas
             const initialCategoriasSelecionadas: CategoriaSelecionada = {};
             fetchedCategorias.categoriasProdutos.edges.forEach(categoria => {
                 initialCategoriasSelecionadas[categoria.node.id] = false;
@@ -35,17 +37,23 @@ export default function Produtos() {
         fetchData();
     }, []);
 
-    // Filtrar produtos com base nas categorias selecionadas
     const produtosFiltrados = produtos.filter((produto) => {
-        if (Object.values(categoriasSelecionadas).every((isSelected) => !isSelected)) {
-            return true;
-        }
-        // Verificar se o produto pertence a alguma das categorias selecionadas
-        const produtoCategorias = produto.node.categoriasProdutos?.nodes || [];
-        return produtoCategorias.some(categoria => categoriasSelecionadas[categoria.id]);
+        const isCategoryMatched = Object.values(categoriasSelecionadas).some((isSelected, index) => {
+            if (isSelected) {
+                const categoriaId = Object.keys(categoriasSelecionadas)[index];
+                return produto.node.categoriasProdutos?.nodes.some(categoria => categoria.id === categoriaId);
+            }
+            return false;
+        });
+
+        const isSearchMatched = produto.node.title.toLowerCase().includes(searchText.toLowerCase());
+
+        return (
+            (!Object.values(categoriasSelecionadas).some(Boolean) || isCategoryMatched) &&
+            (!searchText || isSearchMatched)
+        );
     });
 
-    // Manipulador de mudança para categorias selecionadas
     const handleCategoriaChange = (categoriaId: string) => {
         setCategoriasSelecionadas((prevState) => ({
             ...prevState,
@@ -53,30 +61,51 @@ export default function Produtos() {
         }));
     };
 
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchText(event.target.value);
+    };
+
     return (
         <main className="py-40">
             <div className="container">
-                <div className="mb-14">
+                <div className="flex items-center justify-between mb-14">
                     <h1 className="font-bold text-4xl">Escolha a sua Bateria Ideal</h1>
+                    <div className="w-2/5 flex items-center gap-2 bg-white rounded-md px-2">
+                        <IoIosSearch className="text-[#DF0209]" />
+                        <Input
+                            className="bg-transparent border-none w-full outline-none"
+                            type="search"
+                            placeholder="Digite o modelo de bateria que você procura..."
+                            value={searchText}
+                            onChange={handleSearchChange}
+                        />
+                    </div>
                 </div>
                 <div className="flex gap-8">
                     <aside className="w-1/4">
-                        <h2 className="font-bold text-2xl mb-4">Filtrar por Categoria</h2>
-                        <ul className="flex flex-col gap-2">
-                            {categoriasData.categoriasProdutos.edges.length > 0 ? (
-                                categoriasData.categoriasProdutos.edges.map((categoria, index) => (
-                                    <li key={index} className="flex gap-2 items-center">
-                                        <Checkbox
-                                            checked={categoriasSelecionadas[categoria.node.id] || false}
-                                            onChange={() => handleCategoriaChange(categoria.node.id)}
-                                        />
-                                        {categoria.node.name}
-                                    </li>
-                                ))
-                            ) : (
-                                <li>Nenhuma categoria encontrada</li>
-                            )}
-                        </ul>
+                        <div className="sticky top-5">
+                            <div className="flex mb-4">
+                                <h2 className="bg-[#DF0209] rounded-3xl text-white font-bold text-xl py-2 px-4">Filtrar por Categoria</h2>
+                            </div>
+                            <ul className="flex flex-col gap-2 py-6 px-4 rounded-md bg-white shadow-lg">
+                                {categoriasData.categoriasProdutos.edges.length > 0 ? (
+                                    categoriasData.categoriasProdutos.edges.map((categoria, index) => (
+                                        <li key={index} className="flex gap-1 items-center">
+                                            <Checkbox
+                                                checked={categoriasSelecionadas[categoria.node.id] || false}
+                                                onCheckedChange={() => handleCategoriaChange(categoria.node.id)}
+                                                id={`categoria-${categoria.node.id}`}
+                                            />
+                                            <label htmlFor={`categoria-${categoria.node.id}`} className="ml-2">
+                                                {categoria.node.name}
+                                            </label>
+                                        </li>
+                                    ))
+                                ) : (
+                                    <li>Nenhuma categoria encontrada</li>
+                                )}
+                            </ul>
+                        </div>
                     </aside>
                     <div className="w-3/4 grid grid-cols-3 gap-12">
                         {produtosFiltrados.map((item, index) => (
