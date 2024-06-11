@@ -1,12 +1,12 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
-export async function getProdutos() {
+export async function getProdutos(categoria: string) {
     try {
         const { data } = await GqlClient.query({
             query: gql`
-                query NewQuery {
-                    produtos(first: 100) {
+                query ProdutosPorCategoria($categoria: String!) {
+                    produtos(where: { categoriasProdutos: { name: $categoria } }, first: 100) {
                         edges {
                             node {
                                 id
@@ -34,6 +34,7 @@ export async function getProdutos() {
                     }
                 }
             `,
+            variables: { categoria: categoria }
         });
 
         if (!data.produtos) {

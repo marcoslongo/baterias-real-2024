@@ -10,12 +10,12 @@ interface CardProps {
 export function Card({name,imageBatery,bgBatery}:CardProps) {
   return (
     <Link href="href" className="w-full h-[200px] flex relative transition hover:scale-105">
-      <div className="relative z-10 text-white py-7 px-8 flex flex-col gap-4">
+      <div className="relative z-10 text-white pt-4 pl-10 flex flex-col">
         <Image
             src={imageBatery}
             alt="alt"
-            width={104}
-            height={55}
+            width={124}
+            height={75}
         />
         <h2 className="font-semibold text-xl">
           LINHA <br /> <span className="italic text-3xl">{name}</span>
@@ -25,7 +25,7 @@ export function Card({name,imageBatery,bgBatery}:CardProps) {
         src={bgBatery}
         alt="alt"
         fill
-        className="rounded-2xl transition shadow-lg hover:shadow-xl"
+        className="rounded-2xl transition shadow-lg hover:shadow-xl object-cover"
       />
     </Link>
   );

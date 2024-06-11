@@ -1,13 +1,24 @@
-// @/@types/Categorias.ts
 export interface Categoria {
-    node: {
-        id: string;
-        name: string;
+    id: string;
+    name: string;
+    linhas: {
+        bannerDaCategoria: {
+            node: {
+                mediaItemUrl: string;
+            };
+        };
+        bateria: {
+            node: {
+                mediaItemUrl: string;
+            };
+        };
     };
 }
 
 export interface CategoriasData {
     categoriasProdutos: {
-        edges: Categoria[];
+        edges: {
+            node: Categoria;
+        }[];
     };
 }

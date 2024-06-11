@@ -1,68 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { CategoriasData } from "@/@types/CategoriasProdutos";
-import { ProdutosData } from "@/@types/Produtos";
+import * as React from "react";
+import { useState, useEffect } from "react"; // Importe o useEffect hook
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
+import { Button } from "@/components/ui/button";
 import { getProdutos } from "@/api/getProdutos";
+import { ProdutosData } from "@/@types/Produtos";
+import { CategoriasData } from "@/@types/CategoriasProdutos";
 import { Card } from "./Card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { IoIosSearch } from "react-icons/io";
-
-interface CategoriaSelecionada {
-    [key: string]: boolean;
-}
 
 export default function Produtos() {
-    const [produtos, setProdutos] = useState<ProdutosData[]>([]);
-    const [categoriasData, setCategoriasData] = useState<CategoriasData>({ categoriasProdutos: { edges: [] } });
-    const [categoriasSelecionadas, setCategoriasSelecionadas] = useState<CategoriaSelecionada>({});
-    const [searchText, setSearchText] = useState<string>("");
+    const [selectedCategoria, setSelectedCategoria] = useState<string>("");
+    const [fetchedCategorias, setFetchedCategorias] = useState<CategoriasData>({ categoriasProdutos: { edges: [] } }); // Adicione o estado para as categorias buscadas
+    const [fetchedProdutos, setFetchedProdutos] = useState<ProdutosData[]>([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const fetchedProdutos = await getProdutos();
-            const fetchedCategorias = await getCategoriasProdutos();
-            setProdutos(fetchedProdutos);
-            setCategoriasData(fetchedCategorias);
+        async function fetchCategorias() {
+            const categorias = await getCategoriasProdutos();
+            setFetchedCategorias(categorias);
+        }
 
-            const initialCategoriasSelecionadas: CategoriaSelecionada = {};
-            fetchedCategorias.categoriasProdutos.edges.forEach(categoria => {
-                initialCategoriasSelecionadas[categoria.node.id] = false;
-            });
-            setCategoriasSelecionadas(initialCategoriasSelecionadas);
-        };
+        fetchCategorias();
+    }, []); 
 
-        fetchData();
-    }, []);
-
-    const produtosFiltrados = produtos.filter((produto) => {
-        const isCategoryMatched = Object.values(categoriasSelecionadas).some((isSelected, index) => {
-            if (isSelected) {
-                const categoriaId = Object.keys(categoriasSelecionadas)[index];
-                return produto.node.categoriasProdutos?.nodes.some(categoria => categoria.id === categoriaId);
-            }
-            return false;
-        });
-
-        const isSearchMatched = produto.node.title.toLowerCase().includes(searchText.toLowerCase());
-
-        return (
-            (!Object.values(categoriasSelecionadas).some(Boolean) || isCategoryMatched) &&
-            (!searchText || isSearchMatched)
-        );
-    });
-
-    const handleCategoriaChange = (categoriaId: string) => {
-        setCategoriasSelecionadas((prevState) => ({
-            ...prevState,
-            [categoriaId]: !prevState[categoriaId]
-        }));
+    const handleSearch = async () => {
+        const produtos = await getProdutos(selectedCategoria);
+        setFetchedProdutos(produtos);
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchText(event.target.value);
+    const handleCategoriaChange = (categoria: string) => {
+        setSelectedCategoria(categoria);
     };
 
     return (
@@ -70,52 +38,40 @@ export default function Produtos() {
             <div className="container">
                 <div className="flex items-center justify-between mb-14">
                     <h1 className="font-bold text-4xl">Escolha a sua Bateria Ideal</h1>
-                    <div className="w-2/5 flex items-center gap-2 bg-white rounded-md px-2">
-                        <IoIosSearch className="text-[#DF0209]" />
-                        <Input
-                            className="bg-transparent border-none w-full outline-none"
-                            type="search"
-                            placeholder="Digite o modelo de bateria que você procura..."
-                            value={searchText}
-                            onChange={handleSearchChange}
-                        />
-                    </div>
                 </div>
-                <div className="flex gap-8">
-                    <aside className="w-1/4">
-                        <div className="sticky top-5">
-                            <div className="flex mb-4">
-                                <h2 className="bg-[#DF0209] rounded-3xl text-white font-bold text-xl py-2 px-4">Filtrar por Categoria</h2>
-                            </div>
-                            <ul className="flex flex-col gap-2 py-6 px-4 rounded-md bg-white shadow-lg">
-                                {categoriasData.categoriasProdutos.edges.length > 0 ? (
-                                    categoriasData.categoriasProdutos.edges.map((categoria, index) => (
-                                        <li key={index} className="flex gap-1 items-center">
-                                            <Checkbox
-                                                checked={categoriasSelecionadas[categoria.node.id] || false}
-                                                onCheckedChange={() => handleCategoriaChange(categoria.node.id)}
-                                                id={`categoria-${categoria.node.id}`}
-                                            />
-                                            <label htmlFor={`categoria-${categoria.node.id}`} className="ml-2">
+                <div className="w-full flex flex-wrap">
+                    <div className="w-full flex gap-8">
+                        <div>
+                            <Select>
+                                <SelectTrigger className="w-[300px]">
+                                    <SelectValue placeholder="Selecione uma linha de produtos" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>Linhas</SelectLabel>
+                                        {fetchedCategorias.categoriasProdutos.edges.map((categoria, index) => (
+                                            <SelectItem key={index} value={categoria.node.name} onClick={() => handleCategoriaChange(categoria.node.name)}>
                                                 {categoria.node.name}
-                                            </label>
-                                        </li>
-                                    ))
-                                ) : (
-                                    <li>Nenhuma categoria encontrada</li>
-                                )}
-                            </ul>
+                                            </SelectItem>
+                                        ))}
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
                         </div>
-                    </aside>
-                    <div className="w-3/4 grid grid-cols-3 gap-12">
-                        {produtosFiltrados.map((item, index) => (
-                            <Card
-                                key={index}
-                                id={item.node.id}
-                                name={item.node.title}
-                                image={item.node.produtos.imageDoProduto.node.mediaItemUrl}
-                            />
-                        ))}
+                        <div>
+                            <Button className="bg-[#DF0209]" onClick={handleSearch}>Buscar</Button>
+                        </div>
+                    </div>
+                    <div className="w-full">
+                        <div className="grid grid-cols-3 gap-4">
+                            {fetchedProdutos.map((produto) => (
+                                <Card
+                                    name={produto.node.title}
+                                    image={produto.node.produtos.imageDoProduto.node.mediaItemUrl}
+                                    id={produto.node.id}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,40 +1,22 @@
+import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
 import { Card } from "./Card";
+import { CategoriasData } from "@/@types/CategoriasProdutos";
 
-export function ProdutosHome() {
+export async function ProdutosHome() {
+  const categoriaData: CategoriasData = await getCategoriasProdutos();
+
   return (
     <section>
       <div className="container py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
-          <Card
-            name={"EVOLUTION"}
-            imageBatery={"/assets/images/bateria-amarela.webp"}
-            bgBatery={"/assets/images/evolution.webp"}
-          />
+          {categoriaData.categoriasProdutos.edges.map((categoria) => (
+            <Card
+              key={categoria.node.id}
+              name={categoria.node.name}
+              imageBatery={categoria.node.linhas.bateria.node.mediaItemUrl}
+              bgBatery={categoria.node.linhas.bannerDaCategoria.node.mediaItemUrl}
+            />
+          ))}
         </div>
       </div>
     </section>

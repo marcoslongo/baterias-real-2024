@@ -12,6 +12,18 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
                             node {
                                 id
                                 name
+                                linhas {
+                                bannerDaCategoria {
+                                    node {
+                                    mediaItemUrl
+                                    }
+                                }
+                                bateria {
+                                    node {
+                                    mediaItemUrl
+                                    }
+                                }
+                                }
                             }
                         }
                     }

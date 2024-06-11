@@ -20,14 +20,14 @@ export function Certificacoes() {
             </h3>
             <div className="flex gap-4 items-center">
               <Link
-                className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-xl text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
+                className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-md text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
                 href="href"
               >
                 ISO 9001:2015
                 <GrDownload size={20} />
               </Link>
               <Link
-                className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-xl text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
+                className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-md text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
                 href="href"
               >
                 ISO 9001:2015

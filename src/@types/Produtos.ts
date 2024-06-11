@@ -29,7 +29,7 @@ interface Produtos {
     imageDoProduto: AcfMediaItemConnectionEdge;
 }
 
-interface Produto {
+export interface Produto {
     id: string;
     title: string;
     produtos: Produtos;

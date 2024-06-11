@@ -20,7 +20,7 @@ export function Header() {
           <Menu/>
           <Link
             href="/"
-            className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-xl text-[#DF0209] hover:bg-[#DF0209] hover:text-white"
+            className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-md text-[#DF0209] hover:bg-[#DF0209] hover:text-white"
           >
             Seja um Revendedor <FaArrowRightLong size={16} />
           </Link>
