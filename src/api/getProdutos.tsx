@@ -5,21 +5,28 @@ export async function getProdutos() {
     try {
         const { data } = await GqlClient.query({
             query: gql`
-                query {
-                    produtos(first: 6) {
+                query GetProdutos {
+                    categoriasProdutos(where: {termTaxonomyId: "dGVybTo0"}) {
                         edges {
                             node {
                                 id
-                                title
                                 produtos {
-                                    capacidade
-                                    correnteDePartida
-                                    peso
-                                    resDeCapacidade
-                                    tensNominal
-                                    imageDoProduto {
+                                    edges {
                                         node {
-                                            mediaItemUrl
+                                            id
+                                            title
+                                            produtos {
+                                                capacidade
+                                                correnteDePartida
+                                                peso
+                                                resDeCapacidade
+                                                tensNominal
+                                                imageDoProduto {
+                                                    node {
+                                                        mediaItemUrl
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -30,12 +37,12 @@ export async function getProdutos() {
             `,
         });
 
-        if (!data.produtos) {
-            throw new Error("Dados não encontrados");
+        if (!data.categoriasProdutos.edges.length) {
+            throw new Error('Dados não encontrados');
         }
-        return data.produtos.edges;
+        return data.categoriasProdutos.edges[0].node.produtos.edges;
     } catch (error) {
-        console.error("Erro ao obter dados:", error);
+        console.error('Erro ao obter dados:', error);
         return [];
     }
 }
