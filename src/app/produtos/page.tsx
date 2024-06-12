@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { getProdutos } from "@/api/getProdutos";
 import { ProdutosData } from "@/@types/Produtos";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
-import { Card } from "./Card";
+import { Card } from "../../components/Card";
 
 export default function Produtos() {
     const [selectedCategoria, setSelectedCategoria] = useState<string>("");
