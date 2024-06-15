@@ -48,7 +48,7 @@ const contatos: { title: string; href: string; description: string }[] = [
 
 export function Menu() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
                 <NavigationMenuItem className="transition hover:text-[#DF0209]">
                     <Link href="/institucional" legacyBehavior passHref>

@@ -16,12 +16,12 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
                                 urlInterna
                                 bannerDaCategoria {
                                     node {
-                                    mediaItemUrl
+                                        mediaItemUrl
                                     }
                                 }
                                 bateria {
                                     node {
-                                    mediaItemUrl
+                                        mediaItemUrl
                                     }
                                 }
                                 }
