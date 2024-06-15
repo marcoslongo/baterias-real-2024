@@ -75,30 +75,18 @@ export function Menu() {
                                 </NavigationMenuLink>
                             </li>
                             <div className="flex flex-col w-[49%]">
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
-                                <ListItem href="/docs" title="Linha Evolution">
-                                    Frase sobre a linha
-                                </ListItem>
+                                <ListItem href="/linha-evolution" title="Linha Evolution"/>
+                                <ListItem href="/linha-gold" title="Linha Gold"/>
+                                <ListItem href="/linha-efb" title="Linha EFB"/>
+                                <ListItem href="/linha-convencional" title="Linha Convencional"/>
+                                <ListItem href="/linha-ecologica" title="Linha Ecológica"/>
+                                <ListItem href="/linha-free" title="Linha Free"/>
                             </div>
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209] p-0">Downloads</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209]">Downloads</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                             {downloads.map((item) => (
@@ -119,7 +107,7 @@ export function Menu() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209] p-0">Contatos</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209]">Contatos</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="flex flex-col w-[200px] gap-3 p-4 md:w-[500px] lg:w-[220px]">
                             {contatos.map((item) => (

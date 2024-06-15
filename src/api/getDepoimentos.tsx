@@ -1,20 +1,25 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
-export async function getRepresentantes() {
+export async function getDepoimentos() {
     try {
         const { data } = await GqlClient.query({
             query: gql`
                 query NewQuery {
-                    representantes {
+                    depoimentos {
                         edges {
                             node {
                                 id
                                 title
-                                representantes {
-                                    estado
-                                    regiaoAtendida
-                                    telefone
+                                depoimentos {
+                                    cidadeEstado
+                                    depoimento
+                                    empresa
+                                    foto {
+                                        node {
+                                            mediaItemUrl
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -23,12 +28,14 @@ export async function getRepresentantes() {
             `,
         });
 
-        if (!data.representantes) {
+        if (!data.depoimentos) {
             throw new Error("Dados não encontrados");
         }
-        const dataRepresentantes = data.representantes.edges;
+        const dataDepoimentos = data.depoimentos.edges;
 
-        return dataRepresentantes;
+        console.log(dataDepoimentos);
+
+        return dataDepoimentos;
     } catch (error) {
         console.error("Erro ao obter dados:", error);
         return [];

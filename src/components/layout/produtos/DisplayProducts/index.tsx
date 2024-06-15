@@ -11,7 +11,7 @@ export async function DisplayProducts({ category }: DisplayProductsProps) {
     return (
         <section className="mb-24">
             <h2 className="text-center text-5xl font-bold pb-6">
-                Baterias da linha <span className="text-[#DF0209] italic">EFB</span>
+                Baterias da linha
             </h2>
             <div className="container grid grid-cols-3 gap-8">
                 {data.map((produto: any) => (

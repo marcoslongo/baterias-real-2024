@@ -71,6 +71,6 @@ interface LinkMenuProps {
 
 function LinkMenu({children}:LinkMenuProps){
     return(
-        <li><Link className="hover:underline" href="href">{children}</Link></li>
+        <li><Link className="hover:underline text-base" href="href">{children}</Link></li>
     );
 }

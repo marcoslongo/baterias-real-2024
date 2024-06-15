@@ -3,11 +3,10 @@ interface CardProps {
     name: string;
     text: string;
     image: string;
-    city: string;
-    state: string;
+    citystate: string;
     company: string;
 }
-export function Card({name, text, image, city, state, company}:CardProps){
+export function Card({name, text, image, citystate, company}:CardProps){
     return(
         <div className="bg-white flex flex-col gap-4 p-8 rounded-3xl shadow-lg my-8 mx-4">
             <div className="flex gap-4 items-center">
@@ -21,7 +20,7 @@ export function Card({name, text, image, city, state, company}:CardProps){
                 <h2 className="font-bold text-xl">{name}</h2>
             </div>
             <p>{text}</p>
-            <h3 className="italic"> {company} / {city} - {state}</h3>
+            <h3 className="italic"> {company} / {citystate}</h3>
         </div>
     );
 }

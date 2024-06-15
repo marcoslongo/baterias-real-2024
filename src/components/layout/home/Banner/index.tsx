@@ -39,6 +39,7 @@ export function Banner() {
         src={"/assets/images/bg-banner-home.webp"}
         alt="alt"
         fill
+        objectFit="cover"
       />
     </section>
   );
