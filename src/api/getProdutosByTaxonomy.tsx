@@ -44,12 +44,10 @@ export async function getProdutosByTaxonomy() {
             `
         });
 
-        // Verifica se os dados foram retornados corretamente
         if (!data?.categoriasProdutos) {
             throw new Error("Dados não encontrados");
         }
 
-        // Retorna os edges contendo os nós de produtos
         return data.categoriasProdutos.edges.map((edge: { node: any; }) => edge.node);
     } catch (error) {
         console.error("Erro ao obter dados:", error);

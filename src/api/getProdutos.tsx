@@ -1,12 +1,18 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
-export async function getProdutos() {
+interface GetProdutosProps {
+    category: string;
+}
+
+export async function getProdutos({ category }: GetProdutosProps) {
+    const termTaxonomyId = [category];
+    
     try {
         const { data } = await GqlClient.query({
             query: gql`
-                query GetProdutos {
-                    categoriasProdutos(where: {termTaxonomyId: "dGVybTo0"}) {
+                query GetProdutos($termTaxonomyId: [ID]!) {
+                    categoriasProdutos(where: {termTaxonomyId: $termTaxonomyId}) {
                         edges {
                             node {
                                 id
@@ -35,11 +41,13 @@ export async function getProdutos() {
                     }
                 }
             `,
+            variables: { termTaxonomyId }
         });
 
         if (!data.categoriasProdutos.edges.length) {
             throw new Error('Dados não encontrados');
         }
+        
         return data.categoriasProdutos.edges[0].node.produtos.edges;
     } catch (error) {
         console.error('Erro ao obter dados:', error);
