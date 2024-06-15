@@ -2,6 +2,7 @@ export interface Categoria {
     id: string;
     name: string;
     linhas: {
+        urlInterna: string;
         bannerDaCategoria: {
             node: {
                 mediaItemUrl: string;

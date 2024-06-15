@@ -13,6 +13,7 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
                                 id
                                 name
                                 linhas {
+                                urlInterna
                                 bannerDaCategoria {
                                     node {
                                     mediaItemUrl

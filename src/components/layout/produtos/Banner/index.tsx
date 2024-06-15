@@ -22,7 +22,7 @@ export async function Banner({ category }: BannerProps) {
             />
           </div>
           <div className="flex flex-col gap-5">
-            <h1 className="font-bold text-4xl">LINHA <br /> <span className="text-7xl text-[#DF0209] italic">{banner.name}</span></h1>
+            <h1 className="font-bold text-4xl uppercase">LINHA <br /> <span className="text-7xl text-[#DF0209] italic">{banner.name}</span></h1>
             <p>{banner.linhas.textoSobreALinhaDeProdutos}</p>
           </div>
         </div>
