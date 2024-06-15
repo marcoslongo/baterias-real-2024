@@ -8,7 +8,6 @@ import { Card } from './Card';
 import { getDepoimentos } from '@/api/getDepoimentos';
 import { DepoimentoData } from '@/@types/Depoimentos';
 
-
 export function Depoimentos() {
   const [depoimentos, setDepoimentos] = useState<DepoimentoData[]>([]);
 
@@ -34,6 +33,14 @@ export function Depoimentos() {
           modules={[Pagination]}
           pagination={{ clickable: true }}
           loop={true}
+          breakpoints={{
+            1024: {
+              slidesPerView: 3,
+            },
+            0: {
+              slidesPerView: 1,
+            },
+          }}
         >
           {depoimentos.map((depoimento) => (
             <SwiperSlide key={depoimento.node.id}>

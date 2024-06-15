@@ -33,8 +33,6 @@ export async function getDepoimentos() {
         }
         const dataDepoimentos = data.depoimentos.edges;
 
-        console.log(dataDepoimentos);
-
         return dataDepoimentos;
     } catch (error) {
         console.error("Erro ao obter dados:", error);

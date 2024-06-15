@@ -5,7 +5,7 @@ import { FaPhone, FaLocationDot } from "react-icons/fa6";
 export function Footer() {
   return (
     <footer className="bg-[#A60004] py-10 relative overflow-hidden">
-      <div className="container grid grid-cols-4 gap-12">
+      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
         <div className="flex flex-col gap-6">
           <Image
             src={"/assets/images/logo-negativa.svg"}

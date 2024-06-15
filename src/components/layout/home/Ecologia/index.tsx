@@ -2,8 +2,8 @@ import Image from "next/image";
 export function Ecologia() {
   return (
     <section className="bg-white py-20">
-      <div className="container flex items-center gap-16">
-        <div className="w-1/3 h-[750px] flex relative shadow-xl">
+      <div className="container flex items-center flex-col lg:flex-row gap-16">
+        <div className="w-1/3 h-[750px] hidden lg:flex relative shadow-xl">
           <Image
             src={"/assets/images/ecologia.webp"}
             alt=""

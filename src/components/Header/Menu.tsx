@@ -48,7 +48,7 @@ const contatos: { title: string; href: string; description: string }[] = [
 
 export function Menu() {
     return (
-        <NavigationMenu className="hidden md:flex">
+        <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
                 <NavigationMenuItem className="transition hover:text-[#DF0209]">
                     <Link href="/institucional" legacyBehavior passHref>
@@ -63,7 +63,7 @@ export function Menu() {
                                 <NavigationMenuLink asChild>
                                     <a
                                         className="h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                                        href="/produtos"
+                                        href="/bateria-ideal"
                                     >
                                         <div className="text-xl mb-2 font-bold">
                                             Encontre a bateria ideal

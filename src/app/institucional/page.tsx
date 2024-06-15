@@ -35,12 +35,12 @@ export default function Intitucional() {
                         <div className="flex flex-col gap-4 relative">
                             <h2 className="text-[#DF0209] font-bold text-5xl">Missão</h2>
                             <p>Gerar energia com qualidade e segurança.</p>                            
-                            <FaFlag className="absolute bottom-0 right-0 opacity-30 text-[#DF0209]" size={80} />
+                            <FaFlag className="absolute bottom-0 right-10 opacity-30 text-[#DF0209]" size={80} />
                         </div>
                         <div className="flex flex-col gap-4 relative">
                             <h2 className="text-[#DF0209] font-bold text-5xl">Visão</h2>
                             <p>Ser uma empresa reconhecida pela sua história e qualidade dos seus produtos, buscando o desenvolvimento e valorização dos seus clientes e colaboradores.</p>                            
-                            <GiChart className="absolute bottom-0 right-0 opacity-30 text-[#DF0209]" size={80} />
+                            <GiChart className="absolute bottom-0 right-10 opacity-30 text-[#DF0209]" size={80} />
                         </div>
                         <div className="flex flex-col gap-4 relative">
                             <h2 className="text-[#DF0209] font-bold text-5xl">Valores</h2>
