@@ -12,19 +12,9 @@ import {
 } from "@/components/ui/select";
 import { DisplayProducts } from "./DisplayProducts";
 import { BsLightningFill } from "react-icons/bs";
+import { LoadingPage } from "@/components/LoadingPage";
+import { Tipos } from "@/@types/BateriaIdeal";
 
-interface TipoDeVeiculo {
-    __typename: "TipoDeVeiculo";
-    id: string;
-    name: string;
-}
-
-interface RootQueryToTipoDeVeiculoConnectionEdge {
-    __typename: "RootQueryToTipoDeVeiculoConnectionEdge";
-    node: TipoDeVeiculo;
-}
-
-type Tipos = RootQueryToTipoDeVeiculoConnectionEdge[];
 
 export default function BateriaIdeal() {
     const [tipos, setTipos] = useState<Tipos>([]);
@@ -47,7 +37,9 @@ export default function BateriaIdeal() {
         fetchTipos();
     }, []);
 
-    if (loading) return <p>Carregando...</p>;
+    if (loading) return (
+        <LoadingPage />
+    );
     if (error) return <p>Erro ao carregar tipos de veículos: {error.message}</p>;
 
     return (

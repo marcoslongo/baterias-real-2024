@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProdutosBateriaIdeal } from '@/api/getProdutosBateriaIdeal';
 import { Card } from '@/components/Card';
+import { TbAlertHexagonFilled } from "react-icons/tb";
 
 interface Produto {
     __typename: string;
@@ -75,16 +76,28 @@ export function DisplayProducts({ tipoId }: DisplayProductsProps) {
                         Aqui estão nossas baterias para: <span className='italic'>{produtos.name}</span>
                     </h3>
                 </div>
-                <div className='grid grid-cols-3'>
-                    {produtos.produtos.edges.map(item => (
-                        <Card
-                            key={item.node.id}
-                            name={item.node.title}
-                            image={item.node.produtos.imageDoProduto.node.mediaItemUrl}
-                            id={item.node.id}
-                        />
-                    ))}
-                </div>
+
+                {
+                    produtos.produtos.edges.length > 0
+                        ? (
+                            <div className='grid grid-cols-3'>
+                                {produtos.produtos.edges.map(item => (
+                                    <Card
+                                        key={item.node.id}
+                                        name={item.node.title}
+                                        image={item.node.produtos.imageDoProduto.node.mediaItemUrl}
+                                        id={item.node.id}
+                                    />
+                                ))}
+                            </div>
+                        )
+                        : (
+                            <div className='text-center flex flex-col items-center gap-2 mt-6'>
+                                <TbAlertHexagonFilled className='text-[#DF0209]' size={80}/>
+                                <h2 className='font-bold text-2xl'>Não há produtos <br /> cadastrados nessa categoria.</h2>
+                            </div>
+                        )
+                }
             </div>
         </div>
     );
