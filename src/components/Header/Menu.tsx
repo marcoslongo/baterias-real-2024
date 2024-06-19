@@ -37,12 +37,12 @@ const contatos: { title: string; href: string; description: string }[] = [
     {
         title: "Fale Conosco",
         href: "/",
-        description: "breve frase",
+        description: "Contate nossa central de atendimento.",
     },
     {
         title: "Trabalhe conosco",
         href: "/",
-        description: "breve frase",
+        description: "Faça parte da nossa equipe.",
     }
 ]
 
@@ -50,7 +50,7 @@ export function Menu() {
     return (
         <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
-                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2">
+                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2 rounded-md">
                     <Link href="/institucional" legacyBehavior passHref>
                         Sobre a Real
                     </Link>
@@ -101,7 +101,7 @@ export function Menu() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2">
+                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2 rounded-md">
                     <Link href="/representantes" legacyBehavior passHref>
                         Representantes
                     </Link>
