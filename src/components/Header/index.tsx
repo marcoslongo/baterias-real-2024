@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "./Menu";
+import { MenuMobile } from "./Menumobile";
 
 export function Header() {
   return (
@@ -16,6 +17,7 @@ export function Header() {
               alt="Baterias Real"
             />
           </Link>
+          <MenuMobile/>
           <Menu/>
         </div>
       </header>

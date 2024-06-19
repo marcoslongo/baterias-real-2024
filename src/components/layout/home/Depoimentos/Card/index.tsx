@@ -12,7 +12,7 @@ export function Card({name, text, image, citystate, company}:CardProps){
             <div className="flex gap-4 items-center">
                 <Image
                     src={image}
-                    alt="alt"
+                    alt={name}
                     width={60}
                     height={60}
                     className="rounded-full"

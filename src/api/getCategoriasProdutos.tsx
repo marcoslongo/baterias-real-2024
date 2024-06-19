@@ -12,8 +12,8 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
                             node {
                                 id
                                 name
+                                slug
                                 linhas {
-                                urlInterna
                                 bannerDaCategoria {
                                     node {
                                         mediaItemUrl

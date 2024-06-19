@@ -50,7 +50,7 @@ export function Menu() {
     return (
         <NavigationMenu className="hidden lg:flex">
             <NavigationMenuList>
-                <NavigationMenuItem className="transition hover:text-[#DF0209]">
+                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2">
                     <Link href="/institucional" legacyBehavior passHref>
                         Sobre a Real
                     </Link>
@@ -62,7 +62,7 @@ export function Menu() {
                             <li className="w-[40%]">
                                 <NavigationMenuLink asChild>
                                     <a
-                                        className="h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                                        className="h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none hover:text-[#DF0209] transition"
                                         href="/bateria-ideal"
                                     >
                                         <div className="text-xl mb-2 font-bold">
@@ -101,7 +101,7 @@ export function Menu() {
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-                <NavigationMenuItem className="transition hover:text-[#DF0209]">
+                <NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2">
                     <Link href="/representantes" legacyBehavior passHref>
                         Representantes
                     </Link>

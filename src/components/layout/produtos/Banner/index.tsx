@@ -16,7 +16,7 @@ export async function Banner({ category }: BannerProps) {
           <div className="mt-28 relative h-[450px]">
             <Image
               src={banner.linhas.imagemBannerInterno.node.mediaItemUrl}
-              alt="alt"
+              alt={banner.name}
               fill
               objectFit="cover"
             />

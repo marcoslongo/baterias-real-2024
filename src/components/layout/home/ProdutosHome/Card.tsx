@@ -14,7 +14,7 @@ export function Card({ name, imageBatery, bgBatery, href }: CardProps) {
       <div className="relative z-10 text-white pt-4 pl-10 flex flex-col">
         <Image
           src={imageBatery}
-          alt="alt"
+          alt={name}
           width={124}
           height={75}
         />
@@ -24,7 +24,7 @@ export function Card({ name, imageBatery, bgBatery, href }: CardProps) {
       </div>
       <Image
         src={bgBatery}
-        alt="alt"
+        alt={name}
         fill
         className="rounded-2xl transition shadow-lg hover:shadow-xl object-cover"
       />

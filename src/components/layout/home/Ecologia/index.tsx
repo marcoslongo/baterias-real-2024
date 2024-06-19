@@ -11,7 +11,7 @@ export function Ecologia() {
             className="rounded-2xl"
           />
         </div>
-        <div className="w-2/3 flex gap-6 flex-col">
+        <div className="w-full lg:w-2/3 flex gap-6 flex-col">
           <div className="flex flex-col gap-4">
             <h2 className="text-6xl font-bold">Compromisso com a Natureza</h2>
             <p className="text-xl">
@@ -21,7 +21,7 @@ export function Ecologia() {
             </p>
           </div>
           <div className="flex gap-8">
-            <div className="w-1/3 bg-[#A60004] rounded-3xl py-8 px-6 flex flex-col gap-5 justify-center">
+            <div className="w-full lg:w-1/3 bg-[#A60004] rounded-3xl py-8 px-6 flex flex-col gap-5 justify-center">
               <Image
                 src={"/assets/images/sustentavel.svg"}
                 alt="alt"
@@ -32,7 +32,7 @@ export function Ecologia() {
                 100% <br /> Reciclável
               </h3>
             </div>
-            <div className="w-2/3 flex-col flex-wrap">
+            <div className="w-full lg:w-2/3 flex-col flex-wrap">
               <div className="bg-[#A60004] rounded-3xl flex items-center w-full py-8 px-6 gap-4 mb-4">
                 <Image
                   src={"/assets/images/solar.svg"}

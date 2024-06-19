@@ -1,8 +1,8 @@
 export interface Categoria {
     id: string;
     name: string;
+    slug: string;
     linhas: {
-        urlInterna: string;
         bannerDaCategoria: {
             node: {
                 mediaItemUrl: string;

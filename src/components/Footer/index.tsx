@@ -25,34 +25,34 @@ export function Footer() {
               (46) 3543-1178
             </Link>
             <Link className="flex flex-wrap items-center gap-2 hover:underline" href="href">
-                <div>
-                    <FaLocationDot size={16} />
-                </div>
-                <h3 className="w-4/5">
-                    Rodovia PR 182 - KM 463,7 Bairro Industrial CEP: 85770-000 - Realeza - PR
-                </h3>
+              <div>
+                <FaLocationDot size={16} />
+              </div>
+              <h3 className="w-4/5">
+                Rodovia PR 182 - KM 463,7 Bairro Industrial CEP: 85770-000 - Realeza - PR
+              </h3>
             </Link>
           </div>
         </div>
         <div className="flex flex-col gap-2 text-white">
-            <h2 className="font-semibold text-2xl">Linha de Baterias</h2>
-            <ul className="flex flex-col gap-1">
-                <LinkMenu>Linha Evolution</LinkMenu>
-                <LinkMenu>Linha Gold</LinkMenu>
-                <LinkMenu>Linha EFB</LinkMenu>
-                <LinkMenu>Linha Convencional</LinkMenu>
-                <LinkMenu>Linha Ecológica</LinkMenu>
-                <LinkMenu>Linha Free</LinkMenu>
-            </ul>
+          <h2 className="font-semibold text-2xl">Linha de Baterias</h2>
+          <ul className="flex flex-col gap-1">
+            <LinkMenu href={"/linha-evolution"}>Linha Evolution</LinkMenu>
+            <LinkMenu href={"/linha-gold"}>Linha Gold</LinkMenu>
+            <LinkMenu href={"/linha-efb"}>Linha EFB</LinkMenu>
+            <LinkMenu href={"/linha-convencional"}>Linha Convencional</LinkMenu>
+            <LinkMenu href={"/linha-ecologica"}>Linha Ecológica</LinkMenu>
+            <LinkMenu href={"/linha-free"}>Linha Free</LinkMenu>
+          </ul>
         </div>
         <div className="flex flex-col gap-2 text-white">
-            <h2 className="font-semibold text-2xl">Navegação</h2>
-            <ul className="flex flex-col gap-1">
-                <LinkMenu>Nossa História</LinkMenu>
-                <LinkMenu>Produtos</LinkMenu>
-                <LinkMenu>Downloads</LinkMenu>
-                <LinkMenu>Trabalhe Conosco</LinkMenu>
-            </ul>
+          <h2 className="font-semibold text-2xl">Navegação</h2>
+          <ul className="flex flex-col gap-1">
+            <LinkMenu href={""}>Institucional</LinkMenu>
+            <LinkMenu href={""}>Representantes</LinkMenu>
+            <LinkMenu href={""}>Fale conosco</LinkMenu>
+            <LinkMenu href={""}>Trabalhe Conosco</LinkMenu>
+          </ul>
         </div>
       </div>
       <Image
@@ -66,11 +66,12 @@ export function Footer() {
   );
 }
 interface LinkMenuProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
+  href: string;
 }
 
-function LinkMenu({children}:LinkMenuProps){
-    return(
-        <li><Link className="hover:underline text-base" href="href">{children}</Link></li>
-    );
+function LinkMenu({ children, href }: LinkMenuProps) {
+  return (
+    <li><Link className="hover:underline text-base" href={href}>{children}</Link></li>
+  );
 }
