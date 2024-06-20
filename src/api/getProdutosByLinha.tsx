@@ -11,6 +11,14 @@ export async function getProdutosByLinha(slug: string) {
                             node {
                                 id
                                 name
+                                linhas {
+                                textoSobreALinhaDeProdutos
+                                    imagemBannerInterno {
+                                        node {
+                                            mediaItemUrl
+                                        }
+                                    }   
+                                }
                                 produtos {
                                     edges {
                                         node {
