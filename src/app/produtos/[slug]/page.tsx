@@ -1,4 +1,4 @@
-import { DisplayProducts } from "../DisplayProducts";
+import { DisplayProducts } from "./DisplayProducts";
 
 interface PageProdutosProps {
     params: {
