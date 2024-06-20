@@ -75,12 +75,12 @@ export function Menu() {
                                 </NavigationMenuLink>
                             </li>
                             <div className="flex flex-col w-[49%]">
-                                <ListItem href="/linha-evolution" title="Linha Evolution"/>
-                                <ListItem href="/linha-gold" title="Linha Gold"/>
-                                <ListItem href="/linha-efb" title="Linha EFB"/>
-                                <ListItem href="/linha-convencional" title="Linha Convencional"/>
-                                <ListItem href="/linha-ecologica" title="Linha Ecológica"/>
-                                <ListItem href="/linha-free" title="Linha Free"/>
+                                <ListItem href="produtos/linha-evolution" title="Linha Evolution"/>
+                                <ListItem href="produtos/linha-gold" title="Linha Gold"/>
+                                <ListItem href="produtos/linha-efb" title="Linha EFB"/>
+                                <ListItem href="produtos/linha-convencional" title="Linha Convencional"/>
+                                <ListItem href="produtos/linha-ecologica" title="Linha Ecológica"/>
+                                <ListItem href="produtos/linha-free" title="Linha Free"/>
                             </div>
                         </ul>
                     </NavigationMenuContent>

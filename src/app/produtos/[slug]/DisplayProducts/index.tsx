@@ -10,8 +10,8 @@ interface DisplayProductsProps {
 
 export async function DisplayProducts({ slug }: DisplayProductsProps) {
     const data = await getProdutosByLinha(slug);
-    const id = await getId(slug);
-    const category = id.id;
+    const produtos = data.edges[0].node.produtos.edges;
+    const category = data.edges[0].node.id;
     const dataBanner = await getBannerInternoProdutos({ category });
     return (
         <>
@@ -38,7 +38,7 @@ export async function DisplayProducts({ slug }: DisplayProductsProps) {
                     Baterias da linha
                 </h2>
                 <div className="container grid grid-cols-3 gap-8">
-                    {data.map((produto: any) => (
+                    {produtos.map((produto: any) => (
                         <Card
                             key={produto.node.id}
                             name={produto.node.title}

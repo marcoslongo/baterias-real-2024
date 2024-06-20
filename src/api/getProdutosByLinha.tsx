@@ -42,7 +42,7 @@ export async function getProdutosByLinha(slug: string) {
         if (!data.categoriasProdutos) {
             throw new Error("Dados não encontrados");
         }
-        const dataCategoriasProdutos = data.categoriasProdutos.edges[0].node.produtos.edges;
+        const dataCategoriasProdutos = data.categoriasProdutos;
 
         return dataCategoriasProdutos;
     } catch (error) {
