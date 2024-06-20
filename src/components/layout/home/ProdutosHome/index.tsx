@@ -15,7 +15,7 @@ export async function ProdutosHome() {
               name={categoria.node.name}
               imageBatery={categoria.node.linhas.bateria.node.mediaItemUrl}
               bgBatery={categoria.node.linhas.bannerDaCategoria.node.mediaItemUrl}
-              href={categoria.node.slug}
+              href={`/produtos/${categoria.node.slug}`}                
             />
           ))}
         </div>

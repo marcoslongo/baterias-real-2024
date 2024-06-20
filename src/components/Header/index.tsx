@@ -13,7 +13,7 @@ export function Header() {
             <Image
               width={122}
               height={60}
-              src={"assets/images/logo.svg"}
+              src={"/assets/images/logo.svg"}
               alt="Baterias Real"
             />
           </Link>
