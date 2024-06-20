@@ -17,8 +17,8 @@ export function Header() {
               alt="Baterias Real"
             />
           </Link>
-          <MenuMobile/>
-          <Menu/>
+          <MenuMobile />
+          <Menu />
         </div>
       </header>
     </>

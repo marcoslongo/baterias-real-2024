@@ -1,7 +1,7 @@
-export function MenuMobile(){
-    return(
-        <nav>
-            
-        </nav>
-    );
+export function MenuMobile() {
+	return (
+		<nav>
+
+		</nav>
+	);
 }
