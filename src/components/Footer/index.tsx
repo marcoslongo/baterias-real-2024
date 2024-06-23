@@ -37,12 +37,12 @@ export function Footer() {
         <div className="flex flex-col gap-2 text-white">
           <h2 className="font-semibold text-2xl">Linha de Baterias</h2>
           <ul className="flex flex-col gap-1">
-            <LinkMenu href={"/linha-evolution"}>Linha Evolution</LinkMenu>
-            <LinkMenu href={"/linha-gold"}>Linha Gold</LinkMenu>
-            <LinkMenu href={"/linha-efb"}>Linha EFB</LinkMenu>
-            <LinkMenu href={"/linha-convencional"}>Linha Convencional</LinkMenu>
-            <LinkMenu href={"/linha-ecologica"}>Linha Ecológica</LinkMenu>
-            <LinkMenu href={"/linha-free"}>Linha Free</LinkMenu>
+            <LinkMenu href={"/produtos/linha-evolution"}>Linha Evolution</LinkMenu>
+            <LinkMenu href={"/produtos/linha-gold"}>Linha Gold</LinkMenu>
+            <LinkMenu href={"/produtos/linha-efb"}>Linha EFB</LinkMenu>
+            <LinkMenu href={"/produtos/linha-convencional"}>Linha Convencional</LinkMenu>
+            <LinkMenu href={"/produtos/linha-ecologica"}>Linha Ecológica</LinkMenu>
+            <LinkMenu href={"/produtos/linha-free"}>Linha Free</LinkMenu>
           </ul>
         </div>
         <div className="flex flex-col gap-2 text-white">
