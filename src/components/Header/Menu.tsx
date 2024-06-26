@@ -36,7 +36,7 @@ const downloads: { title: string; href: string; description: string }[] = [
 const contatos: { title: string; href: string; description: string }[] = [
 	{
 		title: "Fale Conosco",
-		href: "/",
+		href: "/fale-conosco",
 		description: "Contate nossa central de atendimento.",
 	},
 	{
@@ -75,12 +75,12 @@ export function Menu() {
 								</NavigationMenuLink>
 							</li>
 							<div className="flex flex-col w-[49%]">
-								<ListItem href="produtos/linha-evolution" title="Linha Evolution" />
-								<ListItem href="produtos/linha-gold" title="Linha Gold" />
-								<ListItem href="produtos/linha-efb" title="Linha EFB" />
-								<ListItem href="produtos/linha-convencional" title="Linha Convencional" />
-								<ListItem href="produtos/linha-ecologica" title="Linha Ecológica" />
-								<ListItem href="produtos/linha-free" title="Linha Free" />
+								<ListItem href="/produtos/linha-evolution" title="Linha Evolution" />
+								<ListItem href="/produtos/linha-gold" title="Linha Gold" />
+								<ListItem href="/produtos/linha-efb" title="Linha EFB" />
+								<ListItem href="/produtos/linha-convencional" title="Linha Convencional" />
+								<ListItem href="/produtos/linha-ecologica" title="Linha Ecológica" />
+								<ListItem href="/produtos/linha-free" title="Linha Free" />
 							</div>
 						</ul>
 					</NavigationMenuContent>

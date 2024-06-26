@@ -85,14 +85,14 @@ export function Card({ name, image, id }: Props) {
     }
 
     return (
-        <div className="bg-white h-[284px] rounded-lg shadow-lg overflow-hidden">
-            <h3 className="w-full font-bold text-center mt-3 text-xl">{name}</h3>
+        <div className="bg-white h-[260px] flex flex-col relative rounded-lg shadow-lg overflow-hidden">
+            <h3 className="w-full font-bold text-center mt-3 text-xl mb-6">{name}</h3>
             <div className="w-full flex justify-center">
                 <Image alt={name} src={image} width={170} height={240} />
             </div>
             <div className="flex w-full justify-end">
                 <AlertDialog>
-                    <AlertDialogTrigger className="bg-[#DF0209] text-white py-2 px-3 hover:underline rounded-tl-xl">
+                    <AlertDialogTrigger className="bg-[#DF0209] text-white py-2 px-3 hover:underline rounded-tl-xl absolute right-0 bottom-0">
                         Ver ficha técnica
                     </AlertDialogTrigger>
                     <AlertDialogContent>

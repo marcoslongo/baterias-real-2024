@@ -1,6 +1,6 @@
 const nextConfig = {
     images: {
-      domains: ['bateriasreal.com.br.test'],
+      domains: ['andamento.estudioa.com.br'],
     },
   };
   

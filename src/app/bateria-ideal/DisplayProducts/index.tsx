@@ -68,7 +68,7 @@ export function DisplayProducts({ tipoId }: DisplayProductsProps) {
 				</div>
 
 				{produtos.produtos.edges.length > 0 ? (
-					<div className='grid grid-cols-3'>
+					<div className='grid grid-cols-3 gap-8'>
 						{produtos.produtos.edges.map(item => (
 							<Card
 								key={item.node.id}

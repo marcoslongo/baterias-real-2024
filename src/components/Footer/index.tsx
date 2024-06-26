@@ -50,7 +50,7 @@ export function Footer() {
           <ul className="flex flex-col gap-1">
             <LinkMenu href={""}>Institucional</LinkMenu>
             <LinkMenu href={""}>Representantes</LinkMenu>
-            <LinkMenu href={""}>Fale conosco</LinkMenu>
+            <LinkMenu href={"/fale-conosco"}>Fale conosco</LinkMenu>
             <LinkMenu href={""}>Trabalhe Conosco</LinkMenu>
           </ul>
         </div>
