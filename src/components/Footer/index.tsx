@@ -35,7 +35,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-col gap-2 text-white">
-          <h2 className="font-semibold text-2xl">Linha de Baterias</h2>
+          <h2 className="font-semibold text-2xl">Linhas de Baterias</h2>
           <ul className="flex flex-col gap-1">
             <LinkMenu href={"/produtos/linha-evolution"}>Linha Evolution</LinkMenu>
             <LinkMenu href={"/produtos/linha-gold"}>Linha Gold</LinkMenu>
