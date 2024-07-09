@@ -15,9 +15,7 @@ export function Ecologia() {
           <div className="flex flex-col gap-4">
             <h2 className="text-6xl font-bold">Compromisso com a Natureza</h2>
             <p className="text-xl">
-              Consectetur adipiscing elit. Nullam efficitur nisi augue, eu
-              faucibus libero dictum vitae. Consectetur adipiscing elit. Nullam
-              efficitur nisi augue, eu faucibus libero dictum vitae.
+              Na Baterias Real, nossa preocupação com o meio ambiente é uma prioridade. Implementamos uma política rigorosa de logística reversa, garantindo que nossas baterias sejam recolhidas, recicladas e descartadas de forma adequada. Nosso compromisso é reduzir o impacto ambiental, promovendo a sustentabilidade e a responsabilidade ecológica em cada etapa do processo. Através da logística reversa, contribuímos para um futuro mais verde e seguro para todos.
             </p>
           </div>
           <div className="flex gap-8">
