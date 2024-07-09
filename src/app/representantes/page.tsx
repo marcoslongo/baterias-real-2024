@@ -120,7 +120,7 @@ export function Representantes() {
 						</div>
 					) : (
 						<div className="flex flex-col gap-4">
-							<h2 className="font-bold text-xl">Representantes de {estadoSelecionado}</h2>
+							<h2 className="font-bold text-xl">{estadoSelecionado}</h2>
 							{representantesPorEstado[estadoSelecionado] && representantesPorEstado[estadoSelecionado].length > 0 ? (
 								<ul className="flex flex-col gap-5">
 									{representantesPorEstado[estadoSelecionado].map((rep, index) => (

@@ -26,17 +26,25 @@ export default async function PageProdutos({ params: { slug } }: PageProdutosPro
 								objectFit="cover"
 							/>
 						</div>
-						<div className="flex flex-col gap-5">
+						<div className="flex flex-col gap-5 relative">
 							<h1 className="font-bold text-4xl uppercase">LINHA <br /> <span className="text-7xl text-[#DF0209] italic">{banner.name}</span></h1>
 							<p>{banner.linhas.textoSobreALinhaDeProdutos}</p>
+							<Image
+								src={'/assets/images/raio-vector.webp'}
+								alt=""
+								objectFit="contain"
+								fill
+							/>
 						</div>
 					</div>
 				</div>
 			</section>
 			<section className="mb-24">
-				<h2 className="text-center text-5xl font-bold pb-6">
-					Baterias da linha
-				</h2>
+				<div className="container">
+					<h2 className="text-5xl font-bold pb-6 flex gap-2 justify-center">
+						Baterias da linha
+					</h2>
+				</div>
 				<div className="container grid grid-cols-3 gap-8">
 					{produtos.map((produto: any) => (
 						<Card

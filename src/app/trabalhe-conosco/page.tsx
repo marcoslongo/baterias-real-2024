@@ -20,6 +20,7 @@ export default async function TrabalheConosco() {
 						<div className="grid grid-cols-2 gap-8">
 							{vagas.map((item: any) => (
 								<CardInfoVaga
+									key={item.node.id}
 									name={item.node.title}
 									info={item.node.vagasDisponVeis.descricao}
 									slug={item.node.slug}

@@ -1,12 +1,13 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
-export async function getVagaBySlug() {
+// Aceitando o slug como argumento
+export async function getVagaBySlug(slug: string) {
     try {
         const { data } = await GqlClient.query({
             query: gql`
-                query GetVagaBySlug {
-                    vagaBy (slug: "auxiliar-de-producao") {
+                query GetVagaBySlug($slug: String!) {
+                    vagaBy(slug: $slug) {
                         id
                         title
                         vagasDisponVeis {
@@ -18,16 +19,15 @@ export async function getVagaBySlug() {
                     }
                 }
             `,
+            variables: { slug }, // Passando o slug como variável
         });
 
         if (!data.vagaBy) {
             throw new Error("Dados não encontrados");
         }
-        const dataVagaBy = data.vagaBy;
-
-        return dataVagaBy;
+        return data.vagaBy;
     } catch (error) {
         console.error("Erro ao obter dados:", error);
-        return [];
+        return null;
     }
 }

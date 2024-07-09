@@ -6,7 +6,7 @@ export async function getRepresentantes() {
         const { data } = await GqlClient.query({
             query: gql`
                 query NewQuery {
-                    representantes {
+                    representantes(first:300) {
                         edges {
                             node {
                                 id

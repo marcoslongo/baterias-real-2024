@@ -19,7 +19,7 @@ export async function getProdutosByLinha(slug: string) {
                                         }
                                     }   
                                 }
-                                produtos {
+                                produtos(first: 100) {
                                     edges {
                                         node {
                                             id
