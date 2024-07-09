@@ -15,6 +15,7 @@ export function Header() {
               height={60}
               src={"/assets/images/logo.svg"}
               alt="Baterias Real"
+              priority
             />
           </Link>
           <MenuMobile />

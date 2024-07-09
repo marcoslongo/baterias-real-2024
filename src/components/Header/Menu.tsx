@@ -41,7 +41,7 @@ const contatos: { title: string; href: string; description: string }[] = [
 	},
 	{
 		title: "Trabalhe conosco",
-		href: "/",
+		href: "/trabalhe-conosco",
 		description: "Faça parte da nossa equipe.",
 	}
 ]

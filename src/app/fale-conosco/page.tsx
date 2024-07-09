@@ -22,6 +22,7 @@ export default function FaleConosco() {
 					fill
 					objectFit="cover"
 					alt="banner contato"
+					priority
 				/>
 			</div>
 			<div className="container flex flex-col items-center gap-10">

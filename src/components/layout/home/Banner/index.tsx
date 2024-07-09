@@ -33,6 +33,7 @@ export function Banner() {
         width={920}
         height={500}
         className="absolute right-0 z-20 top-1/3"
+        priority
       />
       <Image
         className="w-full h-full absolute object-cover z-10"
@@ -40,6 +41,7 @@ export function Banner() {
         alt="alt"
         fill
         objectFit="cover"
+        priority
       />
     </section>
   );

@@ -50,18 +50,18 @@ export default function BateriaIdeal() {
             Encontre a sua Bateria Ideal
             <BsLightningFill className="text-[#DF0209]" />
           </h1>
-          <p>Selecione o tipo de veículo que deseja.</p>
+          <p className="text-lg">Selecione o tipo de veículo que deseja.</p>
         </div>
-        <div className="w-1/3 bg-white">
+        <div className="w-2/4 bg-white">
           <Select onValueChange={value => setSelectedTipoId(value)}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full h-12 text-base">
               <SelectValue placeholder="Selecione um tipo de veículo" />
             </SelectTrigger>
             <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Tipos de Veículos</SelectLabel>
+              <SelectGroup className="text-base">
+                <SelectLabel className="text-base">Tipos de Veículos</SelectLabel>
                 {tipos.map(tipo => (
-                  <SelectItem key={tipo.node.id} value={tipo.node.id}>
+                  <SelectItem className="text-base" key={tipo.node.id} value={tipo.node.id}>
                     {tipo.node.name}
                   </SelectItem>
                 ))}
