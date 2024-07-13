@@ -27,15 +27,18 @@ export function Depoimentos() {
   return (
     <section className="py-20">
       <div className="container">
-        <h2 className="text-center text-6xl font-bold">Depoimentos</h2>
+        <div className='flex flex-col gap-3'>
+          <h2 className="text-center text-6xl font-bold">Depoimentos</h2>
+          <p className='text-center text-lg'>Vozes de quem confia no nosso trabalho, histórias de sucesso e satisfação.</p>
+        </div>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={1}
           modules={[Pagination]}
           pagination={{ clickable: true }}
           loop={true}
           breakpoints={{
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 1,
             },
             0: {
               slidesPerView: 1,

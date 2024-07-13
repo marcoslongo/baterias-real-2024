@@ -2,16 +2,15 @@ import { getVagas } from "@/api/getVagas";
 import Link from "next/link";
 import { BsFillSuitcaseLgFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Depoimentos } from "./Depoimentos";
+import { Banner } from "./Banner";
 
 export default async function TrabalheConosco() {
 	const vagas = await getVagas();
 	return (
-		<main className="py-40">
+		<main className="pt-28 pb-40">
+			<Banner />
 			<div className="container flex flex-col items-center gap-10">
-				<div className="flex flex-col gap-2 w-full">
-					<h1 className="font-bold text-4xl">Trabalhe conosco</h1>
-					<p>Transforme sua carreira em uma empresa que apoia seu progresso!</p>
-				</div>
 				<div className="w-full">
 					<div className="flex flex-col gap-4">
 						<h2 className="font-bold text-2xl flex gap-2 items-center">
@@ -30,6 +29,11 @@ export default async function TrabalheConosco() {
 					</div>
 				</div>
 			</div>
+			<section>
+				<div className="container">
+					<Depoimentos />
+				</div>
+			</section>
 		</main>
 	);
 }
