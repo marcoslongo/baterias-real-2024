@@ -11,10 +11,8 @@ export function Banner() {
             Para longas jornadas muito mais
             <span className="text-[#DF0209]"> energia</span>
           </h2>
-          <p className="text-xl text-center md:text-left pr-12">
-            Com a nossa linha pesada, seu bruto terá muito mais energia para
-            vencer os desafios do dia a dia na estrada.Confie em que está a 44
-            anos gerando energia com qualidade.
+          <p className="text-center md:text-left pr-12">
+            Com 44 anos de história, a Baterias Real oferece qualidade inigualável e energia duradoura para todos os desafios. Nossas linhas de baterias leves e pesadas são desenvolvidas para atender cada necessidade com a solução perfeita em acumuladores de energia automotiva. Seja para veículos leves ou para os maiores desafios em transporte e maquinário, a Baterias Real está ao seu lado com tecnologia de ponta e desempenho superior.
           </p>
           <h1 className="text-xl font-bold">
             Baterias Real. Seu Destino, Nossa Energia!
@@ -30,7 +28,7 @@ export function Banner() {
       <Image
         src={"/assets/images/baterias-home.webp"}
         alt="alt"
-        width={920}
+        width={880}
         height={500}
         className="absolute right-0 z-20 top-1/3"
         priority
