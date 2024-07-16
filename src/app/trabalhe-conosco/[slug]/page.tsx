@@ -1,7 +1,5 @@
 import { getVagaBySlug } from "@/api/getVagaBySlug";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Form } from "./Form";
 
 interface PageVagasProps {
 	params: {
@@ -33,39 +31,7 @@ export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 						<CardInfo title="Requisitos" text={vaga.vagasDisponVeis.requisitos} />
 						<CardInfo title="Responsabilidades" text={vaga.vagasDisponVeis.responsabilidades} />
 					</div>
-					<div className="bg-white rounded-md p-8 shadow">
-						<h2 className="font-bold text-2xl mb-4">Cadastre seu currículo</h2>
-						<div className="flex flex-col gap-4">
-							<div className="grid grid-cols-2 gap-3">
-								<Input className="h-12 text-base" type="text" placeholder="Nome" />
-								<Input className="h-12 text-base" type="text" placeholder="Sobrenome" />
-							</div>
-							<div>
-								<Input className="h-12 text-base" type="email" placeholder="E-mail" />
-							</div>
-							<div>
-								<Input className="h-12 text-base" type="phone" placeholder="Celular" />
-							</div>
-							<div>
-								<Input className="h-12 text-base" type="date" placeholder="Data de Nascimento" />
-							</div>
-							<div>
-								<Input className="h-12 text-base" type="text" placeholder="Endereço" />
-							</div>
-							<div>
-								<Textarea className="h-28 text-base" placeholder="Formação Acadêmica" />
-							</div>
-							<div>
-								<Textarea className="h-28 text-base" placeholder="Experiência Profissional" />
-							</div>
-							<div>
-								<Textarea className="h-28 text-base" placeholder="Habilidades" />
-							</div>
-							<div className="w-full flex">
-								<Button className="w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]">Enviar Currículo</Button>
-							</div>
-						</div>
-					</div>
+					<Form />
 				</div>
 			</div>
 		</main>

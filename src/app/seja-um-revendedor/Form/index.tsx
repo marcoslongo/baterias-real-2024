@@ -48,7 +48,7 @@ export function Form() {
 				throw new Error('Por favor, preencha todos os campos obrigatórios.');
 			}
 
-			const mandrillClient = new mandrill.Mandrill('md-TkMH2UDntO8pD8RG2LaW9Q');
+			const mandrillClient = new mandrill.Mandrill('md-x4UPmQMelL4KHO-J6fTVlQ');
 
 			const message = {
 				html: `
@@ -63,11 +63,11 @@ export function Form() {
 					<p><strong>Mensagem:</strong> ${data.mensagem}</p>
 				`,
 				subject: 'Novo pedido de informações de revendedor',
-				from_email: 'marcosv.longo@gmail.com',
+				from_email: 'recepcao@bateriasreal.com.br',
 				from_name: 'Seu Nome',
 				to: [
 					{
-						email: 'marcosv.longo@gmail.com',
+						email: 'recepcao@bateriasreal.com.br',
 						name: 'Nome do Destinatário',
 						type: 'to',
 					},

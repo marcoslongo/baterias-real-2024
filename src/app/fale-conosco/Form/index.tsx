@@ -28,10 +28,10 @@ export function Form() {
         throw new Error('Por favor, preencha todos os campos obrigatórios.');
       }
 
-      const mandrillClient = new mandrill.Mandrill('md-TkMH2UDntO8pD8RG2LaW9Q');
+      const mandrillClient = new mandrill.Mandrill('md-gNo9rHiGZKTIwGQu1-mzNw');
       const message = {
-        from_email: 'marcosv.longo@gmail.com',
-        to: [{ email: 'marcosv.longo@gmail.com', type: 'to' }],
+        from_email: 'recepcao@bateriasreal.com.br',
+        to: [{ email: 'recepcao@bateriasreal.com.br', type: 'to' }],
         subject: 'Nova Mensagem de Contato',
         html: `
           <p><strong>Nome:</strong> ${data.nome} ${data.sobrenome}</p>
