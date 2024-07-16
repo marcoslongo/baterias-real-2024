@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { IoLocationOutline, IoPhonePortraitOutline, IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
+import { Form } from "./Form";
 
 export default function FaleConosco() {
 	return (
@@ -44,24 +42,7 @@ export default function FaleConosco() {
 							icon={<IoMailOutline />}
 						/>
 					</div>
-					<div className="w-2/3 flex flex-col gap-4 bg-white shadow-md p-9 rounded-md justify-center">
-						<div className="grid grid-cols-2 gap-3">
-							<Input className="h-12 text-base" type="text" placeholder="Nome" />
-							<Input className="h-12 text-base" type="text" placeholder="Sobrenome" />
-						</div>
-						<div>
-							<Input className="h-12 text-base" type="email" placeholder="E-mail" />
-						</div>
-						<div>
-							<Input className="h-12 text-base" type="phone" placeholder="Celular" />
-						</div>
-						<div>
-							<Textarea className="h-40 text-base" placeholder="Digite sua mensagem" />
-						</div>
-						<div className="w-full flex">
-							<Button className="w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]">Enviar Mensagem</Button>
-						</div>
-					</div>
+					<Form/>
 				</div>
 			</div>
 		</main>
