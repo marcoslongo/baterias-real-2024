@@ -6,7 +6,7 @@ export async function getMidias() {
 		const { data } = await GqlClient.query({
 			query: gql`
 					query NewQuery {
-							midias {
+							midias(first:100) {
 								edges {
 									node {
 										id

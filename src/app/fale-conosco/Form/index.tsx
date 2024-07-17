@@ -1,11 +1,12 @@
-'use client';
-import { useState } from 'react';
+'use client'
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
+import { useState } from "react";
 
 type Inputs = {
   nome: string;
@@ -16,29 +17,44 @@ type Inputs = {
 };
 
 export function Form() {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<Inputs>();
+
   const [loading, setLoading] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     try {
       setLoading(true);
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (response.ok) {
-        toast.success('E-mail enviado com sucesso!');
-        reset();
-      } else {
-        toast.error('Erro ao enviar e-mail. Por favor, tente novamente mais tarde.');
+      if (!data.nome || !data.sobrenome || !data.email || !data.telefone || !data.mensagem) {
+        throw new Error('Por favor, preencha todos os campos obrigatórios.');
       }
-    } catch (error) {
+
+      const templateParams = {
+        nome: data.nome,
+        sobrenome: data.sobrenome,
+        email: data.email,
+        mensagem: data.mensagem,
+        telefone: data.telefone,
+      };
+
+      console.log('Enviando dados:', templateParams); // Para depuração
+
+      const response = await emailjs.send('service_cj9spuz', 'template_mot9fnl', templateParams, 'Nme405_wJLJl-HLvn');
+
+      if (response.status !== 200) {
+        throw new Error('Erro ao enviar o e-mail. Status: ' + response.status);
+      }
+
+      toast.success('Mensagem enviada com sucesso!');
+      reset();
+    } catch (error: any) {
       console.error('Erro ao enviar e-mail:', error);
-      toast.error('Erro ao enviar e-mail. Por favor, tente novamente mais tarde.');
+      toast.error('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
     } finally {
       setLoading(false);
     }
@@ -92,7 +108,7 @@ export function Form() {
             />
           </div>
           <div className="w-full flex">
-            <Button className="w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]" type="submit" disabled={loading}>
+            <Button className={`w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]" type="submit ${loading ? 'opacity-80' : 'opacity-100'}`}>
               {loading ? 'Enviando...' : 'Enviar Mensagem'}
             </Button>
           </div>

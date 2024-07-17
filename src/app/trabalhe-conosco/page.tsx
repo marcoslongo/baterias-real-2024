@@ -45,10 +45,13 @@ interface CardInfoVagaProps {
 }
 
 function CardInfoVaga({ name, info, slug }: CardInfoVagaProps) {
+	const renderHTML = (html: string) => {
+		return { __html: html };
+	};
 	return (
 		<div className="flex flex-col gap-2 bg-white rounded-md p-6 shadow-md">
 			<h2 className="font-bold text-2xl">{name}</h2>
-			<p>{info}</p>
+			<div dangerouslySetInnerHTML={renderHTML(info)} />
 			<Link href={`trabalhe-conosco/${slug}`} className="flex justify-center bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#DF0209]">Ver vaga<FaArrowRightLong size={16} /></Link>
 		</div>
 	);

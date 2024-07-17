@@ -7,7 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
-import mandrill from 'mandrill-api';
+import emailjs from '@emailjs/browser';
 
 type Inputs = {
 	nome: string;
@@ -26,48 +26,42 @@ export function Form() {
 
 	const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
 		try {
-			if (!data.nome || !data.sobrenome || !data.email || !data.celular || !data.endereco || !data.formacao || !data.experiencia || !data.habilidades) {
-				throw new Error('Por favor, preencha todos os campos obrigatórios.');
-			}
-
-			const mandrillClient = new mandrill.Mandrill('md-hOCn_sItFPWr1cBKG6FjBA');
-
-			const message = {
-				'html': `
-					<p><strong>Nome:</strong> ${data.nome} ${data.sobrenome}</p>
-					<p><strong>E-mail:</strong> ${data.email}</p>
-					<p><strong>Celular:</strong> ${data.celular}</p>
-					<p><strong>Endereço:</strong> ${data.endereco}</p>
-					<p><strong>Formação Acadêmica:</strong> ${data.formacao}</p>
-					<p><strong>Experiência Profissional:</strong> ${data.experiencia}</p>
-					<p><strong>Habilidades:</strong> ${data.habilidades}</p>
-				`,
-				'subject': 'Currículo recebido através do site',
-				'from_email': 'rh@bateriasreal.com.br',
-				'from_name': 'Nome da sua empresa',
-				'to': [
-					{
-						'email': 'rh@bateriasreal.com.br',
-						'name': 'Destinatário',
-						'type': 'to'
-					}
-				]
+			setLoading(true);
+			
+			const templateParams = {
+				nome: data.nome,
+				sobrenome: data.sobrenome,
+				email: data.email,
+				celular: data.celular,
+				endereco: data.endereco,
+				formacao: data.formacao,
+				experiencia: data.experiencia,
+				habilidades: data.habilidades
 			};
 
-			mandrillClient.messages.send({ 'message': message }, function (result: any) {
-				toast.success('Currículo enviado com sucesso!');
-				reset();
-			}, function (error: any) {
-				toast.error('Ocorreu um erro ao enviar o currículo. Por favor, tente novamente.');
-			});
+			const response = await emailjs.send(
+				'service_7sfibgj',
+				'template_n7fwxar',
+				templateParams,
+				'X-auc9xZrgmaFrC7s'
+			);
 
+			if (response.status !== 200) {
+				throw new Error('Erro ao enviar o e-mail. Status: ' + response.status);
+			}
+
+			toast.success('Currículo enviado com sucesso!');
+			reset();
 		} catch (error: any) {
-			toast.error(error.message);
+			console.error('Erro ao enviar e-mail:', error);
+			toast.error('Ocorreu um erro ao enviar o currículo. Por favor, tente novamente.');
+		} finally {
+			setLoading(false);
 		}
 	};
 
 	function displayErrors() {
-		if (errors) {
+		if (Object.keys(errors).length > 0) {
 			toast.warning('Preencha todos os campos!');
 		}
 	}
@@ -99,7 +93,9 @@ export function Form() {
 					<Textarea className="h-28 text-base" placeholder="Habilidades" {...register('habilidades', { required: 'Campo obrigatório' })} />
 				</div>
 				<div className="w-full flex">
-					<Button className="w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]">Enviar Currículo</Button>
+					<Button className="w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]" type="submit" disabled={loading}>
+						{loading ? 'Enviando...' : 'Enviar Currículo'}
+					</Button>
 				</div>
 			</form>
 			<ToastContainer />

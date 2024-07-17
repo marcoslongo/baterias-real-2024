@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default async function Feed() {
 	const feed = await getMidias();
+	console.log(feed);
 	return (
 		<main className="py-40">
 			<div className="container">

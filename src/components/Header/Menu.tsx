@@ -70,7 +70,7 @@ export function Menu() {
 								</NavigationMenuLink>
 							</li>
 							<div className="flex flex-col w-[49%]">
-								<ListItem href="/produtos/linha-evolution" title="Linha Evolution" />
+								<ListItem href="/produtos/evolution" title="Linha Evolution" />
 								<ListItem href="/produtos/linha-gold" title="Linha Gold" />
 								<ListItem href="/produtos/linha-efb" title="Linha EFB" />
 								<ListItem href="/produtos/linha-convencional" title="Linha Convencional" />
