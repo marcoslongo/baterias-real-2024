@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Form } from "./Form";
 export default function CanalDeDenuncias() {
 	return (
 		<main className="pt-28 pb-40">
@@ -19,6 +20,7 @@ export default function CanalDeDenuncias() {
 					priority
 				/>
 			</div>
+			<Form />
 		</main>
 	);
 }
