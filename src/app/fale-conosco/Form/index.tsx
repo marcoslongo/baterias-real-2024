@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import mandrill from 'mandrill-api';
 
 type Inputs = {
   nome: string;
@@ -21,36 +20,25 @@ export function Form() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
-    setLoading(true);
-
     try {
-      if (!data.nome || !data.sobrenome || !data.email || !data.telefone || !data.mensagem) {
-        throw new Error('Por favor, preencha todos os campos obrigatórios.');
-      }
-
-      const mandrillClient = new mandrill.Mandrill('md-gNo9rHiGZKTIwGQu1-mzNw');
-      const message = {
-        from_email: 'recepcao@bateriasreal.com.br',
-        to: [{ email: 'recepcao@bateriasreal.com.br', type: 'to' }],
-        subject: 'Nova Mensagem de Contato',
-        html: `
-          <p><strong>Nome:</strong> ${data.nome} ${data.sobrenome}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Telefone:</strong> ${data.telefone}</p>
-          <p><strong>Mensagem:</strong> ${data.mensagem}</p>
-        `,
-      };
-
-      mandrillClient.messages.send({ message }, (result) => {
-        console.log(result);
-        toast.success('Mensagem enviada com sucesso!');
-        reset();
-      }, (error) => {
-        console.error(error);
-        toast.error('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.');
+      setLoading(true);
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
-    } catch (error: any) {
-      toast.error(error.message);
+
+      if (response.ok) {
+        toast.success('E-mail enviado com sucesso!');
+        reset();
+      } else {
+        toast.error('Erro ao enviar e-mail. Por favor, tente novamente mais tarde.');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar e-mail:', error);
+      toast.error('Erro ao enviar e-mail. Por favor, tente novamente mais tarde.');
     } finally {
       setLoading(false);
     }
@@ -91,7 +79,7 @@ export function Form() {
           <div>
             <Input
               className="h-12 text-base"
-              type="phone"
+              type="tel"
               placeholder="Telefone"
               {...register('telefone', { required: 'Campo obrigatório' })}
             />

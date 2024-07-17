@@ -27,9 +27,9 @@ export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 				<div className="grid grid-cols-2 gap-9">
 					<div className="flex flex-col gap-8 bg-white rounded-md p-8 shadow">
 						<CardInfo title="Descrição" text={vaga.vagasDisponVeis.descricao} />
-						<CardInfo title="Benefícios" text={vaga.vagasDisponVeis.beneficios} />
 						<CardInfo title="Requisitos" text={vaga.vagasDisponVeis.requisitos} />
-						<CardInfo title="Responsabilidades" text={vaga.vagasDisponVeis.responsabilidades} />
+						<CardInfo title="Responsabilidades" text={vaga.vagasDisponVeis.responsabilidades} />						
+						<CardInfo title="Benefícios" text={vaga.vagasDisponVeis.beneficios} />
 					</div>
 					<Form />
 				</div>
@@ -44,10 +44,13 @@ interface CardInfoProps {
 }
 
 function CardInfo({ title, text }: CardInfoProps) {
+	const renderHTML = (html: string) => {
+		return { __html: html };
+	};
 	return (
 		<div className="flex flex-col gap-2">
 			<h2 className="font-bold text-2xl">{title}</h2>
-			<p>{text}</p>
+			<div dangerouslySetInnerHTML={renderHTML(text)} />
 		</div>
 	);
 }

@@ -17,19 +17,14 @@ import { FaArrowRightLong } from "react-icons/fa6"
 const downloads: { title: string; href: string; description: string }[] = [
 	{
 		title: "Feed",
-		href: "/docs/primitives/alert-dialog",
+		href: "/midias/feed",
 		description:
 			"Posts para o feed do instagram e facebook",
 	},
 	{
 		title: "Stories",
-		href: "/",
+		href: "/midias/story",
 		description: "Posts para os stories do instagram, facebook e whatsapp",
-	},
-	{
-		title: "Videos",
-		href: "/",
-		description: "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
 	}
 ]
 
