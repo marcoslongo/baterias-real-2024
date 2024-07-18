@@ -1,11 +1,9 @@
 
-import { getMidias } from "@/app/api/getMidias";
-import { DownloadFile } from "@/components/DownloadFile";
 import Image from "next/image";
+import DisplayPosts from "./DisplayPosts";
 
 
 export default async function Feed() {
-	const feed = await getMidias();
 	return (
 		<main className="pt-28 pb-40">
 			<div className="relative w-full min-h-[525px] mb-10 flex items-center bg-white">
@@ -25,27 +23,7 @@ export default async function Feed() {
 					/>
 				</div>
 			</div>
-			<div className="container">
-				<div className="grid grid-cols-3 gap-7">
-					{feed.map((post: any) => (
-						(post.node.camposMidias.adicionarMidia === 'Story') && (
-							<div key={post.node.id}>
-								<figure className="relative w-full h-[400px]">
-									<Image
-										src={post.node.camposMidias.imagemStory.node.mediaItemUrl}
-										alt={post.node.camposMidias.imagemStory.node.mediaItemUrl}
-										fill
-										objectFit="cover"
-									/>
-								</figure>
-								<div className="flex justify-center mt-4">
-									<DownloadFile url={post.node.camposMidias.imagemStory.node.mediaItemUrl} />
-								</div>
-							</div>
-						)
-					))}
-				</div>
-			</div>
+			<DisplayPosts/>
 		</main>
 	);
 }

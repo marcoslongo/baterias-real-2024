@@ -2,12 +2,12 @@ import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 import { MidiasResponse } from "@/@types/Midias";
 
-export async function getMidias(after: string | null = null): Promise<MidiasResponse> {
+export async function getMidiasStory(after: string | null = null): Promise<MidiasResponse> {
   try {
     const { data } = await GqlClient.query({
       query: gql`
         query NewQuery($after: String) {
-          tipos(where: {slug: "feed"}) {
+          tipos(where: {slug: "story"}) {
             edges {
               node {
                 id
