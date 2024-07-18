@@ -1,3 +1,4 @@
+
 import { getMidias } from "@/api/getMidias";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,6 @@ import Link from "next/link";
 
 export default async function Feed() {
 	const feed = await getMidias();
-	console.log(feed);
 	return (
 		<main className="py-40">
 			<div className="container">
