@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getProdutosBateriaIdeal } from '@/api/getProdutosBateriaIdeal';
+import { getProdutosBateriaIdeal } from '@/app/api/getProdutosBateriaIdeal';
 import { Card } from '@/components/Card';
 import { TbAlertHexagonFilled } from "react-icons/tb";
 

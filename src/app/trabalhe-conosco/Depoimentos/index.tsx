@@ -1,6 +1,6 @@
 "use client"
 import { TestemunhoData } from "@/@types/Testemunhos";
-import { getTestemunhos } from "@/api/getTestemunhos";
+import { getTestemunhos } from "@/app/api/getTestemunhos";
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from 'swiper/react';

@@ -1,4 +1,4 @@
-import { getCategoriasProdutos } from "@/api/getCategoriasProdutos";
+import { getCategoriasProdutos } from "@/app/api/getCategoriasProdutos";
 import { Card } from "./Card";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
 

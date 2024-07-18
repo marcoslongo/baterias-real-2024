@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { IoIosClose } from "react-icons/io";
 import Image from "next/image";
-import { getProdutoById } from "@/api/getProdutosById";
+import { getProdutoById } from "@/app/api/getProdutosById";
 import { Skeleton } from "@/components/ui/skeleton"
 
 

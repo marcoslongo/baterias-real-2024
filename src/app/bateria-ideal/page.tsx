@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getTiposDeVeiculos } from "@/api/getTiposDeVeiculos";
+import { getTiposDeVeiculos } from "@/app/api/getTiposDeVeiculos";
 import {
   Select,
   SelectContent,

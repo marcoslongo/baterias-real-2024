@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "proxy": "https://andamento.estudioa.com.br",
   "dependencies": {
     "@apollo/client": "^3.10.4",
     "@emailjs/browser": "^4.4.1",

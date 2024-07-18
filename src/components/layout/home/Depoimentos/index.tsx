@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Card } from './Card';
-import { getDepoimentos } from '@/api/getDepoimentos';
+import { getDepoimentos } from '@/app/api/getDepoimentos';
 import { DepoimentoData } from '@/@types/Depoimentos';
 
 export function Depoimentos() {

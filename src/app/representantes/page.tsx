@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { FaLocationDot } from "react-icons/fa6";
 import { RepresentantesData } from "@/@types/Representantes";
-import { getRepresentantes } from "@/api/getRepresentantes";
+import { getRepresentantes } from "@/app/api/getRepresentantes";
 import { Card } from "./Card";
 
 

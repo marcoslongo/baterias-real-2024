@@ -1,4 +1,4 @@
-import { getVagaBySlug } from "@/api/getVagaBySlug";
+import { getVagaBySlug } from "@/app/api/getVagaBySlug";
 import { Form } from "./Form";
 
 interface PageVagasProps {
