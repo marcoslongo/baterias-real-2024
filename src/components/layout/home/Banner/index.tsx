@@ -18,8 +18,8 @@ export function Banner() {
             Baterias Real. Seu Destino, Nossa Energia!
           </h1>
           <div className="flex justify-center md:justify-start">
-            <Link href="" className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#DF0209]">
-              Conheça nossas baterias
+            <Link href="/bateria-ideal" className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#DF0209]">
+              Encontre a bateria ideal para você
               <BsLightningChargeFill size={20} />
             </Link>
           </div>
