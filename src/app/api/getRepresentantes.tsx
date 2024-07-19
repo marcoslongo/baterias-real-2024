@@ -1,36 +1,68 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
-export async function getRepresentantes() {
-    try {
-        const { data } = await GqlClient.query({
-            query: gql`
-                query NewQuery {
-                    representantes(first:300) {
-                        edges {
-                            node {
-                                id
-                                title
-                                representantes {
-                                    estado
-                                    regiaoAtendida
-                                    telefone
-                                }
-                            }
-                        }
-                    }
-                }
-            `,
-        });
+interface RepresentanteNode {
+	id: string;
+	title: string;
+	representantes: {
+		regiaoAtendida: string;
+		telefone: string;
+	};
+}
 
-        if (!data.representantes) {
-            throw new Error("Dados não encontrados");
-        }
-        const dataRepresentantes = data.representantes.edges;
+interface EstadoNode {
+	id: string;
+	name: string;
+	representantes: {
+		edges: { node: RepresentanteNode }[];
+	};
+}
 
-        return dataRepresentantes;
-    } catch (error) {
-        console.error("Erro ao obter dados:", error);
-        return [];
-    }
+interface EstadoEdge {
+	node: EstadoNode;
+}
+
+interface RepresentantesData {
+	estados: {
+		edges: EstadoEdge[];
+	};
+}
+
+export async function getRepresentantes(): Promise<EstadoEdge[]> {
+	try {
+		const { data } = await GqlClient.query({
+			query: gql`
+				query NewQuery {
+					estados(first: 30) {
+						edges {
+							node {
+								id
+								name
+								representantes(first: 200) {
+									edges {
+										node {
+											id
+											title
+											representantes {
+												regiaoAtendida
+												telefone
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			`,
+		});
+
+		if (!data.estados) {
+			throw new Error("Dados não encontrados");
+		}
+		return data.estados.edges;
+	} catch (error) {
+		console.error("Erro ao obter dados:", error);
+		return [];
+	}
 }
