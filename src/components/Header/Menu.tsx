@@ -50,6 +50,11 @@ export function Menu() {
 						Sobre a Real
 					</Link>
 				</NavigationMenuItem>
+				<NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2 rounded-md">
+					<Link href="/representantes" legacyBehavior passHref>
+						Representantes
+					</Link>
+				</NavigationMenuItem>
 				<NavigationMenuItem className="bg-transparent">
 					<NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209]">Produtos</NavigationMenuTrigger>
 					<NavigationMenuContent className="w-full flex">
@@ -96,15 +101,10 @@ export function Menu() {
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
-				<NavigationMenuItem className="transition hover:text-[#DF0209] hover:bg-gray-100 px-4 py-2 rounded-md">
-					<Link href="/representantes" legacyBehavior passHref>
-						Representantes
-					</Link>
-				</NavigationMenuItem>
 				<NavigationMenuItem>
 					<NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209]">Contatos</NavigationMenuTrigger>
 					<NavigationMenuContent>
-						<ul className="flex flex-col w-[200px] gap-3 p-4 md:w-[500px] lg:w-[220px]">
+						<ul className="grid grid-cols-2 p-4 w-[600px]">
 							{contatos.map((item) => (
 								<ListItem
 									key={item.title}

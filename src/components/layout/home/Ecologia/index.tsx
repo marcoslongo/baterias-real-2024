@@ -13,12 +13,12 @@ export function Ecologia() {
         </div>
         <div className="w-full lg:w-2/3 flex gap-6 flex-col">
           <div className="flex flex-col gap-4">
-            <h2 className="text-6xl font-bold">Compromisso com a Natureza</h2>
-            <p className="text-lg">
+            <h2 className="text-4xl md:text-6xl font-bold">Compromisso com a Natureza</h2>
+            <p className="text-base md:text-lg">
               Na Baterias Real, nossa preocupação com o meio ambiente é uma prioridade. Implementamos uma política rigorosa de logística reversa, garantindo que nossas baterias sejam recolhidas, recicladas e descartadas de forma adequada. Nosso compromisso é reduzir o impacto ambiental, promovendo a sustentabilidade e a responsabilidade ecológica em cada etapa do processo. Através da logística reversa, contribuímos para um futuro mais verde e seguro para todos.
             </p>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-col md:flex-row gap-8">
             <div className="w-full lg:w-1/3 bg-[#A60004] rounded-3xl py-8 px-6 flex flex-col gap-5 justify-center">
               <Image
                 src={"/assets/images/sustentavel.svg"}

@@ -28,8 +28,8 @@ export function Depoimentos() {
     <section className="py-20">
       <div className="container">
         <div className='flex flex-col gap-3'>
-          <h2 className="text-center text-6xl font-bold">Depoimentos</h2>
-          <p className='text-center text-lg'>Vozes de quem confia no nosso trabalho, histórias de sucesso e satisfação.</p>
+          <h2 className="text-center text-4xl md:text-6xl font-bold">Depoimentos</h2>
+          <p className='text-center text-base md:text-lg'>Vozes de quem confia no nosso trabalho, histórias de sucesso e satisfação.</p>
         </div>
         <Swiper
           slidesPerView={1}

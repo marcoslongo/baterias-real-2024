@@ -30,7 +30,7 @@ export function Banner() {
         alt="alt"
         width={880}
         height={500}
-        className="absolute right-0 z-20 top-1/3"
+        className="hidden md:block absolute right-0 z-20 top-1/3"
         priority
       />
       <Image
