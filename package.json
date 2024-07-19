@@ -37,6 +37,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/google.visualization": "^0.0.74",
     "@types/mandrill-api": "^1.0.34",
     "@types/node": "^20",
     "@types/react": "^18",

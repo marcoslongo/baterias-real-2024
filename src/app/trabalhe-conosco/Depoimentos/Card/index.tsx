@@ -23,7 +23,7 @@ export function Card({ name, text, image, time, sector }: CardProps) {
 					<p className="font-semibold">{sector}</p>
 				</div>
 			</div>
-			<p className="italic">"{text}"</p>
+			<p className="italic">&quot;{text}&quot;</p>
 		</div>
 	);
 }

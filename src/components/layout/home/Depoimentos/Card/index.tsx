@@ -20,7 +20,7 @@ export function Card({ name, text, image, citystate, company }: CardProps) {
                 <h2 className="font-bold text-xl">{name}</h2>
             </div>
             <div className="text-center flex flex-col gap-2">
-                <p className="italic">"{text}"</p>
+                <p className="italic">&quot;{text}&quot;</p>
                 <h3 className="font-semibold">{company} / {citystate}</h3>
             </div>
         </div>
