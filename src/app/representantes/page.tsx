@@ -5,7 +5,6 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { Card } from './Card';
 import { getRepresentantes } from '../api/getRepresentantes';
 
-// Definições de tipos
 interface Representante {
 	nome: string;
 	telefone: string;
@@ -16,7 +15,6 @@ interface RepresentantesPorEstado {
 	[key: string]: Representante[];
 }
 
-// Tipos para dados da API
 interface RepresentanteNode {
 	id: string;
 	title: string;
@@ -102,7 +100,7 @@ const Representantes: React.FC = () => {
 		colorAxis: {
 			colors: ['#DF0209', '#DF0209'],
 		},
-		backgroundColor: '#f0f0f0',
+		backgroundColor: '#fff',
 		legend: {
 			position: 'none',
 		},

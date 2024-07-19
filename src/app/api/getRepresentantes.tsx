@@ -22,12 +22,6 @@ interface EstadoEdge {
 	node: EstadoNode;
 }
 
-interface RepresentantesData {
-	estados: {
-		edges: EstadoEdge[];
-	};
-}
-
 export async function getRepresentantes(): Promise<EstadoEdge[]> {
 	try {
 		const { data } = await GqlClient.query({
