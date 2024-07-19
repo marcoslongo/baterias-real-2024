@@ -1,10 +1,11 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { Chart } from "react-google-charts";
-import { FaLocationDot } from "react-icons/fa6";
-import { Card } from "./Card";
-import { getRepresentantes } from "../api/getRepresentantes";
+'use client'
+import React, { useState, useEffect } from 'react';
+import { Chart } from 'react-google-charts';
+import { FaLocationDot } from 'react-icons/fa6';
+import { Card } from './Card';
+import { getRepresentantes } from '../api/getRepresentantes';
 
+// Definições de tipos
 interface Representante {
 	nome: string;
 	telefone: string;
@@ -15,12 +16,34 @@ interface RepresentantesPorEstado {
 	[key: string]: Representante[];
 }
 
+// Tipos para dados da API
+interface RepresentanteNode {
+	id: string;
+	title: string;
+	representantes: {
+		regiaoAtendida: string;
+		telefone: string;
+	};
+}
+
+interface EstadoNode {
+	id: string;
+	name: string;
+	representantes: {
+		edges: { node: RepresentanteNode }[];
+	};
+}
+
+interface EstadoEdge {
+	node: EstadoNode;
+}
+
 const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 	try {
-		const estados = await getRepresentantes();
+		const estados: EstadoEdge[] = await getRepresentantes();
 		const representantesPorEstadoTemp: RepresentantesPorEstado = {};
 
-		estados.forEach((estadoEdge) => {
+		estados.forEach((estadoEdge: EstadoEdge) => {
 			const estado = estadoEdge.node;
 			const estadoNome = estado.name;
 
@@ -44,7 +67,7 @@ const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 	}
 };
 
-export function Representantes() {
+const Representantes: React.FC = () => {
 	const [estadoSelecionado, setEstadoSelecionado] = useState<string | null>(null);
 	const [representantesPorEstado, setRepresentantesPorEstado] = useState<RepresentantesPorEstado>({});
 
@@ -79,7 +102,10 @@ export function Representantes() {
 		colorAxis: {
 			colors: ['#DF0209', '#DF0209'],
 		},
-		backgroundColor: '#fff',
+		backgroundColor: '#f0f0f0',
+		legend: {
+			position: 'none',
+		},
 	};
 
 	return (
@@ -134,6 +160,6 @@ export function Representantes() {
 			</div>
 		</main>
 	);
-}
+};
 
 export default Representantes;
