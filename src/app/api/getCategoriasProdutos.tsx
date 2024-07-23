@@ -14,16 +14,17 @@ export async function getCategoriasProdutos(): Promise<CategoriasData> {
                                 name
                                 slug
                                 linhas {
-                                bannerDaCategoria {
-                                    node {
-                                        mediaItemUrl
+                                    exibirEssaCategoriaNaHomePage
+                                    bannerDaCategoria {
+                                        node {
+                                            mediaItemUrl
+                                        }
                                     }
-                                }
-                                bateria {
-                                    node {
-                                        mediaItemUrl
+                                    bateria {
+                                        node {
+                                            mediaItemUrl
+                                        }
                                     }
-                                }
                                 }
                             }
                         }

@@ -10,8 +10,8 @@ interface CardProps {
 
 export function Card({ name, imageBatery, bgBatery, href }: CardProps) {
   return (
-    <Link href={href} className="w-full h-[200px] flex relative transition hover:scale-105">
-      <div className="relative z-10 text-white pt-4 pl-10 flex flex-col">
+    <Link href={href} className="w-full h-[400px] flex relative transition hover:scale-105">
+      <div className="relative z-10 text-white pt-4 pl-10 flex flex-col justify-center">
         <Image
           src={imageBatery}
           alt={name}

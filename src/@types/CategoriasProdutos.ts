@@ -3,6 +3,7 @@ export interface Categoria {
     name: string;
     slug: string;
     linhas: {
+        exibirEssaCategoriaNaHomePage: boolean;
         bannerDaCategoria: {
             node: {
                 mediaItemUrl: string;
