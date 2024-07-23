@@ -21,7 +21,7 @@ export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 	}
 
 	return (
-		<main className="py-40">
+		<main className="pb-40 pt-10">
 			<div className="container flex flex-col gap-6">
 				<h1 className="text-4xl font-bold text-center">{vaga.title}</h1>
 				<div className="grid grid-cols-2 gap-9">

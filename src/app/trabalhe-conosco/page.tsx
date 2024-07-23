@@ -8,7 +8,7 @@ import { Banner } from "./Banner";
 export default async function TrabalheConosco() {
 	const vagas = await getVagas();
 	return (
-		<main className="pt-28 pb-40">
+		<main className="pb-40">
 			<Banner />
 			<div className="container flex flex-col items-center gap-10">
 				<div className="w-full">

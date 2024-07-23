@@ -4,7 +4,7 @@ import { GiChart } from "react-icons/gi";
 
 export default function Intitucional() {
 	return (
-		<main className="py-40">
+		<main className="pb-40">
 			<div className="container">
 				<article className="w-full flex flex-col flex-wrap gap-5">
 					<h1 className="font-bold text-4xl">Sobre a Empresa</h1>

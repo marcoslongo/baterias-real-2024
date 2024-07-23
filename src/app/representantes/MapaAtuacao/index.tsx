@@ -107,7 +107,7 @@ const Representantes: React.FC = () => {
 	};
 
 	return (
-		<div className="pb-40">
+		<div>
 			<div className="container flex justify-between">
 				<div className="w-[65%] overflow-hidden rounded-lg shadow-lg bg-white">
 					<Chart

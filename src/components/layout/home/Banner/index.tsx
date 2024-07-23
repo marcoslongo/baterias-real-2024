@@ -4,17 +4,17 @@ import { BsLightningChargeFill } from "react-icons/bs";
 
 export function Banner() {
   return (
-    <section className="relative h-[90vh] w-full">
+    <section className="relative h-[74vh] w-full">
       <div className="container h-full flex items-center">
-        <div className="w-full lg:w-3/5 relative z-30 flex gap-6 flex-col mt-0 md:mt-[100px]">
+        <div className="w-full lg:w-3/5 relative z-30 flex gap-6 flex-col">
           <h2 className="text-4xl md:text-6xl text-center md:text-left font-bold leading-none">
             Para longas jornadas muito mais
             <span className="text-[#DF0209]"> energia</span>
           </h2>
-          <p className="text-center md:text-left pr-12">
+          <p className="text-center md:text-left md:pr-12">
             Com 44 anos de história, a Baterias Real oferece qualidade inigualável e energia duradoura para todos os desafios. Nossas linhas de baterias leves e pesadas são desenvolvidas para atender cada necessidade com a solução perfeita em acumuladores de energia automotiva. Seja para veículos leves ou para os maiores desafios em transporte e maquinário, a Baterias Real está ao seu lado com tecnologia de ponta e desempenho superior.
           </p>
-          <h1 className="text-xl font-bold">
+          <h1 className="text-xl font-bold text-center md:text-left">
             Baterias Real. Seu Destino, Nossa Energia!
           </h1>
           <div className="flex justify-center md:justify-start">
@@ -28,13 +28,13 @@ export function Banner() {
       <Image
         src={"/assets/images/baterias-home.webp"}
         alt="alt"
-        width={880}
+        width={800}
         height={500}
-        className="hidden md:block absolute right-0 z-20 top-1/3"
+        className="hidden md:block absolute right-0 z-20 top-40"
         priority
       />
       <Image
-        className="w-full h-full absolute object-cover z-10"
+        className="w-full h-full absolute z-10"
         src={"/assets/images/bg-banner-home.webp"}
         alt="alt"
         fill

@@ -5,7 +5,7 @@ import DisplayPosts from "./DisplayPosts";
 
 export default async function Feed() {
 	return (
-		<main className="pt-28 pb-40">
+		<main className="pb-40">
 			<div className="relative w-full min-h-[525px] mb-10 flex items-center bg-white">
 				<div className="container flex justify-between">
 					<div className="w-2/5 flex flex-col gap-4 justify-center">

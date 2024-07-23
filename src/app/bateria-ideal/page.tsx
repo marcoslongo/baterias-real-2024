@@ -43,7 +43,7 @@ export default function BateriaIdeal() {
   if (error) return <p>Erro ao carregar tipos de veículos: {error.message}</p>;
 
   return (
-    <main className="py-40 min-h-[70vh]">
+    <main className="pt-20 pb-40 min-h-[60vh]">
       <div className="container h-full flex flex-col items-center gap-4">
         <div className="flex flex-col items-center mb-6">
           <h1 className="font-bold text-5xl flex gap-2">
@@ -52,7 +52,7 @@ export default function BateriaIdeal() {
           </h1>
           <p className="text-lg">Selecione o tipo de veículo que deseja.</p>
         </div>
-        <div className="w-2/4 bg-white">
+        <div className="w-full md:w-2/4 bg-white">
           <Select onValueChange={value => setSelectedTipoId(value)}>
             <SelectTrigger className="w-full h-12 text-base">
               <SelectValue placeholder="Selecione um tipo de veículo" />

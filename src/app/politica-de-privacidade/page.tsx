@@ -1,6 +1,6 @@
 export default function PoliticaDePrivacidade() {
 	return (
-		<main className="py-40">
+		<main className="pb-40">
 			<div className="container">
 				<article className="flex flex-col gap-5">
 					<h1 className="font-bold text-4xl">Política de Privacidade</h1>

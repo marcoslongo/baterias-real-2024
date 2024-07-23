@@ -2,36 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getProdutosBateriaIdeal } from '@/app/api/getProdutosBateriaIdeal';
 import { Card } from '@/components/Card';
 import { TbAlertHexagonFilled } from "react-icons/tb";
-
-interface Produto {
-	__typename: string;
-	id: string;
-	title: string;
-	produtos: {
-		imageDoProduto: {
-			node: {
-				mediaItemUrl: string;
-			}
-		}
-	}
-}
-
-interface TipoDeVeiculo {
-	__typename: string;
-	id: string;
-	name: string;
-	produtos: {
-		__typename: string;
-		edges: {
-			__typename: string;
-			node: Produto;
-		}[];
-	};
-}
-
-interface DisplayProductsProps {
-	tipoId: string;
-}
+import { DisplayProductsProps, TipoDeVeiculo } from '@/@types/BateriaIdeal';
 
 export function DisplayProducts({ tipoId }: DisplayProductsProps) {
 	const [produtos, setProdutos] = useState<TipoDeVeiculo | null>(null);
@@ -68,7 +39,7 @@ export function DisplayProducts({ tipoId }: DisplayProductsProps) {
 				</div>
 
 				{produtos.produtos.edges.length > 0 ? (
-					<div className='grid grid-cols-3 gap-8'>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 						{produtos.produtos.edges.map(item => (
 							<Card
 								key={item.node.id}

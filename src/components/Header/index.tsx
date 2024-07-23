@@ -7,7 +7,7 @@ import { MenuMobile } from "./Menumobile";
 export function Header() {
   return (
     <>
-      <header className="w-full absolute z-40 bg-white shadow-md">
+      <header className="w-full bg-white shadow-md relative z-20">
         <div className="container flex justify-between items-center py-7">
           <Link href="/">
             <Image
