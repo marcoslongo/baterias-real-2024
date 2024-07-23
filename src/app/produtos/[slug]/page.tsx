@@ -15,10 +15,10 @@ export default async function PageProdutos({ params: { slug } }: PageProdutosPro
 
 	return (
 		<main>
-			<section className="relative h-[70vh] w-full">
+			<section className="relative h-[64vh] w-full">
 				<div className="container h-full">
 					<div className="relative z-30 grid grid-cols-2 gap-8 h-full items-center">
-						<div className="mt-28 relative h-[450px]">
+						<div className="relative h-[450px]">
 							<Image
 								src={banner.linhas.imagemBannerInterno.node.mediaItemUrl}
 								alt={banner.name}
