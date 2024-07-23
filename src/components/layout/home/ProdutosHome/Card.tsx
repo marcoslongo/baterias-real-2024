@@ -15,7 +15,7 @@ export function Card({ name, imageBatery, bgBatery, href }: CardProps) {
         <Image
           src={imageBatery}
           alt={name}
-          width={124}
+          width={150}
           height={75}
         />
         <h2 className="font-semibold text-xl">

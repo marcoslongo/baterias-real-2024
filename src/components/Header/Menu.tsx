@@ -57,7 +57,7 @@ export function Menu() {
 				</NavigationMenuItem>
 				<NavigationMenuItem className="bg-transparent">
 					<NavigationMenuTrigger className="text-base font-normal hover:text-[#DF0209]">Produtos</NavigationMenuTrigger>
-					<NavigationMenuContent className="w-full flex">
+					<NavigationMenuContent className="w-full flex absolute">
 						<ul className="flex gap-1 p-6 md:w-[600px] lg:w-[500px] justify-between">
 							<li className="w-[40%]">
 								<NavigationMenuLink asChild>
