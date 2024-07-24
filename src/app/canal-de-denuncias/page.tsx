@@ -9,6 +9,9 @@ export async function generateMetadata() {
 		alternates: {
 			canonical: `${BASE_URL}/canal-de-denuncias`,
 		},
+		robots: {
+			index: false,
+		},
 	};
 }
 

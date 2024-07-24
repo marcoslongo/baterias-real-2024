@@ -45,11 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${BASE_URL}/seja-um-revendedor`,
     },
-    {
-      url: `${BASE_URL}/canal-de-denuncias`,
-    },
-    {
-      url: `${BASE_URL}/garantia`,
-    },
   ];
 }

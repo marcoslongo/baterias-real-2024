@@ -9,6 +9,9 @@ export async function generateMetadata() {
 		alternates: {
 			canonical: `${BASE_URL}/garantia`,
 		},
+		robots: {
+			index: false,
+		},
 	};
 }
 
