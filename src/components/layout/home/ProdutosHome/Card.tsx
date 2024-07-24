@@ -18,8 +18,8 @@ export function Card({ name, imageBatery, bgBatery, href }: CardProps) {
           width={150}
           height={75}
         />
-        <h2 className="font-semibold text-xl">
-          LINHA <br /> <span className="italic text-3xl">{name}</span>
+        <h2 className="font-semibold text-2xl">
+          LINHA <br /> <span className="italic text-[2rem]">{name}</span>
         </h2>
       </div>
       <Image
