@@ -20,11 +20,16 @@ export default function DiplayPosts() {
 
   async function loadMoreMidias(cursor: string | null = null) {
     if (loading) return;
+    
 
     setLoading(true);
 
     try {
       const { edges, pageInfo }: MidiasResponse = await getMidias(cursor);
+
+      if(loading){
+        console.log('carregando');
+      }
 
       setFeed(prevFeed => {
         const newFeed = [...prevFeed, ...edges.map(edge => edge.node)];
@@ -53,7 +58,7 @@ export default function DiplayPosts() {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-7 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-7 mb-8">
             {feed.map((post) => (
               (post.camposMidias.adicionarMidia === 'Feed') && (
                 <div key={post.id}>

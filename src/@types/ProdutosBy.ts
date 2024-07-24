@@ -1,21 +1,21 @@
 export interface ImageDoProdutoNode {
-    mediaItemUrl: string;
+	mediaItemUrl: string;
 }
 
 export interface ImageDoProduto {
-    node: ImageDoProdutoNode;
+	node: ImageDoProdutoNode;
 }
 
 export interface ProdutoDetalhe {
-    capacidade: string;
-    correnteDePartida: string;
-    peso: string;
-    tensNominal: string;
-    imageDoProduto: ImageDoProduto;
+	capacidade: string;
+	correnteDePartida: string;
+	peso: string;
+	tensNominal: string;
+	imageDoProduto: ImageDoProduto;
 }
 
 export interface Produto {
-    id: string;
-    title: string;
-    produtos: ProdutoDetalhe;
+	id: string;
+	title: string;
+	produtos: ProdutoDetalhe;
 }
