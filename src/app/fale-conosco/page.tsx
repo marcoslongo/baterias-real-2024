@@ -5,7 +5,7 @@ import { Form } from "./Form";
 
 export default function FaleConosco() {
 	return (
-		<main className="pt-28 pb-40">
+		<main className="pb-40">
 			<div className="relative w-full min-h-[525px] mb-10 flex items-center">
 				<div className="container relative z-20">
 					<div className="w-1/3 flex flex-col gap-4">
