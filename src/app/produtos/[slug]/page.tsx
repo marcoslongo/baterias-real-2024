@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getProdutosByLinha } from "@/app/api/getProdutosByLinha";
-import { Card } from "@/components/Card";
+import { Card } from "@/components/CardProduto";
 
 interface PageProdutosProps {
 	params: {

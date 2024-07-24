@@ -4,7 +4,7 @@ import { BsLightningChargeFill } from "react-icons/bs";
 
 export function Banner() {
   return (
-    <section className="relative h-[74vh] w-full">
+    <section className="relative h-[670px] w-full">
       <div className="container h-full flex items-center">
         <div className="w-full lg:w-3/5 relative z-30 flex gap-6 flex-col">
           <h2 className="text-4xl md:text-6xl text-center md:text-left font-bold leading-none">
