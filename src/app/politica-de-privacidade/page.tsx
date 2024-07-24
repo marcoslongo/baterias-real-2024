@@ -1,6 +1,19 @@
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Política de Privacidade',
+		description: 'A Real está comprometida em proteger a privacidade e os dados pessoais de seus usuários. Esta Política de Privacidade explica como coletamos, usamos, compartilhamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD).',
+		alternates: {
+			canonical: `${BASE_URL}/politica-de-privacidade`,
+		},
+	};
+}
+
+
 export default function PoliticaDePrivacidade() {
 	return (
-		<main className="pb-40">
+		<main className="pt-14 pb-40">
 			<div className="container">
 				<article className="flex flex-col gap-5">
 					<h1 className="font-bold text-4xl">Política de Privacidade</h1>

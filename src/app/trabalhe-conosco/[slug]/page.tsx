@@ -1,9 +1,21 @@
 import { getVagaBySlug } from "@/app/api/getVagaBySlug";
 import { Form } from "./Form";
+import { BASE_URL } from "@/constants/baseUrl";
 
 interface PageVagasProps {
 	params: {
 		slug: string;
+	};
+}
+
+export async function generateMetadata({ params: { slug } }: PageVagasProps) {
+	const vaga = await getVagaBySlug(slug);
+	return {
+		title: `Baterias Real - ${vaga.title} `,
+		description: `${vaga.vagasDisponVeis.descricao}`,
+		alternates: {
+			canonical: `${BASE_URL}/trabalhe-conosco/${slug}`,
+		},
 	};
 }
 

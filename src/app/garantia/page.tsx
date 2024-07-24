@@ -1,5 +1,17 @@
 import Image from "next/image";
 import { Form } from "./Form";
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Garantias',
+		description: 'Bem-vindo ao nosso Canal de Garantias. Aqui, você pode registrar suas solicitações de garantia de forma rápida e segura. Por favor, preencha o formulário abaixo para iniciar o processo.',
+		alternates: {
+			canonical: `${BASE_URL}/garantia`,
+		},
+	};
+}
+
 export default function Garantia() {
 	return (
 		<main className="pb-40">

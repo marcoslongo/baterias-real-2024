@@ -2,6 +2,18 @@ import Link from "next/link";
 import { IoLocationOutline, IoPhonePortraitOutline, IoMailOutline } from "react-icons/io5";
 import Image from "next/image";
 import { Form } from "./Form";
+import { BASE_URL } from "@/constants/baseUrl";
+
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Fale conosco',
+		description: 'Entre em contato conosco para esclarecer dúvidas, obter informações e contribuir para a melhoria contínua dos nossos produtos.',
+		alternates: {
+			canonical: `${BASE_URL}/fale-conosco`,
+		},
+	};
+}
 
 export default function FaleConosco() {
 	return (
@@ -42,7 +54,7 @@ export default function FaleConosco() {
 							icon={<IoMailOutline />}
 						/>
 					</div>
-					<Form/>
+					<Form />
 				</div>
 			</div>
 		</main>

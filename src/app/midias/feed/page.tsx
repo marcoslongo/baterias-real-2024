@@ -1,5 +1,17 @@
 import Image from "next/image";
 import DiplayPosts from "./DisplayPosts";
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Mídias para o Seu Feed',
+		description: 'Oferecemos posts elaborados para que você, revendedor, tenha material de alta qualidade para apoiar suas vendas. Nossos conteúdos engajam seu público e aumentam a visibilidade da sua marca, facilitando o marketing do seu negócio.',
+		alternates: {
+			canonical: `${BASE_URL}/midias/feed`,
+		},
+	};
+}
+
 export default async function Feed() {
 	return (
 		<main className="pb-40">

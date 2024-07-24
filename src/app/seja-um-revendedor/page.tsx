@@ -2,6 +2,17 @@ import { IoLocationOutline, IoMailOutline, IoPhonePortraitOutline } from "react-
 import Image from "next/image";
 import Link from "next/link";
 import { Form } from "./Form";
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Seja um Revendedor',
+		description: 'Torne-se um de nossos revendedores e tenha acesso aos nossos produtos e oportunidades exclusivas. Entre em contato conosco para esclarecer dúvidas e saber mais sobre como fazer parte da nossa rede.',
+		alternates: {
+			canonical: `${BASE_URL}/seja-um-revendedor`,
+		},
+	};
+}
 
 export default function SejaUmRevendedor() {
 	return (

@@ -4,6 +4,17 @@ import { BsFillSuitcaseLgFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Depoimentos } from "./Depoimentos";
 import { Banner } from "./Banner";
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Trabalhe conosco',
+		description: 'Transforme sua carreira na Baterias Real! Valorizamos nossos colaboradores e acreditamos no desenvolvimento pessoal e profissional. Oferecemos um ambiente dinâmico e colaborativo, onde suas ideias são ouvidas e suas contribuições reconhecidas.',
+		alternates: {
+			canonical: `${BASE_URL}/trabalhe-conosco`,
+		},
+	};
+}
 
 export default async function TrabalheConosco() {
 	const vagas = await getVagas();

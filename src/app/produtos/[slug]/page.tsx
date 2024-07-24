@@ -1,10 +1,27 @@
 import Image from "next/image";
 import { getProdutosByLinha } from "@/app/api/getProdutosByLinha";
 import { Card } from "@/components/CardProduto";
+import { BASE_URL } from "@/constants/baseUrl";
+
+
+
 
 interface PageProdutosProps {
 	params: {
 		slug: string;
+	};
+}
+
+export async function generateMetadata({ params: { slug } }: PageProdutosProps) {
+	const data = await getProdutosByLinha(slug);
+	const metaData = data.edges[0].node;
+
+	return {
+		title: `Baterias Real - Linha ${metaData.name} `,
+		description: `${metaData.linhas.textoSobreALinhaDeProdutos}`,
+		alternates: {
+			canonical: `${BASE_URL}/produtos/${slug}`,
+		},
 	};
 }
 

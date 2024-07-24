@@ -1,6 +1,17 @@
+import { BASE_URL } from "@/constants/baseUrl";
 import Image from "next/image";
 import { FaHeart, FaFlag } from "react-icons/fa";
 import { GiChart } from "react-icons/gi";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Sobre a Empresa',
+		description: 'A Baterias Real nasceu comprometida em fornecer a seus clientes produtos de altíssima qualidade, visando atender suas necessidades e superar suas expectativas quando o assunto é baterias automotivas. Desde 1980 quando começou suas atividades na cidade de Realeza, localizada no sudoeste do Paraná.',
+		alternates: {
+			canonical: `${BASE_URL}/institucional`,
+		},
+	};
+}
 
 export default function Intitucional() {
 	return (

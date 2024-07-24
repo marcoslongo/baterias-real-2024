@@ -1,5 +1,17 @@
 import Image from "next/image";
 import { Form } from "./Form";
+import { BASE_URL } from "@/constants/baseUrl";
+
+export async function generateMetadata() {
+	return {
+		title: 'Baterias Real - Canal de Denúncias',
+		description: 'Bem-vindo ao nosso Canal de Denúncias. Garantimos que todas as informações fornecidas são 100% sigilosas. Por favor, preencha o formulário abaixo.',
+		alternates: {
+			canonical: `${BASE_URL}/canal-de-denuncias`,
+		},
+	};
+}
+
 export default function CanalDeDenuncias() {
 	return (
 		<main className="pb-40">
