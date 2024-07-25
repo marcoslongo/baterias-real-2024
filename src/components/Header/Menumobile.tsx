@@ -17,6 +17,7 @@ export function MenuMobile({ isOpen }: MenuMobileProps) {
 					<MenuItem href={"/representantes"} title={"Representantes"} />
 					<li className="flex gap-2 items-center">Produtos<FaChevronDown size={12} className="text-[#DF0209]" /></li>
 					<ul className="ml-6 flex flex-col gap-2">
+						<MenuItem href="/bateria-ideal" title="Bateria ideal" />
 						<MenuItem href="/produtos/evolution" title="Linha Evolution" />
 						<MenuItem href="/produtos/linha-gold" title="Linha Gold" />
 						<MenuItem href="/produtos/linha-efb" title="Linha EFB" />
