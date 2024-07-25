@@ -89,6 +89,7 @@ export function Card({ name, image, id }: Props) {
 												className="text-[#DF0209] cursor-pointer animate-upDown"
 												size={100}
 											/>
+											<h2 className="animate-pulse text-lg text-center font-bold">Carregando...</h2>
 										</div>
 									)}
 									<Image
