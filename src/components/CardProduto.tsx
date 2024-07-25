@@ -84,7 +84,7 @@ export function Card({ name, image, id }: Props) {
 							<AlertDialogDescription>
 								<div className="w-full flex justify-center py-8 border-b-2 border-[#DF0209]">
 									{imageLoading && (
-										<div className="absolute flex justify-center items-center">
+										<div className="absolute flex flex-col justify-center items-center">
 											<BsLightningFill
 												className="text-[#DF0209] cursor-pointer animate-upDown"
 												size={100}
