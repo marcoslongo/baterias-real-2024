@@ -13,9 +13,9 @@ import {
 import { IoIosClose } from "react-icons/io";
 import Image from "next/image";
 import { getProdutoById } from "@/app/api/getProdutosById";
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 import { Produto } from "@/@types/ProdutosBy";
-
+import { BsLightningFill } from "react-icons/bs";
 
 interface Props {
 	name: string;
@@ -27,6 +27,7 @@ export function Card({ name, image, id }: Props) {
 	const [produto, setProduto] = useState<Produto | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const [imageLoading, setImageLoading] = useState(true);
 
 	useEffect(() => {
 		async function fetchProduto() {
@@ -81,12 +82,23 @@ export function Card({ name, image, id }: Props) {
 						<AlertDialogHeader>
 							<AlertDialogTitle className="text-center">{produto.title}</AlertDialogTitle>
 							<AlertDialogDescription>
-								<div className="flex justify-center py-8 border-b-2 border-[#DF0209]">
+								<div className="w-full flex justify-center py-8 border-b-2 border-[#DF0209]">
+									{imageLoading && (
+										<div className="absolute flex justify-center items-center">
+											<BsLightningFill
+												className="text-[#DF0209] cursor-pointer animate-upDown"
+												size={100}
+											/>
+										</div>
+									)}
 									<Image
 										src={produto.produtos.imageDoProduto.node.mediaItemUrl}
 										alt=""
 										width={300}
 										height={300}
+										onLoad={() => setImageLoading(false)}
+										onError={() => setImageLoading(false)}
+										className={imageLoading ? "opacity-0" : "opacity-100"}
 									/>
 								</div>
 								<ul className="flex flex-col gap-3 mt-8">
