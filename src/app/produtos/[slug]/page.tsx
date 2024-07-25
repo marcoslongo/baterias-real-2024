@@ -35,7 +35,7 @@ export default async function PageProdutos({ params: { slug } }: PageProdutosPro
 			<section className="relative w-full mt-10 mb-8 lg:mb-0">
 				<div className="container h-full">
 					<div className="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-8 h-full items-center">
-						<div className="relative h-[260px] lg:h-[450px]">
+						<div className="relative h-[200px] lg:h-[450px]">
 							<Image
 								src={banner.linhas.imagemBannerInterno.node.mediaItemUrl}
 								alt={banner.name}
