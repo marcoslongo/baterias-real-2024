@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { DownloadFile } from "@/components/DownloadFile";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { MidiaNode, MidiasResponse } from '@/@types/Midias';
 import { BsLightningFill } from 'react-icons/bs';
 import { getMidias } from '@/app/api/getMidias';
+import { Skeleton } from "@/components/ui/skeleton";
+import { CardPost } from './CardPost';
 
-export default function DiplayPosts() {
+export default function DisplayPosts() {
   const [feed, setFeed] = useState<MidiaNode[]>([]);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [endCursor, setEndCursor] = useState<string | null>(null);
@@ -20,16 +20,11 @@ export default function DiplayPosts() {
 
   async function loadMoreMidias(cursor: string | null = null) {
     if (loading) return;
-    
 
     setLoading(true);
 
     try {
       const { edges, pageInfo }: MidiasResponse = await getMidias(cursor);
-
-      if(loading){
-        console.log('carregando');
-      }
 
       setFeed(prevFeed => {
         const newFeed = [...prevFeed, ...edges.map(edge => edge.node)];
@@ -62,17 +57,14 @@ export default function DiplayPosts() {
             {feed.map((post) => (
               (post.camposMidias.adicionarMidia === 'Feed') && (
                 <div key={post.id}>
-                  <figure className="relative w-full h-[400px]">
-                    <Image
-                      src={post.camposMidias.imagemFeed.node.mediaItemUrl}
-                      alt={post.camposMidias.imagemFeed.node.mediaItemUrl}
-                      fill
-                      objectFit="cover"
+                  {loading ? (
+                    <Skeleton className="w-full h-[400px]" />
+                  ) : (
+                    <CardPost
+                      image={post.camposMidias.imagemFeed.node.mediaItemUrl}
+                      linkDownload={post.camposMidias.imagemFeed.node.mediaItemUrl}
                     />
-                  </figure>
-                  <div className="flex justify-center mt-4">
-                    <DownloadFile url={post.camposMidias.imagemFeed.node.mediaItemUrl} />
-                  </div>
+                  )}
                 </div>
               )
             ))}

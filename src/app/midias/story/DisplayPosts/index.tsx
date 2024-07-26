@@ -6,6 +6,8 @@ import Image from "next/image";
 import { MidiaNode, MidiasResponse } from '@/@types/Midias';
 import { BsLightningFill } from 'react-icons/bs';
 import { getMidiasStory } from '@/app/api/getStory';
+import { Skeleton } from "@/components/ui/skeleton";
+import { CardPost } from './CardPost';
 
 export default function DisplayStories() {
   const [stories, setStories] = useState<MidiaNode[]>([]);
@@ -57,17 +59,14 @@ export default function DisplayStories() {
             {stories.map((story) => (
               (story.camposMidias.adicionarMidia === 'Story') && (
                 <div key={story.id}>
-                  <figure className="relative w-full h-[800px]">
-                    <Image
-                      src={story.camposMidias.imagemStory.node.mediaItemUrl}
-                      alt={story.camposMidias.imagemStory.node.mediaItemUrl}
-                      fill
-                      objectFit="cover"
+                  {loading ? (
+                    <Skeleton className="w-full h-[800px]" />
+                  ) : (
+                    <CardPost
+                      image={story.camposMidias.imagemStory.node.mediaItemUrl}
+                      linkDownload={story.camposMidias.imagemStory.node.mediaItemUrl}
                     />
-                  </figure>
-                  <div className="flex justify-center mt-4">
-                    <DownloadFile url={story.camposMidias.imagemStory.node.mediaItemUrl} />
-                  </div>
+                  )}
                 </div>
               )
             ))}

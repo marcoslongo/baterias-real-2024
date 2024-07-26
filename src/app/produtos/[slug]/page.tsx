@@ -3,9 +3,6 @@ import { getProdutosByLinha } from "@/app/api/getProdutosByLinha";
 import { Card } from "@/components/CardProduto";
 import { BASE_URL } from "@/constants/baseUrl";
 
-
-
-
 interface PageProdutosProps {
 	params: {
 		slug: string;

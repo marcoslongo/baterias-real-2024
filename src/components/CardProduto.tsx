@@ -142,8 +142,16 @@ interface ItemInfoProdProps {
 function ItemInfoProd({ title, image, response }: ItemInfoProdProps) {
 	return (
 		<li className="flex items-center text-black gap-2 text-lg">
-			<Image src={image} alt="" width={26} height={26} />
-			{title} <span className="text-[#DF0209]">{response}</span>
+			<Image
+				src={image}
+				alt=""
+				width={26}
+				height={26}
+			/>
+			{title}
+			<span className="text-[#DF0209]">
+				{response}
+			</span>
 		</li>
 	);
 }
