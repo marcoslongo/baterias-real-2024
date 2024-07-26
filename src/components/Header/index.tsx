@@ -13,6 +13,10 @@ export function Header() {
     setIsOpen(!isOpen);
   };
 
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div onClick={toggleNav} className="flex lg:hidden text-black absolute right-5 top-10 z-[60]">
@@ -22,7 +26,7 @@ export function Header() {
           <IoMenuOutline size={40} />
         )}
       </div>
-      <MenuMobile isOpen={isOpen} />
+      <MenuMobile isOpen={isOpen} handleCloseMenu={handleCloseMenu} />
       <header className="w-full bg-white shadow-md relative z-40">
         <div className="container flex justify-between items-center py-7">
           <Link href="/">

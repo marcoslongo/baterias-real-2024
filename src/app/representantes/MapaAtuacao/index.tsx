@@ -108,8 +108,8 @@ const Representantes: React.FC = () => {
 
 	return (
 		<div>
-			<div className="container flex justify-between">
-				<div className="w-[65%] overflow-hidden rounded-lg shadow-lg bg-white">
+			<div className="container flex flex-col lg:flex-row justify-between">
+				<div className="w-full lg:w-[65%] overflow-hidden rounded-lg shadow-lg bg-white">
 					<Chart
 						chartEvents={[
 							{
@@ -124,7 +124,7 @@ const Representantes: React.FC = () => {
 						data={data}
 					/>
 				</div>
-				<div className="w-[32%] pr-5 max-h-[600px] overflow-y-scroll">
+				<div className="w-full lg:w-[32%] lg:pr-5 max-h-[600px] overflow-y-scroll">
 					{!estadoSelecionado ? (
 						<div className="p-6 bg-white rounded-xl shadow-lg mt-52">
 							<p className="text-center font-bold text-2xl flex flex-col items-center gap-3">
