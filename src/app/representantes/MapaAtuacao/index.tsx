@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'react-google-charts';
-import { FaLocationDot } from 'react-icons/fa6';
 import { Card } from './Card';
 import { getRepresentantes } from '../../api/getRepresentantes';
 
@@ -10,7 +9,6 @@ import {
 	AlertDialogCancel,
 	AlertDialogContent,
 	AlertDialogDescription,
-	AlertDialogFooter,
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
@@ -82,6 +80,7 @@ const Representantes: React.FC = () => {
 	const [estadoSelecionado, setEstadoSelecionado] = useState<string | null>(null);
 	const [representantesPorEstado, setRepresentantesPorEstado] = useState<RepresentantesPorEstado>({});
 	const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+	const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -90,6 +89,17 @@ const Representantes: React.FC = () => {
 		};
 
 		fetchData();
+
+		const handleResize = () => {
+			setIsMobileOrTablet(window.innerWidth < 1024);
+		};
+
+		handleResize();
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	}, []);
 
 	const handleChartSelect = ({ chartWrapper }: { chartWrapper: any }) => {
@@ -121,7 +131,6 @@ const Representantes: React.FC = () => {
 		},
 	};
 
-	const isMobileOrTablet = window.innerWidth < 1024;
 	const options = isMobileOrTablet 
 		? { ...baseOptions, magnifyingGlass: { enable: true, zoomFactor: 7.5 } } 
 		: baseOptions;
@@ -130,19 +139,21 @@ const Representantes: React.FC = () => {
 		<div>
 			<div className="container flex flex-col lg:flex-row justify-between">
 				<div className="w-full overflow-hidden rounded-lg shadow-lg bg-white">
-					<Chart
-						chartEvents={[
-							{
-								eventName: "select",
-								callback: handleChartSelect,
-							},
-						]}
-						chartType="GeoChart"
-						options={options}
-						width="100%"
-						height="600px"
-						data={data}
-					/>
+					{typeof window !== 'undefined' && (
+						<Chart
+							chartEvents={[
+								{
+									eventName: "select",
+									callback: handleChartSelect,
+								},
+							]}
+							chartType="GeoChart"
+							options={options}
+							width="100%"
+							height="600px"
+							data={data}
+						/>
+					)}
 				</div>
 			</div>
 			<AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
