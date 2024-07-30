@@ -48,10 +48,10 @@ export function Footer() {
         <div className="flex flex-col gap-2 text-white">
           <h2 className="font-semibold text-2xl">Navegação</h2>
           <ul className="flex flex-col gap-1">
-            <LinkMenu href={""}>Institucional</LinkMenu>
-            <LinkMenu href={""}>Representantes</LinkMenu>
+            <LinkMenu href={"/institucional"}>Institucional</LinkMenu>
+            <LinkMenu href={"/representantes"}>Representantes</LinkMenu>
             <LinkMenu href={"/fale-conosco"}>Fale conosco</LinkMenu>
-            <LinkMenu href={""}>Trabalhe Conosco</LinkMenu>
+            <LinkMenu href={"/trabalhe-conosco"}>Trabalhe Conosco</LinkMenu>
           </ul>
         </div>
       </div>
