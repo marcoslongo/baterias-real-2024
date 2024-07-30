@@ -1,6 +1,7 @@
 import { getVagaBySlug } from "@/app/api/getVagaBySlug";
 import { Form } from "./Form";
 import { BASE_URL } from "@/constants/baseUrl";
+import { CardInfo } from "./Cardinfo";
 
 interface PageVagasProps {
 	params: {
@@ -36,9 +37,9 @@ export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 		<main className="pb-40 pt-10">
 			<div className="container flex flex-col gap-6">
 				<h1 className="text-4xl font-bold text-center">{vaga.title}</h1>
-				<div className="grid grid-cols-2 gap-9">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
 					<div className="flex flex-col gap-8 bg-white rounded-md p-8 shadow">
-						<CardInfo title="Descrição" text={vaga.vagasDisponVeis.descricao} />
+						<CardInfo title="Descrição da vaga" text={vaga.vagasDisponVeis.descricao} />
 						<CardInfo title="Requisitos" text={vaga.vagasDisponVeis.requisitos} />
 						<CardInfo title="Responsabilidades" text={vaga.vagasDisponVeis.responsabilidades} />						
 						<CardInfo title="Benefícios" text={vaga.vagasDisponVeis.beneficios} />
@@ -47,22 +48,5 @@ export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 				</div>
 			</div>
 		</main>
-	);
-}
-
-interface CardInfoProps {
-	title: string;
-	text: string;
-}
-
-function CardInfo({ title, text }: CardInfoProps) {
-	const renderHTML = (html: string) => {
-		return { __html: html };
-	};
-	return (
-		<div className="flex flex-col gap-2">
-			<h2 className="font-bold text-2xl">{title}</h2>
-			<div dangerouslySetInnerHTML={renderHTML(text)} />
-		</div>
 	);
 }

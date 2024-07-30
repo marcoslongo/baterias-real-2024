@@ -70,7 +70,7 @@ export function Form() {
 		<div className="bg-white rounded-md p-8 shadow">
 			<h2 className="font-bold text-2xl mb-4">Cadastre seu currículo</h2>
 			<form onSubmit={handleSubmit(onSubmit, displayErrors)} className="flex flex-col gap-4">
-				<div className="grid grid-cols-2 gap-3">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
 					<Input className="h-12 text-base" type="text" placeholder="Nome" {...register('nome', { required: 'Campo obrigatório' })} />
 					<Input className="h-12 text-base" type="text" placeholder="Sobrenome" {...register('sobrenome', { required: 'Campo obrigatório' })} />
 				</div>
