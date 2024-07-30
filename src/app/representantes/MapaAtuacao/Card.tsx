@@ -19,7 +19,7 @@ function formatPhone(phone: string): string {
 
 export function Card({ name, phone, region }: CardProps) {
 	return (
-		<li className="flex flex-col bg-white rounded-lg shadow-lg py-3 px-5 border border-slate-200">
+		<li className="flex flex-col bg-white rounded-lg shadow-lg py-3 px-5 border border-slate-200 text-base">
 			<h3 className="flex items-center gap-1 font-bold text-black">{name}</h3>
 			<div>
 				<Link href={`tel:+55${phone}`} className="flex items-center gap-1 text-black">

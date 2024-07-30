@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Chart } from 'react-google-charts';
 import { Card } from './Card';
 import { getRepresentantes } from '../../api/getRepresentantes';
-
 import {
 	AlertDialog,
 	AlertDialogCancel,
@@ -15,37 +14,8 @@ import {
 } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { IoIosClose } from 'react-icons/io';
-
-interface Representante {
-	nome: string;
-	telefone: string;
-	regiao: string;
-}
-
-interface RepresentantesPorEstado {
-	[key: string]: Representante[];
-}
-
-interface RepresentanteNode {
-	id: string;
-	title: string;
-	representantes: {
-		regiaoAtendida: string;
-		telefone: string;
-	};
-}
-
-interface EstadoNode {
-	id: string;
-	name: string;
-	representantes: {
-		edges: { node: RepresentanteNode }[];
-	};
-}
-
-interface EstadoEdge {
-	node: EstadoNode;
-}
+import { EstadoEdge, RepresentantesPorEstado } from '@/@types/Representantes';
+import { useWindowSize } from '@/hooks/useWindowSize';
 
 const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 	try {
@@ -77,10 +47,10 @@ const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 };
 
 const Representantes: React.FC = () => {
+	const { width } = useWindowSize();
 	const [estadoSelecionado, setEstadoSelecionado] = useState<string | null>(null);
 	const [representantesPorEstado, setRepresentantesPorEstado] = useState<RepresentantesPorEstado>({});
 	const [dialogOpen, setDialogOpen] = useState<boolean>(false);
-	const [isMobileOrTablet, setIsMobileOrTablet] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -89,17 +59,6 @@ const Representantes: React.FC = () => {
 		};
 
 		fetchData();
-
-		const handleResize = () => {
-			setIsMobileOrTablet(window.innerWidth < 1024);
-		};
-
-		handleResize();
-		window.addEventListener('resize', handleResize);
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
 	}, []);
 
 	const handleChartSelect = ({ chartWrapper }: { chartWrapper: any }) => {
@@ -131,10 +90,6 @@ const Representantes: React.FC = () => {
 		},
 	};
 
-	const options = isMobileOrTablet 
-		? { ...baseOptions, magnifyingGlass: { enable: true, zoomFactor: 7.5 } } 
-		: baseOptions;
-
 	return (
 		<div>
 			<div className="container flex flex-col lg:flex-row justify-between">
@@ -148,9 +103,9 @@ const Representantes: React.FC = () => {
 								},
 							]}
 							chartType="GeoChart"
-							options={options}
-							width="100%"
-							height="600px"
+							options={baseOptions}
+							width={width<=768?('114%'):('100%')}
+							height={width<=768?('500px'):('700px')}
 							data={data}
 						/>
 					)}

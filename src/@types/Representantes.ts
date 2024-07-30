@@ -1,18 +1,30 @@
-export type Representante = {
-    __typename: string;
-    id: string;
-    title: string;
-    representantes: {
-        __typename: string;
-        estado: string[];
-        regiaoAtendida: string;
-        telefone: string;
-    };
-};
+export interface Representante {
+	nome: string;
+	telefone: string;
+	regiao: string;
+}
 
-export type RootQueryToRepresentanteConnectionEdge = {
-    __typename: string;
-    node: Representante;
-};
+export interface RepresentantesPorEstado {
+	[key: string]: Representante[];
+}
 
-export type RepresentantesData = RootQueryToRepresentanteConnectionEdge[];
+export interface RepresentanteNode {
+	id: string;
+	title: string;
+	representantes: {
+		regiaoAtendida: string;
+		telefone: string;
+	};
+}
+
+export interface EstadoNode {
+	id: string;
+	name: string;
+	representantes: {
+		edges: { node: RepresentanteNode }[];
+	};
+}
+
+export interface EstadoEdge {
+	node: EstadoNode;
+}
