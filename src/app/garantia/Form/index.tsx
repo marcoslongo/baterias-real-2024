@@ -55,7 +55,7 @@ export function Form() {
 		<div className="container">
 			<div className="bg-white shadow-md p-9 rounded-md justify-center">
 				<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-					<div className="grid grid-cols-2 gap-3">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 						<Input
 							className="h-12 text-base"
 							type="text"
@@ -69,7 +69,7 @@ export function Form() {
 							{...register('cnpj', { required: 'Campo obrigatório' })}
 						/>
 					</div>
-					<div className="grid grid-cols-2 gap-3">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 						<Input
 							className="h-12 text-base"
 							type="email"
@@ -83,7 +83,7 @@ export function Form() {
 							{...register('telefone', { required: 'Campo obrigatório' })}
 						/>
 					</div>
-					<div className="grid grid-cols-2 gap-3">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 						<Input
 							className="h-12 text-base"
 							type="text"
@@ -104,7 +104,7 @@ export function Form() {
 							{...register('infosbaterias', { required: 'Campo obrigatório' })}
 						/>
 					</div>
-					<div className="grid grid-cols-2 gap-3">
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 						<Input
 							className="h-12 text-base"
 							type="text"
