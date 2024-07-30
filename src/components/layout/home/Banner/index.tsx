@@ -46,7 +46,16 @@ export function Banner() {
         priority
       />
 
-      <div className="w-full h-[480px] absolute top-0 bg-[#A60004] rounded-b-[280px] shadow-sm">
+      <Image
+        className="w-full h-full absolute z-10 hidden lg:block"
+        src={"/assets/images/bg-banner-home.webp"}
+        alt="alt"
+        fill
+        objectFit="cover"
+        priority
+      />
+
+      <div className="w-full h-[480px] absolute top-0 bg-[#A60004] rounded-b-[280px] shadow-sm block lg:hidden">
         <Image
           src={"/assets/images/raio-line.webp"}
           alt="alt"
@@ -56,14 +65,6 @@ export function Banner() {
           className="absolute right-0 top-8"
         />
       </div>
-      <Image
-        className="w-full h-full absolute z-10 hidden lg:block"
-        src={"/assets/images/bg-banner-home.webp"}
-        alt="alt"
-        fill
-        objectFit="cover"
-        priority
-      />
     </section>
   );
 }
