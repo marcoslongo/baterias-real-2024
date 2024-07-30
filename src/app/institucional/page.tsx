@@ -26,11 +26,11 @@ export default function Intitucional() {
 				<article className="w-full flex flex-col flex-wrap gap-5">
 					<h1 className="font-bold text-4xl">Sobre a Empresa</h1>
 					<p>A Baterias Real nasceu comprometida em fornecer a seus clientes produtos de altíssima qualidade, visando atender suas necessidades e superar suas expectativas quando o assunto é baterias automotivas. Desde 1980 quando começou suas atividades na cidade de Realeza, localizada no sudoeste do Paraná.</p>
-					<div className="w-[630px] overflow-hidden rounded-xl">
+					<div className="w-full md:w-[630px] overflow-hidden rounded-xl">
 						<VideoPlayer />
 					</div>
-					<div className="w-full flex items-center">
-						<article className="flex pr-4 flex-col gap-5">
+					<div className="w-full flex flex-col md:flex-row items-center">
+						<article className="flex md:pr-4 flex-col gap-5">
 							<p>
 								Com a reforma e revenda de baterias, passando por 1983 onde iniciou a fabricação de placas e expandiu sua revenda para toda essa região, chegando em 1991, ano em que expandiu por completo toda sua produção para as regiões sul, sudeste, centro-oeste e nordeste, abrangendo 19 estados de todo o país, sendo eles, Paraná, Bahia, Santa Catarina, Rio Grande do Sul, Mato Grosso, Mato Grosso do Sul, Goiás, Minas Gerais, Espírito Santo, São Paulo, Rio de Janeiro, Piauí, Ceará, Alagoas, Pernambuco, Paraíba, Rio Grande do Norte, Maranhão e Tocantins a empresa sempre esteve focada em atender os mais rigorosos padrões de controle de qualidade em todas suas etapas, desde a produção até a entrega em seus distribuidores.
 							</p>
