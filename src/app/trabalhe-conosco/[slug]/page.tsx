@@ -22,17 +22,6 @@ export async function generateMetadata({ params: { slug } }: PageVagasProps) {
 
 export default async function PageVaga({ params: { slug } }: PageVagasProps) {
 	const vaga = await getVagaBySlug(slug);
-
-	if (!vaga) {
-		return (
-			<main className="py-40">
-				<div className="container">
-					<h1>Vaga não encontrada</h1>
-				</div>
-			</main>
-		);
-	}
-
 	return (
 		<main className="pb-40 pt-10">
 			<div className="container flex flex-col gap-6">

@@ -30,7 +30,7 @@ export function Depoimentos() {
   return (
     <section className="pt-20">
       <div className="flex flex-col gap-1">
-        <h2 className="text-center text-5xl font-bold">A voz dos nossos colaboradores</h2>
+        <h2 className="text-center text-4xl lg:text-5xl font-bold">A voz dos nossos colaboradores</h2>
         <h2 className="text-center">Experiências compartilhadas por quem faz a diferença!</h2>
       </div>
       <Swiper
