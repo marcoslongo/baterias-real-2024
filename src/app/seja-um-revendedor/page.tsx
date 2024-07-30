@@ -17,11 +17,11 @@ export async function generateMetadata() {
 export default function SejaUmRevendedor() {
 	return (
 		<main className="pb-40">
-			<div className="relative w-full min-h-[525px] mb-10 flex items-center">
+			<div className="relative w-full min-h-[380px] lg:min-h-[525px] mb-10 flex items-center">
 				<div className="container relative z-20">
-					<div className="w-1/3 flex flex-col gap-4">
-						<h1 className="font-bold text-6xl">Seja um Revendedor</h1>
-						<p className="text-xl">
+					<div className="w-full lg:w-1/3 flex flex-col gap-4 text-center lg:text-start">
+						<h1 className="font-bold text-4xl lg:text-6xl">Seja um Revendedor</h1>
+						<p className="text-base lg:text-xl">
 							Torne-se um de nossos <span className="font-bold text-[#DF0209]">revendedores</span> e tenha acesso aos nossos produtos e <span className="font-bold text-[#DF0209]">oportunidades exclusivas</span>. Entre em contato conosco para <span className="font-bold text-[#DF0209]">esclarecer dúvidas</span> e saber mais sobre como fazer parte da nossa rede.
 						</p>
 					</div>
@@ -32,11 +32,12 @@ export default function SejaUmRevendedor() {
 					objectFit="cover"
 					alt="banner contato"
 					priority
+					className="opacity-30 lg:opacity-100"
 				/>
 			</div>
 			<div className="container flex flex-col items-center gap-10">
-				<div className="flex gap-6 w-full">
-					<div className="w-1/3 flex flex-col gap-4">
+				<div className="flex flex-col md:flex-row gap-6 w-full">
+					<div className="w-full md:w-1/3 flex flex-col gap-4">
 						<CardInfo
 							name={"Telefone"}
 							info={"46. 3543 1178"}

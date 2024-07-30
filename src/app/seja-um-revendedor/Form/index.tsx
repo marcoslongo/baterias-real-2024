@@ -78,7 +78,7 @@ export function Form() {
   }
 
 	return (
-		<div className="w-2/3 flex flex-col gap-4 bg-white shadow-md p-9 rounded-md justify-center">
+		<div className="w-full md:w-2/3 flex flex-col gap-4 bg-white shadow-md p-9 rounded-md justify-center">
 			<form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit, displayErrors)}>
 				<div>
 					<Input
@@ -88,7 +88,7 @@ export function Form() {
 						{...register('nomeEmpresa', { required: 'Campo obrigatório' })}
 					/>
 				</div>
-				<div className="grid grid-cols-2 gap-3">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 					<Input
 						className="h-12 text-base"
 						type="phone"
@@ -144,7 +144,7 @@ export function Form() {
 						)}
 					/>
 				</div>
-				<div className="grid grid-cols-2 gap-3">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 					<Input
 						className="h-12 text-base"
 						type="text"
