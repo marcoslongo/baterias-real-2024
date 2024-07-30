@@ -42,8 +42,6 @@ export function Form() {
         telefone: data.telefone,
       };
 
-      console.log('Enviando dados:', templateParams); // Para depuração
-
       const response = await emailjs.send('service_cj9spuz', 'template_mot9fnl', templateParams, 'Nme405_wJLJl-HLvn');
 
       if (response.status !== 200) {
@@ -68,9 +66,9 @@ export function Form() {
 
   return (
     <>
-      <div className="w-2/3 bg-white shadow-md p-9 rounded-md justify-center">
+      <div className="w-full md:w-2/3 bg-white shadow-md p-6 md:p-9 rounded-md justify-center">
         <form onSubmit={handleSubmit(onSubmit, displayErrors)} className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Input
               className="h-12 text-base"
               type="text"

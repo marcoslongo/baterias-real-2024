@@ -27,7 +27,7 @@ export default async function TrabalheConosco() {
 						<h2 className="font-bold text-4xl mb-4 flex gap-2 items-center w-full justify-center">
 							Vagas disponíveis <div className="text-[#DF0209]"><BsFillSuitcaseLgFill /></div>
 						</h2>
-						<div className="grid grid-cols-2 gap-8">
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 							{vagas.map((item: any) => (
 								<CardInfoVaga
 									key={item.node.id}

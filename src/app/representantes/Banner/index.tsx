@@ -7,8 +7,8 @@ export function Banner() {
 			<div className="container relative z-20">
 				<div className="w-full md:w-1/3 flex flex-col gap-4">
 					<h1 className="font-bold text-4xl md:text-6xl">Representantes</h1>
-					<p className="text-base md:text-xl">
-						Confira nosso mapa de atuação, encontre o representante mais próximo de você e tenha nossos produtos em sua loja.
+					<p className="text-xl">
+						Confira nosso <span className="font-bold text-[#DF0209]">mapa de atuação</span>, encontre o representante mais próximo de você e tenha nossos produtos em <span className="font-bold text-[#DF0209]">sua loja</span>.
 					</p>
 				</div>
 			</div>

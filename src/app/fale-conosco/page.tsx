@@ -20,8 +20,8 @@ export default function FaleConosco() {
 		<main className="pb-40">
 			<div className="relative w-full min-h-[525px] mb-10 flex items-center">
 				<div className="container relative z-20">
-					<div className="w-1/3 flex flex-col gap-4">
-						<h1 className="font-bold text-6xl">Fale Conosco</h1>
+					<div className="w-full md:w-1/3 flex flex-col gap-4">
+						<h1 className="font-bold text-4xl md:text-6xl">Fale Conosco</h1>
 						<p className="text-xl">
 							Entre em contato conosco para <span className="font-bold text-[#DF0209]">esclarecer dúvidas, obter informações</span> e contribuir para a melhoria contínua dos nossos produtos.
 						</p>
@@ -36,8 +36,8 @@ export default function FaleConosco() {
 				/>
 			</div>
 			<div className="container flex flex-col items-center gap-10">
-				<div className="flex gap-6 w-full">
-					<div className="w-1/3 flex flex-col gap-4">
+				<div className="flex flex-col md:flex-row gap-6 w-full">
+					<div className="w-full md:w-1/3 flex flex-col gap-4">
 						<CardInfo
 							name={"Telefone"}
 							info={"46. 3543 1178"}
