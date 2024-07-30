@@ -86,7 +86,7 @@ const Representantes: React.FC = () => {
 		},
 		backgroundColor: '#fff',
 		legend: {
-			position: 'none',
+			position: 'none',			
 		},
 	};
 
@@ -104,17 +104,14 @@ const Representantes: React.FC = () => {
 							]}
 							chartType="GeoChart"
 							options={baseOptions}
-							width={width<=768?('114%'):('100%')}
-							height={width<=768?('500px'):('700px')}
+							width={width <= 426 ? ('116%') : ('100%')}
+							height={width <= 426 ? ('400px') : ('700px')}
 							data={data}
 						/>
 					)}
 				</div>
 			</div>
 			<AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
-				<AlertDialogTrigger asChild>
-					<Button className="hidden">Show Dialog</Button>
-				</AlertDialogTrigger>
 				<AlertDialogContent>
 					<AlertDialogCancel className="w-10 h-10 p-0 flex items-center justify-center bg-[#DF0209] hover:bg-black text-white absolute right-0">
 						<IoIosClose className="text-white" size={36} />
