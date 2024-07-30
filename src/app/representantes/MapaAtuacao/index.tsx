@@ -5,6 +5,19 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { Card } from './Card';
 import { getRepresentantes } from '../../api/getRepresentantes';
 
+import {
+	AlertDialog,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { Button } from "@/components/ui/button"
+import { IoIosClose } from 'react-icons/io';
+
 interface Representante {
 	nome: string;
 	telefone: string;
@@ -68,6 +81,7 @@ const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 const Representantes: React.FC = () => {
 	const [estadoSelecionado, setEstadoSelecionado] = useState<string | null>(null);
 	const [representantesPorEstado, setRepresentantesPorEstado] = useState<RepresentantesPorEstado>({});
+	const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -86,6 +100,7 @@ const Representantes: React.FC = () => {
 		const dataTable = chartWrapper.getDataTable();
 		const state = dataTable.getValue(rowIndex, 0) as string;
 		setEstadoSelecionado(state);
+		setDialogOpen(true);
 	};
 
 	const data = [
@@ -93,7 +108,7 @@ const Representantes: React.FC = () => {
 		...Object.keys(representantesPorEstado).map((estado) => [estado, representantesPorEstado[estado].length]),
 	];
 
-	const options = {
+	const baseOptions = {
 		region: "BR",
 		resolution: "provinces",
 		displayMode: "regions",
@@ -106,10 +121,15 @@ const Representantes: React.FC = () => {
 		},
 	};
 
+	const isMobileOrTablet = window.innerWidth < 1024;
+	const options = isMobileOrTablet 
+		? { ...baseOptions, magnifyingGlass: { enable: true, zoomFactor: 7.5 } } 
+		: baseOptions;
+
 	return (
 		<div>
 			<div className="container flex flex-col lg:flex-row justify-between">
-				<div className="w-full lg:w-[65%] overflow-hidden rounded-lg shadow-lg bg-white">
+				<div className="w-full overflow-hidden rounded-lg shadow-lg bg-white">
 					<Chart
 						chartEvents={[
 							{
@@ -124,38 +144,39 @@ const Representantes: React.FC = () => {
 						data={data}
 					/>
 				</div>
-				<div className="w-full lg:w-[32%] lg:pr-5 max-h-[600px] overflow-y-scroll">
-					{!estadoSelecionado ? (
-						<div className="p-6 bg-white rounded-xl shadow-lg mt-52">
-							<p className="text-center font-bold text-2xl flex flex-col items-center gap-3">
-								<FaLocationDot className="text-[#A60004]" size={40} />
-								Selecione um estado e encontre o representante mais próximo de você.
-							</p>
-						</div>
-					) : (
-						<div className="flex flex-col gap-4">
-							<h2 className="font-bold text-xl">{estadoSelecionado}</h2>
-							{representantesPorEstado[estadoSelecionado] && representantesPorEstado[estadoSelecionado].length > 0 ? (
-								<ul className="flex flex-col gap-5">
-									{representantesPorEstado[estadoSelecionado].map((rep, index) => (
-										<Card
-											key={index}
-											name={rep.nome}
-											phone={rep.telefone}
-											region={rep.regiao}
-										/>
-									))}
-								</ul>
-							) : (
-								<p className="text-center font-bold text-xl">
-									Não há representantes cadastrados nesse estado. <br />
-									Faça parte do nosso time de vendas: <a href="tel:46999831043">(46) 99983-1043</a>
-								</p>
-							)}
-						</div>
-					)}
-				</div>
 			</div>
+			<AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
+				<AlertDialogTrigger asChild>
+					<Button className="hidden">Show Dialog</Button>
+				</AlertDialogTrigger>
+				<AlertDialogContent>
+					<AlertDialogCancel className="w-10 h-10 p-0 flex items-center justify-center bg-[#DF0209] hover:bg-black text-white absolute right-0">
+						<IoIosClose className="text-white" size={36} />
+					</AlertDialogCancel>
+					<AlertDialogHeader>
+						<AlertDialogTitle>Representantes em {estadoSelecionado}</AlertDialogTitle>
+					</AlertDialogHeader>
+					<AlertDialogDescription>
+						{estadoSelecionado && representantesPorEstado[estadoSelecionado] && representantesPorEstado[estadoSelecionado].length > 0 ? (
+							<ul className="flex flex-col gap-5">
+								{representantesPorEstado[estadoSelecionado].map((rep, index) => (
+									<Card
+										key={index}
+										name={rep.nome}
+										phone={rep.telefone}
+										region={rep.regiao}
+									/>
+								))}
+							</ul>
+						) : (
+							<p className="text-center font-bold text-xl">
+								Não há representantes cadastrados nesse estado. <br />
+								Faça parte do nosso time de vendas: <a href="tel:46999831043">(46) 99983-1043</a>
+							</p>
+						)}
+					</AlertDialogDescription>
+				</AlertDialogContent>
+			</AlertDialog>
 		</div>
 	);
 };
