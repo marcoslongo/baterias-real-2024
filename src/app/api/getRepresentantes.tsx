@@ -1,26 +1,6 @@
 import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
-
-interface RepresentanteNode {
-	id: string;
-	title: string;
-	representantes: {
-		regiaoAtendida: string;
-		telefone: string;
-	};
-}
-
-interface EstadoNode {
-	id: string;
-	name: string;
-	representantes: {
-		edges: { node: RepresentanteNode }[];
-	};
-}
-
-interface EstadoEdge {
-	node: EstadoNode;
-}
+import { EstadoEdge } from "@/@types/Representantes";
 
 export async function getRepresentantes(): Promise<EstadoEdge[]> {
 	try {
