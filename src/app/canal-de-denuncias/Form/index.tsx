@@ -22,9 +22,9 @@ export function Form() {
 		<div>
 			<div className="container">
 				<Tabs defaultValue="nao-identificado" className="w-full">
-					<TabsList className="grid w-full grid-cols-2 gap-8 mb-6">
-						<TabsTrigger value="nao-identificado" className="text-base h-12 text-black font-bold border border-[#ccc]">Não gostaria de me identificar</TabsTrigger>
-						<TabsTrigger value="identificado" className="text-base h-12 text-black font-bold border border-[#ccc]">Gostaria de me identificar</TabsTrigger>
+					<TabsList className="grid w-full md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 mb-20 md:mb-6">
+						<TabsTrigger value="nao-identificado" className="text-base h-auto text-black font-bold border border-[#ccc]">Não gostaria de me identificar</TabsTrigger>
+						<TabsTrigger value="identificado" className="text-base h-auto text-black font-bold border border-[#ccc]">Gostaria de me identificar</TabsTrigger>
 					</TabsList>
 					<TabsContent value="nao-identificado">
 						<Card>
