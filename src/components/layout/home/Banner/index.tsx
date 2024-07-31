@@ -10,7 +10,7 @@ export function Banner() {
   return (
     <section className="relative h-auto lg:h-[670px] w-full">
       <div className="container h-full flex items-start lg:items-center">
-        <div className="w-full lg:w-3/5 relative z-30 flex gap-6 flex-col items-center lg:items-start mt-12 lg:mt-0">
+        <div className="w-full lg:w-[52%] xl:w-3/5 relative z-30 flex gap-6 flex-col items-center lg:items-start mt-12 lg:mt-0">
           <h2 className="text-5xl text-white lg:text-black lg:text-6xl text-center lg:text-left font-bold leading-none">
             Para longas jornadas, muito mais
             <span className="text-[#E7C000] lg:text-[#DF0209]"> energia</span>
@@ -40,7 +40,7 @@ export function Banner() {
       <Image
         src={"/assets/images/baterias-home.webp"}
         alt="Banner home"
-        width={width > 1441 ? (800) : (600)}
+        width={width > 1536 ? (800) : (600)}
         height={500}
         className="hidden lg:block absolute right-0 z-20 top-40"
         priority
