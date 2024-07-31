@@ -15,7 +15,7 @@ export function DownloadFile({ url }: DownloadFileProps) {
 			href={url}
 			target="_blank"
 			rel="noopener noreferrer"
-			download
+			download={url}
 			title="Baixar imagem"
 		>
 			<IoDownloadOutline size={30} />

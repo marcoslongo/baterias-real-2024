@@ -15,22 +15,26 @@ export function Certificacoes() {
             height={98}
           />
           <div className="flex flex-col gap-2">
-            <h3 className="text-xl font-semibold">
+            <h3 className="text-xl font-semibold text-center lg:text-start">
               Certificados de conformidade
             </h3>
             <div className="flex gap-4 items-center">
               <Link
                 className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-md text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
-                href="href"
+                href={'/assets/docs/iso.pdf'}
+                download={'/assets/docs/iso.pdf'}
+                target="_blank"
               >
                 ISO 9001:2015
                 <GrDownload size={20} />
               </Link>
               <Link
                 className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-md text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
-                href="href"
+                href={'/assets/docs/inmetro.pdf'}
+                download={'/assets/docs/inmetro.pdf'}
+                target="_blank"
               >
-                ISO 9001:2015
+                INMETRO 145
                 <GrDownload size={20} />
               </Link>
             </div>
