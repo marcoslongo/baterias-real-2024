@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="bg-[#A60004] py-10 relative overflow-hidden">
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-col md:flex-row">
           <div className="flex flex-col gap-6">
             <Image
               src={"/assets/images/logo-negativa.svg"}
@@ -18,7 +18,7 @@ export function Footer() {
               © Baterias Real LTDA - 2024 Todos os Direitos Reservados
             </h2>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-row md:flex-col gap-3">
             <Link target="_blank" className="text-[#A60004] transition hover:scale-105 bg-white rounded-full w-10 h-10 flex items-center justify-center" href={'https://www.facebook.com/bateriasrealltda'}><FaFacebookF size={22} /></Link>
             <Link target="_blank" className="text-[#A60004] transition hover:scale-105 bg-white rounded-full w-10 h-10 flex items-center justify-center" href={'https://www.instagram.com/bateriasreal/'}><FaInstagram size={22} /></Link>
             <Link target="_blank" className="text-[#A60004] transition hover:scale-105 bg-white rounded-full w-10 h-10 flex items-center justify-center" href={'https://wa.me/5546984073435'}><FaWhatsapp size={22} /></Link>
@@ -67,7 +67,7 @@ export function Footer() {
         alt="alt"
         width={245}
         height={352}
-        className="absolute right-3 top-0"
+        className="absolute right-3 top-20 md:top-0"
       />
     </footer>
   );
