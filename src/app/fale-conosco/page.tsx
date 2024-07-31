@@ -43,16 +43,19 @@ export default function FaleConosco() {
 							name={"Telefone"}
 							info={"46. 3543 1178"}
 							icon={<IoPhonePortraitOutline />}
+							url={"tel:+554635431178"}
 						/>
 						<CardInfo
 							name={"Localização"}
 							info={"Rodovia PR 182 - KM 463,7 Bairro Industrial CEP: 85770-000 - Realeza - PR"}
 							icon={<IoLocationOutline />}
+							url={"https://maps.app.goo.gl/VXVXL5kWCowtwWTJ8"}
 						/>
 						<CardInfo
 							name={"E-mail"}
 							info={"atendimento@bateriasreal.com.br"}
 							icon={<IoMailOutline />}
+							url={"mailto:atendimento@bateriasreal.com.br"}
 						/>
 					</div>
 					<Form />
@@ -66,14 +69,15 @@ interface CardInfoProps {
 	name: string;
 	info: string;
 	icon: JSX.Element;
+	url: string;
 }
 
-function CardInfo({ name, info, icon }: CardInfoProps) {
+function CardInfo({ name, info, icon, url }: CardInfoProps) {
 	return (
 		<div className="flex flex-col items-center gap-2 bg-white rounded-md p-6 shadow-md">
 			<div className="text-3xl text-[#DF0209]">{icon}</div>
 			<h2 className="font-bold text-2xl">{name}</h2>
-			<Link className="hover:underline text-center" href="tel:+554635431178">{info}</Link>
+			<Link className="hover:underline text-center" href={url}>{info}</Link>
 		</div>
 	);
 }
