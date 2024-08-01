@@ -18,6 +18,11 @@ export async function getRepresentantes(): Promise<EstadoEdge[]> {
 											id
 											title
 											representantes {
+												fotoRepresentante {
+                          node {
+                            mediaItemUrl
+                          }
+                        }
 												regiaoAtendida
 												telefone
 											}

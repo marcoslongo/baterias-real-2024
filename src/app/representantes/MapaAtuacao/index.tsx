@@ -10,9 +10,7 @@ import {
 	AlertDialogDescription,
 	AlertDialogHeader,
 	AlertDialogTitle,
-	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
 import { IoIosClose } from 'react-icons/io';
 import { EstadoEdge, RepresentantesPorEstado } from '@/@types/Representantes';
 import { useWindowSize } from '@/hooks/useWindowSize';
@@ -35,6 +33,7 @@ const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 					nome: representante.title,
 					telefone: representante.representantes.telefone,
 					regiao: representante.representantes.regiaoAtendida,
+					photo: representante.representantes.fotoRepresentante.node.mediaItemUrl
 				});
 			});
 		});
@@ -128,6 +127,7 @@ const Representantes: React.FC = () => {
 										name={rep.nome}
 										phone={rep.telefone}
 										region={rep.regiao}
+										photo={rep.photo}
 									/>
 								))}
 							</ul>
