@@ -24,15 +24,15 @@ export function Card({ name, phone, region, photo }: CardProps) {
 		<li className="flex gap-4 items-center bg-white rounded-lg shadow-lg py-3 px-5 border border-slate-200 text-base">
 			<Image
 				src={photo}
-				width={120}
-				height={120}
+				width={100}
+				height={100}
 				alt={name}
 				className="rounded-full border-4 border-[#DF0209]"
 			/>
 			<div className="flex flex-col">
 				<h3 className="flex items-center gap-1 font-bold text-black">{name}</h3>
 				<div>
-					<Link href={`tel:+55${phone}`} className="flex items-center gap-1 text-black">
+					<Link href={`tel:+55${phone}`} className="flex items-center gap-1 text-black hover:underline">
 						{formatPhone(phone)}
 					</Link>
 					<p className="flex items-center gap-1 text-black">
