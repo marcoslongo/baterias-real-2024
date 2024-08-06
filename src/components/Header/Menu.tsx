@@ -79,8 +79,6 @@ export function Menu() {
 								<ListItem href="/produtos/linha-gold" title="Linha Gold" />
 								<ListItem href="/produtos/linha-efb" title="Linha EFB" />
 								<ListItem href="/produtos/linha-convencional" title="Linha Convencional" />
-								<ListItem href="/produtos/linha-ecologica" title="Linha Ecológica" />
-								<ListItem href="/produtos/linha-free" title="Linha Free" />
 							</div>
 						</ul>
 					</NavigationMenuContent>
@@ -120,7 +118,7 @@ export function Menu() {
 				<NavigationMenuItem>
 					<Link
 						href="/seja-um-revendedor"
-						className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-md text-[#DF0209] hover:bg-[#DF0209] hover:text-white"
+						className="flex items-center gap-3 border border-[#DF0209] transition px-4 py-2 rounded-md text-white bg-[#DF0209] hover:text-[#DF0209] hover:bg-transparent"
 					>
 						Seja um Revendedor <FaArrowRightLong size={16} />
 					</Link>

@@ -48,8 +48,6 @@ export function Footer() {
             <LinkMenu href={"/produtos/linha-gold"}>Linha Gold</LinkMenu>
             <LinkMenu href={"/produtos/linha-efb"}>Linha EFB</LinkMenu>
             <LinkMenu href={"/produtos/linha-convencional"}>Linha Convencional</LinkMenu>
-            <LinkMenu href={"/produtos/linha-ecologica"}>Linha Ecológica</LinkMenu>
-            <LinkMenu href={"/produtos/linha-free"}>Linha Free</LinkMenu>
           </ul>
         </div>
         <div className="flex flex-col gap-2 text-white">
