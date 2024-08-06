@@ -43,8 +43,6 @@ export function MenuMobile({ isOpen, handleCloseMenu }: MenuMobileProps) {
               <MenuItem href="/produtos/linha-gold" title="Linha Gold" handleCloseMenu={handleCloseSubMenu} />
               <MenuItem href="/produtos/linha-efb" title="Linha EFB" handleCloseMenu={handleCloseSubMenu} />
               <MenuItem href="/produtos/linha-convencional" title="Linha Convencional" handleCloseMenu={handleCloseSubMenu} />
-              <MenuItem href="/produtos/linha-ecologica" title="Linha Ecológica" handleCloseMenu={handleCloseSubMenu} />
-              <MenuItem href="/produtos/linha-free" title="Linha Free" handleCloseMenu={handleCloseSubMenu} />
             </ul>
           )}
 
