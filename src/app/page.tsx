@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <ProdutosHome />
+      <ProdutosHome/>
       <Ecologia />
       <Depoimentos />
       <Certificacoes />
