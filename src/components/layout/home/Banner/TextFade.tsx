@@ -1,5 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+import { BsLightningFill } from 'react-icons/bs';
 
 const words = ['energia', 'confiabilidade', 'força', 'potência'];
 
@@ -23,7 +25,7 @@ export function TextFade() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowText(true);
-    }, 500);
+    }, 300);
 
     const wordInterval = setInterval(() => {
       updateWord();
@@ -37,18 +39,23 @@ export function TextFade() {
 
   return (
     <div className='z-30 relative'>
-      <div className='container justify-center items-center flex flex-col gap-4'>
-        {showText && (
-          <h1 className='text-white text-6xl font-bold text-center animate-fadeInUp'>
+      {showText && (
+        <div className='justify-center items-center flex flex-col gap-4 animate-fadeInUp'>
+          <h1 className='text-white text-6xl font-bold text-center'>
             Para longas jornadas, <br /> muito mais <span className={`text-[#A60004] ${animClass}`}>{currentWord}</span>
           </h1>
-        )}
-        <div className='w-2/3 text-center'>
-          <p className='text-white'>Com 44 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.</p>
+
+          <div className='w-[50%] text-center'>
+            <p className='text-white'>Com 44 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.</p>
+          </div>
+          <div className="flex justify-center md:justify-start">
+            <Link className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#fff]" href="/seja-um-revendedor">
+              Seja um Revendedor
+              <BsLightningFill />
+            </Link>
+          </div>
         </div>
-        <div className="flex justify-center md:justify-start">
-          <a className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#DF0209]" href="/seja-um-revendedor">Seja um Revendedor</a></div>
-      </div>
+      )}
     </div>
   );
 }
