@@ -7,7 +7,8 @@ export async function ProdutosHome() {
 
   return (
     <section>
-      <div className="container py-10">
+      <div className="container py-10 flex flex-col gap-8">
+        <h2 className="text-center text-3xl font-semibold">Baterias Real. Seu Destino, <span className="font-bold">Nossa Energia!</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
           {categoriaData.categoriasProdutos.edges.map((categoria) => (
             <>
@@ -16,7 +17,6 @@ export async function ProdutosHome() {
                   key={categoria.node.id}
                   name={categoria.node.name}
                   imageBatery={categoria.node.linhas.bateria.node.mediaItemUrl}
-                  bgBatery={categoria.node.linhas.bannerDaCategoria.node.mediaItemUrl}
                   href={`/produtos/${categoria.node.slug}`}
                 />
               )}
