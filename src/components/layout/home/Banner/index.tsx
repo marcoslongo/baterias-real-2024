@@ -1,5 +1,6 @@
 import { TextFade } from "./TextFade";
 import VideoBackground from "./VideoBackground";
+import { TextFade } from './TextFade';
 
 export function Banner() {
   return (
