@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 
 const words = ['energia', 'confiabilidade', 'força', 'potência'];
 
@@ -37,7 +36,7 @@ export function TextFade() {
   }, [updateWord]);
 
   return (
-    <div className='z-30'>
+    <div className='z-30 relative'>
       <div className='container justify-center items-center flex flex-col gap-4'>
         {showText && (
           <h1 className='text-white text-6xl font-bold text-center animate-fadeInUp'>
