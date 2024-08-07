@@ -28,6 +28,8 @@ type Inputs = {
 	nomeContato: string;
 	cargo: string;
 	mensagem: string;
+	cidade: string;
+	estado: string;
 };
 
 export function Form() {
@@ -47,6 +49,8 @@ export function Form() {
 				sobrenome: data.telefone,
 				email: data.email,
 				endereco: data.endereco,
+				cidade: data.cidade,
+				estado: data.estado,
 				telefone: data.faixaFaturamento,
 				nomeContato: data.nomeContato,
 				cargo: data.cargo,
@@ -100,6 +104,20 @@ export function Form() {
 						type="email"
 						placeholder="E-mail"
 						{...register('email', { required: 'Campo obrigatório' })}
+					/>
+				</div>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+					<Input
+						className="h-12 text-base"
+						type="text"
+						placeholder="Cidade"
+						{...register('cidade', { required: 'Campo obrigatório' })}
+					/>
+					<Input
+						className="h-12 text-base"
+						type="text"
+						placeholder="Estado"
+						{...register('estado', { required: 'Campo obrigatório' })}
 					/>
 				</div>
 				<div>
