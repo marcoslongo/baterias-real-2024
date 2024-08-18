@@ -39,22 +39,18 @@ export function Form() {
 	const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
 		try {
 			setLoading(true);
-
-			if (!data.nomeEmpresa || !data.telefone || !data.email || !data.cnpj || !data.endereco || !data.faixaFaturamento || !data.nomeContato || !data.cargo || !data.mensagem) {
-				throw new Error('Por favor, preencha todos os campos obrigatórios.');
-			}
-
 			const templateParams = {
-				nome: data.nomeEmpresa,
-				sobrenome: data.telefone,
+				nomeEmpresa: data.nomeEmpresa,
+				telefone: data.telefone,
 				email: data.email,
+				cnpj: data.cnpj,
 				endereco: data.endereco,
-				cidade: data.cidade,
-				estado: data.estado,
-				telefone: data.faixaFaturamento,
+				faixaFaturamento: data.faixaFaturamento,
 				nomeContato: data.nomeContato,
 				cargo: data.cargo,
-				mensagem: data.mensagem
+				mensagem: data.mensagem,
+				cidade: data.cidade,
+				estado: data.estado,
 			};
 
 			console.log('Enviando dados:', templateParams);
@@ -75,15 +71,9 @@ export function Form() {
 		}
 	};
 
-	function displayErrors() {
-    if (errors) {
-      toast.warning('Preencha todos os campos!');
-    }
-  }
-
 	return (
 		<div className="w-full md:w-2/3 flex flex-col gap-4 bg-white shadow-md p-9 rounded-md justify-center">
-			<form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit, displayErrors)}>
+			<form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
 				<div>
 					<Input
 						className="h-12 text-base"
@@ -91,34 +81,47 @@ export function Form() {
 						placeholder="Nome da empresa"
 						{...register('nomeEmpresa', { required: 'Campo obrigatório' })}
 					/>
+					{errors.nomeEmpresa && <ErrorDisplay message={errors.nomeEmpresa.message || ""} />}
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-					<Input
-						className="h-12 text-base"
-						type="phone"
-						placeholder="Telefone"
-						{...register('telefone', { required: 'Campo obrigatório' })}
-					/>
-					<Input
-						className="h-12 text-base"
-						type="email"
-						placeholder="E-mail"
-						{...register('email', { required: 'Campo obrigatório' })}
-					/>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="phone"
+							placeholder="Telefone"
+							{...register('telefone', { required: 'Campo obrigatório' })}
+						/>
+						{errors.telefone && <ErrorDisplay message={errors.telefone.message || ""} />}
+					</div>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="email"
+							placeholder="E-mail"
+							{...register('email', { required: 'Campo obrigatório' })}
+						/>
+						{errors.email && <ErrorDisplay message={errors.email.message || ""} />}
+					</div>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-					<Input
-						className="h-12 text-base"
-						type="text"
-						placeholder="Cidade"
-						{...register('cidade', { required: 'Campo obrigatório' })}
-					/>
-					<Input
-						className="h-12 text-base"
-						type="text"
-						placeholder="Estado"
-						{...register('estado', { required: 'Campo obrigatório' })}
-					/>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="text"
+							placeholder="Cidade"
+							{...register('cidade', { required: 'Campo obrigatório' })}
+						/>
+						{errors.cidade && <ErrorDisplay message={errors.cidade.message || ""} />}
+					</div>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="text"
+							placeholder="Estado"
+							{...register('estado', { required: 'Campo obrigatório' })}
+						/>
+						{errors.estado && <ErrorDisplay message={errors.estado.message || ""} />}
+					</div>
 				</div>
 				<div>
 					<Input
@@ -127,6 +130,7 @@ export function Form() {
 						placeholder="CNPJ"
 						{...register('cnpj', { required: 'Campo obrigatório' })}
 					/>
+					{errors.cnpj && <ErrorDisplay message={errors.cnpj.message || ""} />}
 				</div>
 				<div>
 					<Input
@@ -135,6 +139,7 @@ export function Form() {
 						placeholder="Endereço"
 						{...register('endereco', { required: 'Campo obrigatório' })}
 					/>
+					{errors.endereco && <ErrorDisplay message={errors.endereco.message || ""} />}
 				</div>
 				<div>
 					<Controller
@@ -161,20 +166,27 @@ export function Form() {
 							</Select>
 						)}
 					/>
+					{errors.faixaFaturamento && <ErrorDisplay message={errors.faixaFaturamento.message || ""} />}
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-					<Input
-						className="h-12 text-base"
-						type="text"
-						placeholder="Nome do contato"
-						{...register('nomeContato', { required: 'Campo obrigatório' })}
-					/>
-					<Input
-						className="h-12 text-base"
-						type="text"
-						placeholder="Cargo na empresa"
-						{...register('cargo', { required: 'Campo obrigatório' })}
-					/>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="text"
+							placeholder="Nome do contato"
+							{...register('nomeContato', { required: 'Campo obrigatório' })}
+						/>
+						{errors.nomeContato && <ErrorDisplay message={errors.nomeContato.message || ""} />}
+					</div>
+					<div>
+						<Input
+							className="h-12 text-base"
+							type="text"
+							placeholder="Cargo na empresa"
+							{...register('cargo', { required: 'Campo obrigatório' })}
+						/>
+						{errors.cargo && <ErrorDisplay message={errors.cargo.message || ""} />}
+					</div>
 				</div>
 				<div>
 					<Textarea
@@ -182,6 +194,7 @@ export function Form() {
 						placeholder="Digite sua mensagem"
 						{...register('mensagem', { required: 'Campo obrigatório' })}
 					/>
+					{errors.mensagem && <ErrorDisplay message={errors.mensagem.message || ""} />}
 				</div>
 				<div className="w-full flex">
 					<Button
@@ -189,11 +202,21 @@ export function Form() {
 						type="submit"
 						disabled={loading}
 					>
-						{loading ? 'Enviando...' : 'Enviar Mensagem'}
+						{loading ? "Enviando..." : "Enviar"}
 					</Button>
 				</div>
 			</form>
 			<ToastContainer />
 		</div>
+	);
+}
+
+interface ErrorDisplayProps {
+	message: string;
+}
+
+function ErrorDisplay({ message }: ErrorDisplayProps) {
+	return (
+		<p className="text-[#DF0209] mt-2">{message}</p>
 	);
 }
