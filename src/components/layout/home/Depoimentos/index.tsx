@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -7,9 +7,15 @@ import { Pagination } from 'swiper/modules';
 import { Card } from './Card';
 import { getDepoimentos } from '@/app/api/getDepoimentos';
 import { DepoimentoData } from '@/@types/Depoimentos';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export function Depoimentos() {
   const [depoimentos, setDepoimentos] = useState<DepoimentoData[]>([]);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   useEffect(() => {
     const fetchDepoimentos = async () => {
@@ -26,7 +32,13 @@ export function Depoimentos() {
 
   return (
     <section className="py-20">
-      <div className="container">
+      <motion.div
+        ref={ref}
+        className="container"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.1 }}
+      >
         <div className='flex flex-col gap-3'>
           <h2 className="text-center text-4xl md:text-6xl font-bold">Depoimentos</h2>
           <p className='text-center text-base md:text-lg'>Vozes de quem confia no nosso trabalho, histórias de sucesso e satisfação.</p>
@@ -57,7 +69,7 @@ export function Depoimentos() {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </motion.div>
     </section>
   );
 }

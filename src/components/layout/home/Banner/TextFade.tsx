@@ -2,60 +2,67 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { BsLightningFill } from 'react-icons/bs';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const words = ['energia', 'confiabilidade', 'força', 'potência'];
 
 export function TextFade() {
-  const [showText, setShowText] = useState(false);
   const [currentWord, setCurrentWord] = useState(words[0]);
-  const [animClass, setAnimClass] = useState('');
 
   const updateWord = useCallback(() => {
-    setAnimClass('animate-fadeOutUp');
-    setTimeout(() => {
-      setCurrentWord((prevWord) => {
-        const currentIndex = words.indexOf(prevWord);
-        const nextIndex = (currentIndex + 1) % words.length;
-        return words[nextIndex];
-      });
-      setAnimClass('animate-fadeInUp');
-    }, 1000);
+    setCurrentWord((prevWord) => {
+      const currentIndex = words.indexOf(prevWord);
+      const nextIndex = (currentIndex + 1) % words.length;
+      return words[nextIndex];
+    });
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowText(true);
-    }, 300);
-
     const wordInterval = setInterval(() => {
       updateWord();
     }, 3000);
 
     return () => {
-      clearTimeout(timer);
       clearInterval(wordInterval);
     };
   }, [updateWord]);
 
   return (
-    <div className='z-30 relative'>
-      {showText && (
-        <div className='justify-center items-center flex flex-col gap-4 animate-fadeInUp'>
-          <h1 className='text-white text-6xl font-bold text-center'>
-            Para longas jornadas, <br /> muito mais <span className={`text-[#A60004] ${animClass}`}>{currentWord}</span>
-          </h1>
+    <motion.div
+      className='z-30 relative'
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.3 }}
+    >
+      <div className='justify-center items-center flex flex-col gap-4'>
+        <h1 className='text-white text-6xl font-bold text-center'>
+          Para longas jornadas, <br /> muito mais{' '}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={currentWord}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              className='text-[#A60004]'
+            >
+              {currentWord}
+            </motion.span>
+          </AnimatePresence>
+        </h1>
 
-          <div className='w-[50%] text-center'>
-            <p className='text-white'>Com 44 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.</p>
-          </div>
-          <div className="flex justify-center md:justify-start">
-            <Link className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#fff]" href="/seja-um-revendedor">
-              Seja um Revendedor
-              <BsLightningFill />
-            </Link>
-          </div>
+        <div className='w-[50%] text-center'>
+          <p className='text-white'>
+            Com 44 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.
+          </p>
         </div>
-      )}
-    </div>
+        <div className="flex justify-center md:justify-start">
+          <Link className="flex bg-[#DF0209] transition font-semibold text-white px-4 py-2 items-center gap-2 rounded-md border border-[#DF0209] hover:bg-transparent hover:text-[#fff]" href="/seja-um-revendedor">
+            Seja um Revendedor
+            <BsLightningFill />
+          </Link>
+        </div>
+      </div>
+    </motion.div>
   );
 }
