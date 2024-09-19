@@ -37,7 +37,7 @@ export default function SejaUmRevendedor() {
 			</div>
 			<div className="container flex flex-col items-center gap-10">
 				<div className="flex flex-col md:flex-row gap-6 w-full">
-					<div className="w-full md:w-1/3 flex flex-col gap-4">
+					<div className="hidden md:w-1/3 md:flex flex-col gap-4">
 						<CardInfo
 							name={"Telefone"}
 							info={"46. 3543 1178"}
