@@ -72,7 +72,7 @@ export function Form() {
 	};
 
 	return (
-		<div className="w-full md:w-2/3 flex flex-col gap-4 bg-white shadow-md p-9 rounded-md justify-center">
+		<div className="w-full md:w-2/3 flex flex-col gap-4 bg-white shadow-md p-3 md:p-9 rounded-md justify-center">
 			<form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
 				<div>
 					<Input
