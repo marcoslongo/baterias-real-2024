@@ -71,7 +71,7 @@ export default function Intitucional() {
 				<div className="container py-6">
 					<div className="w-full lg:w-[80%] flex flex-col gap-5 text-center lg:text-start">
 						<h2 className="text-white font-bold text-5xl">Política de Qualidade</h2>
-						<p className="text-white">Fornecer soluções em acumuladores elétricos, que atendam aos requisitos aplicáveis e às necessidades do mercado com melhoria continua de produtos e processos, com desenvolvimento dos recursos humanos e tecnológicos, gerando satisfação de clientes, colaboradores e acionistas.</p>
+						<p className="text-white">Fornecer soluções em acumuladores elétricos, que atendam aos requisitos aplicáveis e às necessidades do mercado com melhoria contínua de produtos e processos, com desenvolvimento dos recursos humanos e tecnológicos, gerando satisfação de clientes, colaboradores e acionistas.</p>
 					</div>
 				</div>
 				<Image
