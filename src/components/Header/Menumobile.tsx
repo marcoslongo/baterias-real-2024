@@ -65,6 +65,7 @@ export function MenuMobile({ isOpen, handleCloseMenu }: MenuMobileProps) {
             <ul className="ml-6 flex flex-col gap-2">
               <MenuItem href="/fale-conosco" title="Fale conosco" handleCloseMenu={handleCloseSubMenu} />
               <MenuItem href="/trabalhe-conosco" title="Trabalhe conosco" handleCloseMenu={handleCloseSubMenu} />
+              <MenuItem href="https://wa.me/+5546988002209" title="Garantia" handleCloseMenu={handleCloseSubMenu} />
             </ul>
           )}
           <li className="w-[230px]">

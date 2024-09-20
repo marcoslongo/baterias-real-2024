@@ -38,6 +38,11 @@ const contatos: { title: string; href: string; description: string }[] = [
 		title: "Trabalhe conosco",
 		href: "/trabalhe-conosco",
 		description: "Faça parte da nossa equipe.",
+	},
+	{
+		title: "Garantia",
+		href: "https://wa.me/+5546988002209",
+		description: "Estamos prontos para ajudar! Entre em contato com nosso suporte.",
 	}
 ]
 
