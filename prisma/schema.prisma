@@ -1,0 +1,24 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Lead {
+  id              Int      @id @default(autoincrement())
+  nome            String
+  telefone        String?
+  email           String
+  cnpj            String?
+  endereco        String?
+  faixaFaturamento String?
+  nomeContato     String?
+  cargo           String?
+  mensagem        String?
+  cidade          String?
+  estado          String?
+  createdAt       DateTime @default(now())
+}

@@ -11,12 +11,10 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
-
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
 
 type Inputs = {
 	nomeEmpresa: string;
@@ -39,32 +37,25 @@ export function Form() {
 	const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
 		try {
 			setLoading(true);
-			const templateParams = {
-				nomeEmpresa: data.nomeEmpresa,
-				telefone: data.telefone,
-				email: data.email,
-				cnpj: data.cnpj,
-				endereco: data.endereco,
-				faixaFaturamento: data.faixaFaturamento,
-				nomeContato: data.nomeContato,
-				cargo: data.cargo,
-				mensagem: data.mensagem,
-				cidade: data.cidade,
-				estado: data.estado,
-			};
+			const response = await fetch('/api/leads', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			});
 
-			console.log('Enviando dados:', templateParams);
-
-			const response = await emailjs.send('service_cj9spuz', 'template_qr3vhzq', templateParams, 'Nme405_wJLJl-HLvn');
-
-			if (response.status !== 200) {
-				throw new Error('Erro ao enviar o e-mail. Status: ' + response.status);
+			if (!response.ok) {
+				throw new Error('Erro ao cadastrar lead');
 			}
+
+			const result = await response.json();
+			console.log('Resposta da API:', result);
 
 			toast.success('Mensagem enviada com sucesso!');
 			reset();
 		} catch (error: any) {
-			console.error('Erro ao enviar e-mail:', error);
+			console.error('Erro ao enviar dados:', error);
 			toast.error('Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.');
 		} finally {
 			setLoading(false);
