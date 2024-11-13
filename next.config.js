@@ -1,6 +1,6 @@
 const nextConfig = {
     images: {
-      domains: ['andamento.estudioa.com.br'],
+      domains: ['wordpress-253481-4126834.cloudwaysapps.com'],
     },
   };
   
