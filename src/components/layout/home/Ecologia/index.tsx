@@ -69,7 +69,7 @@ export function Ecologia() {
                   height={58}
                 />
                 <h3 className="font-bold text-white text-xl">
-                  Produzido com <br /> Energia Solar
+                  Produzido com <br /> Água da chuva
                 </h3>
               </div>
             </div>
