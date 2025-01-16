@@ -32,7 +32,7 @@ export function Form() {
 	const onSubmit: SubmitHandler<Inputs> = (data) => {
 		setLoading(true);
 
-		emailjs.send("service_7sfibgj","template_lj9sryr", data, 'X-auc9xZrgmaFrC7s')
+		emailjs.send("service_7sfibgj", "template_lj9sryr", data, 'X-auc9xZrgmaFrC7s')
 			.then((result) => {
 				console.log(result.text);
 				toast.success('Solicitação enviada com sucesso!');
@@ -54,7 +54,7 @@ export function Form() {
 	return (
 		<div className="container">
 			<div className="bg-white shadow-md p-9 rounded-md justify-center">
-				<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+				<form onSubmit={handleSubmit(onSubmit, displayErrors)} className="flex flex-col gap-4">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 						<Input
 							className="h-12 text-base"
