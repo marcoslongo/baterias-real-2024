@@ -34,7 +34,7 @@ export default function Intitucional() {
 								Com a reforma e revenda de baterias, passando por 1983 onde iniciou a fabricação de placas e expandiu sua revenda para toda essa região, chegando em 1991, ano em que expandiu por completo toda sua produção para as regiões sul, sudeste, centro-oeste e nordeste, abrangendo 19 estados de todo o país, sendo eles, Paraná, Bahia, Santa Catarina, Rio Grande do Sul, Mato Grosso, Mato Grosso do Sul, Goiás, Minas Gerais, Espírito Santo, São Paulo, Rio de Janeiro, Piauí, Ceará, Alagoas, Pernambuco, Paraíba, Rio Grande do Norte, Maranhão e Tocantins a empresa sempre esteve focada em atender os mais rigorosos padrões de controle de qualidade em todas suas etapas, desde a produção até a entrega em seus distribuidores.
 							</p>
 							<p>
-								Hoje, com seus 44 anos de experiência a Baterias Real é uma empresa reconhecida em todo o país. Sua imensa dedicação, investimento em tecnologia e cuidados com o meio-ambiente e seus colaboradores, fazem a diferença e se unem a história de inúmeros clientes e parceiros que confiam no trabalho e se somam a família Real.
+								Hoje, com seus 45 anos de experiência a Baterias Real é uma empresa reconhecida em todo o país. Sua imensa dedicação, investimento em tecnologia e cuidados com o meio-ambiente e seus colaboradores, fazem a diferença e se unem a história de inúmeros clientes e parceiros que confiam no trabalho e se somam a família Real.
 							</p>
 						</article>
 						<div className="flex-none">

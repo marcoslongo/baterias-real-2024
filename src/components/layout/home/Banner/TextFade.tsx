@@ -53,7 +53,7 @@ export function TextFade() {
 
         <div className='w-full px-3 md:w-[50%] text-center'>
           <p className='text-white'>
-            Com 44 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.
+            Com 45 anos de história, a Baterias Real fornece baterias de alta qualidade para todos os desafios. Nossas soluções atendem desde veículos leves até grandes maquinários, com tecnologia avançada e desempenho superior.
           </p>
         </div>
         <div className="flex justify-center md:justify-start">
