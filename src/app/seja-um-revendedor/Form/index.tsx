@@ -55,7 +55,7 @@ export function Form() {
 
 			console.log('Enviando dados:', templateParams);
 
-			const response = await emailjs.send('service_kni5y6p', 'template_f5x28ki', templateParams, 'SXExDJzUQWHDny-mu');
+			const response = await emailjs.send('service_cj9spuz', 'template_qr3vhzq', templateParams, 'Nme405_wJLJl-HLvn');
 
 			if (response.status !== 200) {
 				throw new Error('Erro ao enviar o e-mail. Status: ' + response.status);
