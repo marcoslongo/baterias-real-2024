@@ -13,10 +13,9 @@ type Inputs = {
 	cnpj: string;
 	cidade: string;
 	estado: string;
-	infosbaterias: string;
-	datadacompra: string;
-	nfe: string;
-	email: string;
+	quantidadebateriaslinhaleve: string;
+	quantidadebateriaslinhapesada: string;
+	datadasolicitacao: string;
 	telefone: string;
 };
 
@@ -56,67 +55,42 @@ export function Form() {
 			<div className="bg-white shadow-md p-9 rounded-md justify-center">
 				<form onSubmit={handleSubmit(onSubmit, displayErrors)} className="flex flex-col gap-4">
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="Razão social"
-							{...register('razaosocial', { required: 'Campo obrigatório' })}
-						/>
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="CNPJ"
-							{...register('cnpj', { required: 'Campo obrigatório' })}
-						/>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">Razão Social</label>
+							<Input className="h-12 text-base" type="text" {...register('razaosocial', { required: 'Campo obrigatório' })} />
+						</div>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">CNPJ</label>
+							<Input className="h-12 text-base" type="text" {...register('cnpj', { required: 'Campo obrigatório' })} />
+						</div>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<Input
-							className="h-12 text-base"
-							type="email"
-							placeholder="E-mail"
-							{...register('email', { required: 'Campo obrigatório' })}
-						/>
-						<Input
-							className="h-12 text-base"
-							type="phone"
-							placeholder="Telefone"
-							{...register('telefone', { required: 'Campo obrigatório' })}
-						/>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">Cidade</label>
+							<Input className="h-12 text-base" type="text" {...register('cidade', { required: 'Campo obrigatório' })} />
+						</div>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">Estado</label>
+							<Input className="h-12 text-base" type="text" {...register('estado', { required: 'Campo obrigatório' })} />
+						</div>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="Cidade"
-							{...register('cidade', { required: 'Campo obrigatório' })}
-						/>
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="Estado"
-							{...register('estado', { required: 'Campo obrigatório' })}
-						/>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">Telefone</label>
+							<Input className="h-12 text-base" type="text" {...register('telefone', { required: 'Campo obrigatório' })} />
+						</div>
+						<div>
+							<label className="block text-sm font-medium text-gray-700">Data da Solicitação</label>
+							<Input className="h-12 text-base" type="date" {...register('datadasolicitacao', { required: 'Campo obrigatório' })} />
+						</div>
 					</div>
 					<div>
-						<Textarea
-							className="h-40 text-base"
-							placeholder="Modelo + Quantidade + Data da bateria:"
-							{...register('infosbaterias', { required: 'Campo obrigatório' })}
-						/>
+						<label className="block text-sm font-medium text-gray-700">Quantidade da Baterias Linha Leve</label>
+						<Textarea className="h-24 text-base" {...register('quantidadebateriaslinhaleve', { required: 'Campo obrigatório' })} />
 					</div>
-					<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="Data da compra"
-							{...register('datadacompra', { required: 'Campo obrigatório' })}
-						/>
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="NF-e"
-							{...register('nfe', { required: 'Campo obrigatório' })}
-						/>
+					<div>
+						<label className="block text-sm font-medium text-gray-700">Quantidade da Baterias Linha Pesada</label>
+						<Textarea className="h-24 text-base" {...register('quantidadebateriaslinhapesada', { required: 'Campo obrigatório' })} />
 					</div>
 					<div className="w-full flex">
 						<Button className={`w-full h-12 text-base font-bold bg-[#DF0209] hover:bg-[#A60004]" type="submit ${loading ? 'opacity-80' : 'opacity-100'}`}>
