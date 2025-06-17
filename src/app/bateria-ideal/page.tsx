@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getTiposDeVeiculos } from "@/app/api/getTiposDeVeiculos";
 import {
   Select,
   SelectContent,
@@ -14,6 +13,7 @@ import { DisplayProducts } from "./DisplayProducts";
 import { BsLightningFill } from "react-icons/bs";
 import { LoadingPage } from "@/components/LoadingPage";
 import { Tipos } from "@/@types/BateriaIdeal";
+import { getTiposDeVeiculos } from "@/queries/getTiposDeVeiculos";
 
 
 export default function BateriaIdeal() {

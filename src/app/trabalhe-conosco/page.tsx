@@ -1,10 +1,11 @@
-import { getVagas } from "@/app/api/getVagas";
+
 import Link from "next/link";
 import { BsFillSuitcaseLgFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Depoimentos } from "./Depoimentos";
 import { Banner } from "./Banner";
 import { BASE_URL } from "@/constants/baseUrl";
+import { getVagas } from "@/queries/getVagas";
 
 export async function generateMetadata() {
 	return {

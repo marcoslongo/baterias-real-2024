@@ -3,7 +3,6 @@ import Image from "next/image";
 import { FaHeart, FaFlag } from "react-icons/fa";
 import { GiChart } from "react-icons/gi";
 import dynamic from 'next/dynamic';
-import { BsLightningFill } from "react-icons/bs";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const VideoPlayer = dynamic(() => import('./VideoPlayer'), {

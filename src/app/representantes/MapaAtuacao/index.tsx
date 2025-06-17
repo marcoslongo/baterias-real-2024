@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Chart } from 'react-google-charts';
 import { Card } from './Card';
-import { getRepresentantes } from '../../api/getRepresentantes';
 import {
 	AlertDialog,
 	AlertDialogCancel,
@@ -14,6 +13,7 @@ import {
 import { IoIosClose } from 'react-icons/io';
 import { EstadoEdge, RepresentantesPorEstado } from '@/@types/Representantes';
 import { useWindowSize } from '@/hooks/useWindowSize';
+import { getRepresentantes } from '@/queries/getRepresentantes';
 
 const fetchRepresentantesData = async (): Promise<RepresentantesPorEstado> => {
 	try {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getProdutosBateriaIdeal } from '@/app/api/getProdutosBateriaIdeal';
 import { Card } from '@/components/CardProduto';
 import { TbAlertHexagonFilled } from "react-icons/tb";
 import { DisplayProductsProps, TipoDeVeiculo } from '@/@types/BateriaIdeal';
+import { getProdutosBateriaIdeal } from '@/queries/getProdutosBateriaIdeal';
 
 export function DisplayProducts({ tipoId }: DisplayProductsProps) {
 	const [produtos, setProdutos] = useState<TipoDeVeiculo | null>(null);

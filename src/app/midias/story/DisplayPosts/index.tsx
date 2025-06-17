@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MidiaNode, MidiasResponse } from '@/@types/Midias';
 import { BsLightningFill } from 'react-icons/bs';
-import { getMidiasStory } from '@/app/api/getStory';
 import { Skeleton } from "@/components/ui/skeleton";
 import { CardPost } from './CardPost';
+import { getMidiasStory } from '@/queries/getStory';
 
 export default function DisplayStories() {
   const [stories, setStories] = useState<MidiaNode[]>([]);

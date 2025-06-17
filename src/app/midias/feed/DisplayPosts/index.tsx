@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { MidiaNode, MidiasResponse } from '@/@types/Midias';
 import { BsLightningFill } from 'react-icons/bs';
-import { getMidias } from '@/app/api/getMidias';
 import { Skeleton } from "@/components/ui/skeleton";
 import { CardPost } from './CardPost';
+import { getMidias } from '@/queries/getMidias';
 
 export default function DisplayPosts() {
   const [feed, setFeed] = useState<MidiaNode[]>([]);

@@ -12,10 +12,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { IoIosClose } from "react-icons/io";
 import Image from "next/image";
-import { getProdutoById } from "@/app/api/getProdutosById";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Produto } from "@/@types/ProdutosBy";
 import { BsLightningFill } from "react-icons/bs";
+import { getProdutoById } from "@/queries/getProdutosById";
 
 interface Props {
 	name: string;

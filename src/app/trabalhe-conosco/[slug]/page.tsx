@@ -1,7 +1,7 @@
-import { getVagaBySlug } from "@/app/api/getVagaBySlug";
 import { Form } from "./Form";
 import { BASE_URL } from "@/constants/baseUrl";
 import { CardInfo } from "./Cardinfo";
+import { getVagaBySlug } from "@/queries/getVagaBySlug";
 
 interface PageVagasProps {
 	params: {

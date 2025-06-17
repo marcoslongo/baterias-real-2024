@@ -1,6 +1,5 @@
 "use client"
 import { TestemunhoData } from "@/@types/Testemunhos";
-import { getTestemunhos } from "@/app/api/getTestemunhos";
 import { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Card } from './Card';
+import { getTestemunhos } from "@/queries/getTestemunhos";
 
 
 export function Depoimentos() {

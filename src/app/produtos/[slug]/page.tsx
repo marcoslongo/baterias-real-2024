@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { getProdutosByLinha } from "@/app/api/getProdutosByLinha";
 import { Card } from "@/components/CardProduto";
 import { BASE_URL } from "@/constants/baseUrl";
+import { getProdutosByLinha } from "@/queries/getProdutosByLinha";
 
 interface PageProdutosProps {
 	params: {
