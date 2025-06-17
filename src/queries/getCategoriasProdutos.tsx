@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
-import { GqlClient } from "./apollo-client";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
+import { GqlClient } from "./apollo-client";
 
 export async function getCategoriasProdutos(): Promise<CategoriasData> {
     try {

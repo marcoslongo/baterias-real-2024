@@ -1,6 +1,7 @@
-import { getCategoriasProdutos } from "@/app/api/getCategoriasProdutos";
+
 import { Card } from "./Card";
 import { CategoriasData } from "@/@types/CategoriasProdutos";
+import { getCategoriasProdutos } from "@/queries/getCategoriasProdutos";
 import { BsLightningFill } from "react-icons/bs";
 
 export async function ProdutosHome() {

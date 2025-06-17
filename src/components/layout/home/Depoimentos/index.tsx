@@ -5,10 +5,10 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Card } from './Card';
-import { getDepoimentos } from '@/app/api/getDepoimentos';
 import { DepoimentoData } from '@/@types/Depoimentos';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { getDepoimentos } from '@/queries/getDepoimentos';
 
 export function Depoimentos() {
   const [depoimentos, setDepoimentos] = useState<DepoimentoData[]>([]);
