@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://crm-baterias_owner:npg_GtaW76lEmsNo@ep-round-dew-aapozky1-pooler.westus3.azure.neon.tech/crm-baterias?sslmode=require"
+}
+
+model Lead {
+  id               String   @id @default(uuid())
+  nomeEmpresa      String
+  telefone         String
+  email            String
+  cnpj             String
+  endereco         String
+  faixaFaturamento String
+  nomeContato      String
+  cargo            String
+  mensagem         String
+  cidade           String
+  estado           String
+  createdAt        DateTime @default(now())
+}
