@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://crm-baterias_owner:npg_GtaW76lEmsNo@ep-round-dew-aapozky1-pooler.westus3.azure.neon.tech/crm-baterias?sslmode=require"
+  url      = env("DATABASE_URL")
 }
 
 model Lead {
