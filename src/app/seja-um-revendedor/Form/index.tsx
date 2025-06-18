@@ -107,11 +107,49 @@ export function Form() {
 						{errors.cidade && <ErrorDisplay message={errors.cidade.message!} />}
 					</div>
 					<div>
-						<Input
-							className="h-12 text-base"
-							type="text"
-							placeholder="Estado"
-							{...register('estado', { required: 'Campo obrigatório' })}
+						<Controller
+							name="estado"
+							control={control}
+							rules={{ required: 'Campo obrigatório' }}
+							render={({ field }) => (
+								<Select onValueChange={field.onChange} value={field.value}>
+									<SelectTrigger className="w-full h-12 text-base">
+										<SelectValue placeholder="Estado" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup className="text-base">
+											<SelectLabel>Estado</SelectLabel>
+											<SelectItem value="AC">AC</SelectItem>
+											<SelectItem value="AL">AL</SelectItem>
+											<SelectItem value="AP">AP</SelectItem>
+											<SelectItem value="AM">AM</SelectItem>
+											<SelectItem value="BA">BA</SelectItem>
+											<SelectItem value="CE">CE</SelectItem>
+											<SelectItem value="DF">DF</SelectItem>
+											<SelectItem value="ES">ES</SelectItem>
+											<SelectItem value="GO">GO</SelectItem>
+											<SelectItem value="MA">MA</SelectItem>
+											<SelectItem value="MT">MT</SelectItem>
+											<SelectItem value="MS">MS</SelectItem>
+											<SelectItem value="MG">MG</SelectItem>
+											<SelectItem value="PA">PA</SelectItem>
+											<SelectItem value="PB">PB</SelectItem>
+											<SelectItem value="PR">PR</SelectItem>
+											<SelectItem value="PE">PE</SelectItem>
+											<SelectItem value="PI">PI</SelectItem>
+											<SelectItem value="RJ">RJ</SelectItem>
+											<SelectItem value="RN">RN</SelectItem>
+											<SelectItem value="RS">RS</SelectItem>
+											<SelectItem value="RO">RO</SelectItem>
+											<SelectItem value="RR">RR</SelectItem>
+											<SelectItem value="SC">SC</SelectItem>
+											<SelectItem value="SP">SP</SelectItem>
+											<SelectItem value="SE">SE</SelectItem>
+											<SelectItem value="TO">TO</SelectItem>
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							)}
 						/>
 						{errors.estado && <ErrorDisplay message={errors.estado.message!} />}
 					</div>
