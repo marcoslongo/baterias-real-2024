@@ -93,6 +93,21 @@ export function Certificacoes() {
                   <GrDownload size={20} />
                 </Link>
               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6 }}
+              >
+                <Link
+                  className="flex items-center gap-4 bg-[#DF0209] border border-[#DF0209] rounded-md text-white justify-center p-4 font-semibold transition hover:bg-white hover:text-[#DF0209]"
+                  href={'/assets/docs/dec-igualdade.pdf'}
+                  download={'/assets/docs/dec-igualdade.pdf'}
+                  target="_blank"
+                >
+                  DEC. IGUALDADE SALARIAL
+                  <GrDownload size={20} />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
