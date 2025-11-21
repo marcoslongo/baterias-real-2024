@@ -15,7 +15,7 @@ export async function generateMetadata() {
 	};
 }
 
-export default function Home() { 
+export default function Home() {
   return (
     <main>
       <Banner />
