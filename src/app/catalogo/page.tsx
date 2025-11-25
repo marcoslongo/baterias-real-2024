@@ -22,7 +22,7 @@ export default function Catalogo() {
             <p className="text-base lg:text-xl">
               Baixe agora o nosso{" "}
               <span className="font-bold text-[#DF0209]">catálogo completo</span> e conheça toda a{" "}
-              <span className="font-bold text-[#DF0209]">linha de baterias</span>,
+              <span className="font-bold text-[#DF0209]">linha de baterias</span>, 
               especificações técnicas e soluções desenvolvidas para{" "}
               <span className="font-bold text-[#DF0209]">alto desempenho</span>.
             </p>
