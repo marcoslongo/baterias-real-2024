@@ -54,6 +54,7 @@ export function MenuMobile({ isOpen, handleCloseMenu }: MenuMobileProps) {
             <ul className="ml-6 flex flex-col gap-2">
               <MenuItem href="/midias/feed" title="Posts para o feed" handleCloseMenu={handleCloseSubMenu} />
               <MenuItem href="/midias/story" title="Posts para os Storys" handleCloseMenu={handleCloseSubMenu} />
+              <MenuItem href="/catalogo" title="Catálogo" handleCloseMenu={handleCloseSubMenu} />
             </ul>
           )}
 

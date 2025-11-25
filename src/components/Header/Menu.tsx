@@ -25,6 +25,11 @@ const downloads: { title: string; href: string; description: string }[] = [
 		title: "Stories",
 		href: "/midias/story",
 		description: "Posts para os stories do instagram, facebook e whatsapp",
+	},
+	{
+		title: "Catálogo",
+		href: "/catalogo",
+		description: "Baixe agora mesmo nosso catálogo completo",
 	}
 ]
 
