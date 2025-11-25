@@ -1,5 +1,16 @@
+import { BASE_URL } from "@/constants/baseUrl";
 import Script from "next/script";
 import { FiDownload } from "react-icons/fi";
+
+export async function generateMetadata() {
+  return {
+    title: 'Baterias Real - Catálogo',
+    description: 'Baixe agora o nosso catálogo completo e conheça toda a linha de baterias especificações técnicas e soluções desenvolvidas para alto desempenho.',
+    alternates: {
+      canonical: `${BASE_URL}/catalogo`,
+    },
+  };
+}
 
 export default function Catalogo() {
   return (
