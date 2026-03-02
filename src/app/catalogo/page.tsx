@@ -29,20 +29,6 @@ export default function Catalogo() {
           </div>
         </div>
       </div>
-      <div className="container flex justify-center">
-        <a
-          href="https://online.flippingbook.com/view/716772771/"
-          className="fbo-embed"
-          data-fbo-id="c522703c9e"
-          data-fbo-ratio="3:2"
-          data-fbo-lightbox="yes"
-          data-fbo-width="90%"
-          data-fbo-height="auto"
-          data-fbo-version="1"
-          style={{ maxWidth: "90%" }}
-        >
-        </a>
-      </div>
       <div className="flex justify-center">
         <a
           href={'/assets/images/CATALOGO-2026.pdf'}
