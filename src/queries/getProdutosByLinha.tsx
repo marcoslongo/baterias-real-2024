@@ -2,9 +2,9 @@ import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
 export async function getProdutosByLinha(slug: string) {
-    try {
-        const { data } = await GqlClient.query({
-            query: gql`
+	try {
+		const { data } = await GqlClient.query({
+			query: gql`
                 query GetProdutosByLinha($slug: [String!]) {
                     categoriasProdutos(where: {slug: $slug}) {
                         edges {
@@ -44,17 +44,17 @@ export async function getProdutosByLinha(slug: string) {
                     }
                 }
             `,
-            variables: { slug: [slug] },
-        });
+			variables: { slug: [slug] },
+		});
 
-        if (!data.categoriasProdutos) {
-            throw new Error("Dados não encontrados");
-        }
-        const dataCategoriasProdutos = data.categoriasProdutos;
+		if (!data.categoriasProdutos) {
+			throw new Error("Dados não encontrados");
+		}
+		const dataCategoriasProdutos = data.categoriasProdutos;
 
-        return dataCategoriasProdutos;
-    } catch (error) {
-        console.error("Erro ao obter dados:", error);
-        return [];
-    }
+		return dataCategoriasProdutos;
+	} catch (error) {
+		console.error("Erro ao obter dados:", error);
+		return [];
+	}
 }
