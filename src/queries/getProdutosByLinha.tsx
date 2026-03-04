@@ -2,59 +2,60 @@ import { gql } from "@apollo/client";
 import { GqlClient } from "./apollo-client";
 
 export async function getProdutosByLinha(slug: string) {
-	try {
-		const { data } = await GqlClient.query({
-			query: gql`
-                query GetProdutosByLinha($slug: [String!]) {
-                    categoriasProdutos(where: {slug: $slug}) {
-                        edges {
-                            node {
-                                id
-                                name
-                                linhas {
-                                textoSobreALinhaDeProdutos
-                                    imagemBannerInterno {
-                                        node {
-                                            mediaItemUrl
-                                        }
-                                    }   
-                                }
-                                produtos(first: 100) {
-                                    edges {
-                                        node {
-                                            id
-                                            title
-                                            produtos {
-                                                capacidade
-                                                correnteDePartida
-                                                peso
-                                                resDeCapacidade
-                                                tensNominal
-                                                imageDoProduto {
-                                                    node {
-                                                        mediaItemUrl
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+  try {
+    const { data } = await GqlClient.query({
+      query: gql`
+        query GetProdutosByLinha($slug: [String!]) {
+          categoriasProdutos(where: { slug: $slug }) {
+            edges {
+              node {
+                id
+                name
+                linhas {
+                  textoSobreALinhaDeProdutos
+                  imagemBannerInterno {
+                    node {
+                      mediaItemUrl
                     }
+                  }
                 }
-            `,
-			variables: { slug: [slug] },
-		});
+                produtos(first: 100) {
+                  edges {
+                    node {
+                      id
+                      title
+                      produtos {
+                        capacidade
+                        correnteDePartida
+                        peso
+                        resDeCapacidade
+                        tensNominal
+                        imageDoProduto {
+                          node {
+                            mediaItemUrl
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables: { slug: [slug] },
+    });
 
-		if (!data.categoriasProdutos) {
-			throw new Error("Dados não encontrados");
-		}
-		const dataCategoriasProdutos = data.categoriasProdutos;
+    if (!data.categoriasProdutos) {
+      throw new Error("Dados não encontrados");
+    }
 
-		return dataCategoriasProdutos;
-	} catch (error) {
-		console.error("Erro ao obter dados:", error);
-		return [];
-	}
+    const dataCategoriasProdutos = data.categoriasProdutos;
+
+    return dataCategoriasProdutos;
+  } catch (error) {
+    console.error("Erro ao obter dados:", error);
+    return [];
+  }
 }
