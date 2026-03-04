@@ -60,7 +60,7 @@ export function Card({ name, image, id }: Props) {
 	}
 
 	if (!produto) {
-		return console.log('erro');
+		return null;
 	}
 
 	return (
