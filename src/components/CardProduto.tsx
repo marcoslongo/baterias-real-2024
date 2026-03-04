@@ -39,7 +39,6 @@ export function Card({ name, image, id }: Props) {
 				setProduto(produto);
 			} catch (error) {
 				console.error("Erro ao buscar produto:", error);
-				setError("Erro ao buscar o produto.");
 			} finally {
 				setLoading(false);
 			}
@@ -61,7 +60,7 @@ export function Card({ name, image, id }: Props) {
 	}
 
 	if (!produto) {
-		return <div>Produto não encontrado</div>;
+		return console.log('erro');
 	}
 
 	return (
