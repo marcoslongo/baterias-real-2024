@@ -2,13 +2,7 @@ import { BASE_URL } from "@/constants/baseUrl";
 import Image from "next/image";
 import { FaHeart, FaFlag } from "react-icons/fa";
 import { GiChart } from "react-icons/gi";
-import dynamic from 'next/dynamic';
-import { Skeleton } from "@/components/ui/skeleton";
-
-const VideoPlayer = dynamic(() => import('./VideoPlayer'), {
-	ssr: false,
-	loading: () => <Skeleton className="w-full h-[400px]" />,
-});
+import VideoPlayer from './VideoPlayer';
 
 export async function generateMetadata() {
 	return {
@@ -84,4 +78,3 @@ export default function Intitucional() {
 		</main>
 	);
 }
-
