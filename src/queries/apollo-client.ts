@@ -5,8 +5,7 @@ export const GqlClient = new ApolloClient({
   cache: new InMemoryCache(),
   defaultOptions: {
     watchQuery: {
-      fetchPolicy: "cache-first", // Utiliza cache primeiro
-      nextFetchPolicy: "cache-and-network", // Para atualizações subsequentes
+      fetchPolicy: "no-cache",
     },
   },
 });
