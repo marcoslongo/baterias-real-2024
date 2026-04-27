@@ -4,17 +4,26 @@ import { BASE_URL } from "@/constants/baseUrl";
 import { getProdutosByLinha } from "@/queries/getProdutosByLinha";
 
 interface PageProdutosProps {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 }
 
-export async function generateMetadata({ params: { slug } }: PageProdutosProps) {
+export async function generateMetadata({ params }: PageProdutosProps) {
+	const { slug } = await params;
 	const data = await getProdutosByLinha(slug);
+
+	if (!data?.edges?.length) {
+		return {
+			title: "Baterias Real",
+			description: "Linha de produtos",
+		};
+	}
+
 	const metaData = data.edges[0].node;
 
 	return {
-		title: `Baterias Real - Linha ${metaData.name} `,
+		title: `Baterias Real - Linha ${metaData.name}`,
 		description: `${metaData.linhas.textoSobreALinhaDeProdutos}`,
 		alternates: {
 			canonical: `${BASE_URL}/produtos/${slug}`,
@@ -22,8 +31,14 @@ export async function generateMetadata({ params: { slug } }: PageProdutosProps) 
 	};
 }
 
-export default async function PageProdutos({ params: { slug } }: PageProdutosProps) {
+export default async function PageProdutos({ params }: PageProdutosProps) {
+	const { slug } = await params;
 	const data = await getProdutosByLinha(slug);
+
+	if (!data?.edges?.length) {
+		return <main><p>Linha não encontrada.</p></main>;
+	}
+
 	const produtos = data.edges[0].node.produtos.edges;
 	const banner = data.edges[0].node;
 
@@ -41,10 +56,15 @@ export default async function PageProdutos({ params: { slug } }: PageProdutosPro
 							/>
 						</div>
 						<div className="flex flex-col gap-5 relative">
-							<h1 className="font-bold text-2xl md:text-3xl lg:text-4xl uppercase">LINHA <br /> <span className="text-3xl md:text-5xl lg:text-7xl text-[#DF0209] italic">{banner.name}</span></h1>
+							<h1 className="font-bold text-2xl md:text-3xl lg:text-4xl uppercase">
+								LINHA <br />
+								<span className="text-3xl md:text-5xl lg:text-7xl text-[#DF0209] italic">
+									{banner.name}
+								</span>
+							</h1>
 							<p>{banner.linhas.textoSobreALinhaDeProdutos}</p>
 							<Image
-								src={'/assets/images/raio-vector.webp'}
+								src={"/assets/images/raio-vector.webp"}
 								alt=""
 								objectFit="contain"
 								fill
@@ -64,7 +84,7 @@ export default async function PageProdutos({ params: { slug } }: PageProdutosPro
 						<Card
 							key={produto.node.id}
 							name={produto.node.title}
-							image={produto.node.produtos.imageDoProduto.node.mediaItemUrl}
+							image={produto.node.produtos?.imageDoProduto?.node?.mediaItemUrl ?? null}
 							id={produto.node.id}
 						/>
 					))}
